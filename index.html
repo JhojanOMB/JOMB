@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de Tecnología</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" href="img/JOMB.png">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="img/JOMB.png" alt="Logo" class="logo"> <!-- Reemplaza 'img/JOMB.png' con la ruta del logo -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="inicio">
+        <h1>Bienvenido a Servicios de Tecnología</h1>
+        <p>Ofrecemos instalación de cualquier versión de Windows, mejoras de rendimiento y más.</p>
+    </section>
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="servicio">
+            <h3>Instalación de Windows</h3>
+            <p>Instalamos cualquier versión de Windows en tu equipo.</p>
+        </div>
+        <div class="servicio">
+            <h3>Mejora de Rendimiento</h3>
+            <p>Aumenta la velocidad y el rendimiento de tu PC con nuevas piezas.</p>
+        </div>
+        <div class="servicio">
+            <h3>Páginas Web</h3>
+            <ul>
+                <li>Tiendas de ventas con inventarios y pagos en línea seguros</li>
+                <li>Páginas de solo información o presentación</li>
+                <li>Software para tiendas de ventas</li>
+            </ul>
+        </div>
+    </section>
+    <section id="contacto" aria-labelledby="contacto">
+        <h2>Contactame</h2>
+        <form id="contact-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required aria-required="true">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required aria-required="true">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required aria-required="true"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Servicios de Tecnología. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Agrega aquí la lógica de envío del formulario
+            alert('Formulario enviado!');
+        });
+
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
