@@ -39,7 +39,7 @@ header {
 
 .logo {
     max-height: 60px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
@@ -64,7 +64,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: 700;
     padding: 10px;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -107,7 +107,7 @@ h2 {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .servicio:hover {
@@ -127,21 +127,23 @@ section#contacto form {
     gap: 15px;
 }
 
-section#contacto form input, section#contacto form textarea {
+section#contacto form input,
+section#contacto form textarea {
     padding: 15px;
     border: 1px solid #000; /* Agrega un borde negro */
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-color);
     font-size: 1em;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 section#contacto form textarea {
     resize: none; /* Evita que el usuario cambie el tamaño del textarea */
 }
 
-section#contacto form input:focus, section#contacto form textarea:focus {
+section#contacto form input:focus,
+section#contacto form textarea:focus {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -154,7 +156,7 @@ section#contacto form button {
     font-size: 1.2em;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 section#contacto form button:hover {
@@ -197,4 +199,17 @@ footer {
     h2 {
         font-size: 1.8em;
     }
+}
+
+/* Estilos para el icono de WhatsApp */
+.whatsapp-link {
+    display: inline-block;
+    color: #25D366;
+    font-size: 1.5em;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.whatsapp-link i {
+    margin-right: 8px;
 }
