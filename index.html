@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios de Tecnología</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <link rel="icon" href="img/JOMB.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/FBXLoader.min.js"></script>
 </head>
+
 <body>
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="img/JOMB.png" alt="Logo" class="logo"> <!-- Reemplaza 'img/JOMB.png' con la ruta del logo -->
+                <img src="img/JOMB.png" alt="Logo" class="logo">
             </div>
             <nav>
                 <ul>
@@ -23,10 +27,17 @@
             </nav>
         </div>
     </header>
+
     <section id="inicio">
         <h1>Bienvenido a Servicios de Tecnología</h1>
         <p>Ofrecemos instalación de cualquier versión de Windows, mejoras de rendimiento y más.</p>
     </section>
+
+    <section id="modelo-3d">
+        <h2>Modelado 3D</h2>
+        <div id="model-container"></div>
+    </section>
+
     <section id="servicios">
         <h2>Nuestros Servicios</h2>
         <div class="servicio">
@@ -46,39 +57,44 @@
             </ul>
         </div>
     </section>
-    <section id="contacto" aria-labelledby="contacto">
+
+    <section id="contacto">
         <h2>Contáctame</h2>
-        <form id="contact-form">
+        <form id="contact-form"
+            action="https://script.google.com/macros/s/AKfycby2K_GZQqFQFphYF6izzQVmlvhbPq8-nnyeVv_lW9l_6Ue4-SRXlM0wSgx98RReXwrP3Q/exec"
+            method="post">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required aria-required="true">
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe Tu Nombre Completo" required>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required aria-required="true">
+            <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required aria-required="true"></textarea>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe Como Podria Ayudarte" required></textarea>
             <button type="submit">Enviar</button>
         </form>
-        <a href="https://wa.me/3025934518" class="whatsapp-link" target="_blank">
-            <i class="fab fa-whatsapp"></i> Envíame un WhatsApp
-        </a>
+
+        <div class="whatsaap">
+            <a href="https://wa.me/3025934518?text=Me%20interesa%20">
+                <span class="fa-stack fa-lg icon-circle">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </div>
+        <div class="email">
+            <a href="mailto:jhojanbautista@gmail.com">
+                <span class="fa-stack fa-lg icon-circle">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-brands fa-google fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </div>
     </section>
+
     <footer>
         <p>&copy; 2024 Servicios de Tecnología. Todos los derechos reservados.</p>
     </footer>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Agrega aquí la lógica de envío del formulario
-            alert('Formulario enviado!');
-        });
 
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
+
 </body>
 </html>
