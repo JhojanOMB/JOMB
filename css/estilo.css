@@ -1,26 +1,35 @@
 /* Importa la fuente de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* Variables CSS */
 :root {
-    --primary-color: #430cce;
-    --secondary-color: #2d0591;
-    --bg-color: #000000;
-    --text-color: #ffffff;
-    --font-family: 'Roboto', sans-serif;
+    --color-principal: #430cce;
+    --color-secundario: #2d0591;
+    --color-header: #000000;
+    --color-fondo: #424242;
+    --color-intermedio: #7a1ae8;
+    /* Color intermedio */
+    --color-texto: #ffffff;
+    --familia-fuente: 'Poppins', sans-serif;
+    --color-fondo-icono: #333;
+    /* Color de fondo predeterminado para iconos */
+    --color-fondo-tooltip: #333;
+    /* Color de fondo de los tooltips */
+    --color-tarjetas: rgba(0, 0, 0, 0.8);
 }
 
 /* Estilos generales */
 body {
-    font-family: var(--font-family);
+    font-family: var(--familia-fuente);
     margin: 0;
-    background: linear-gradient(135deg, var(--bg-color) 0%, #430cce 100%);
-    color: var(--text-color);
-    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-intermedio) 50%, var(--color-principal) 100%);
+    color: var(--color-texto);
+    overflow-x: hidden;
+    /* Evita el desplazamiento horizontal */
 }
 
 header {
-    background-color: var(--bg-color);
+    background-color: var(--color-header);
     padding: 10px 0;
 }
 
@@ -60,7 +69,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--text-color);
+    color: var(--color-texto);
     text-decoration: none;
     font-weight: 700;
     padding: 10px;
@@ -77,7 +86,7 @@ section {
     padding: 40px 20px;
     margin: 20px auto;
     max-width: 1000px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-tarjetas);
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -86,7 +95,6 @@ section {
 
 section#inicio {
     text-align: center;
-    background-color: #ffffff36;
     padding: 100px 20px;
     animation-delay: 0.5s;
 }
@@ -115,8 +123,26 @@ h2 {
     transform: scale(1.05);
 }
 
+.sobre-mi-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sobre-mi-imagen {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.sobre-mi-texto {
+    flex: 1;
+}
+
 section#contacto {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-tarjetas);
     border-radius: 15px;
     animation-delay: 1s;
 }
@@ -130,16 +156,18 @@ section#contacto form {
 section#contacto form input,
 section#contacto form textarea {
     padding: 15px;
-    border: 1px solid #000; /* Agrega un borde negro */
+    border: 1px solid #000;
+    /* Agrega un borde negro */
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
+    color: var(--color-texto);
     font-size: 1em;
     transition: background-color 0.3s ease;
 }
 
 section#contacto form textarea {
-    resize: none; /* Evita que el usuario cambie el tamaño del textarea */
+    resize: none;
+    /* Evita que el usuario cambie el tamaño del textarea */
 }
 
 section#contacto form input:focus,
@@ -149,75 +177,120 @@ section#contacto form textarea:focus {
 
 section#contacto form button {
     padding: 15px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 0.2px solid #000;
+    border: none;
     border-radius: 10px;
+    background-color: var(--color-principal);
+    color: var(--color-texto);
     font-size: 1.2em;
-    font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 section#contacto form button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--color-secundario);
     transform: scale(1.05);
 }
 
 footer {
+    background-color: var(--color-fondo);
+    padding: 10px 0;
     text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    animation-delay: 1.5s;
+    color: var(--color-texto);
+    font-size: 0.9em;
 }
 
+/* Estilos para los iconos sociales en el lado derecho */
+.wrapper {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/* Animaciones */
+.wrapper .icon {
+    position: relative;
+    background: var(--color-fondo-icono);
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Tooltip */
+.wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: var(--color-fondo-tooltip);
+    color: var(--color-texto);
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Triángulo del tooltip */
+.wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--color-fondo-tooltip);
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en el icono */
+.wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Efecto hover y color de los iconos */
+.wrapper .facebook:hover {
+    background: #1877F2;
+    /* Azul de Facebook */
+}
+
+.wrapper .instagram:hover {
+    background: #E4405F;
+    /* Rosa de Instagram */
+}
+
+.wrapper .github:hover {
+    background: #333333;
+    /* Gris oscuro de GitHub */
+}
+
+.wrapper .whatsapp:hover {
+    background: #04aa44;
+    /* Verde de Whatsapp */
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
+
     to {
         opacity: 1;
+        transform: translateY(0);
     }
-}
-
-/* Estilos responsivos para dispositivos móviles */
-@media (max-width: 768px) {
-    section {
-        padding: 20px;
-        margin: 15px;
-    }
-
-    section#inicio {
-        padding: 50px 20px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-}
-
-/* Estilos para iconos de WhatsApp y Correo */
-.whatsaap a {
-    position: fixed;
-    right: 5px;
-    z-index: 9999;
-    top: 68%;
-    font-size: 25px;
-    color: #00d674;
-}
-
-.email a {
-    position: fixed;
-    right: 5px;
-    z-index: 9999;
-    top: 79%;
-    font-size: 25px;
-    color: #000000;
-    font-weight: 700;
 }
