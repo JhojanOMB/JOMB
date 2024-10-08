@@ -43,17 +43,21 @@ header {
 }
 
 .logo-container {
-    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    max-height: 60px;
-    transition: transform 0.3s ease-in-out;
+    width: 70px; /* Ajusta el tamaño del logo */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
 }
 
-.logo:hover {
-    transform: rotate(360deg);
+.logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem; /* Tamaño del texto */
+    color: #ffffff; /* Color del texto */
 }
+
 
 nav ul {
     list-style: none;
@@ -110,17 +114,64 @@ h2 {
     text-align: center;
 }
 
+.servicios-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 20px; /* Espaciado entre las tarjetas */
+}
+
 .servicio {
-    margin: 20px 0;
+    margin: 0; /* Elimina el margen en las tarjetas */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #00000082;
     border-radius: 15px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido dentro de la tarjeta se alinee verticalmente */
+    justify-content: space-between; /* Espacio entre el título y el contenido */
+    position: relative; /* Necesario para el efecto del título */
 }
 
 .servicio:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.servicios h2 {
+    margin-bottom: 20px;
+}
+
+.servicio-title {
+    text-align: center; /* Centra el contenido del título */
+    padding: 10px 0; /* Espacio alrededor del título */
+    position: relative; /* Para el efecto de sombra */
+}
+
+.servicio-title h3 {
+    margin: 0; /* Sin margen en la parte superior del título */
+}
+
+.servicio-title i {
+    display: block; /* Asegura que el ícono sea un bloque */
+    margin: 10px auto; /* Centra el ícono */
+    font-size: 4em; /* Tamaño del ícono */
+    color: #007bff; /* Color del ícono */
+}
+
+.servicio-title::after {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute; /* Coloca el pseudo-elemento relativo al título */
+    left: 50%; /* Centra el pseudo-elemento horizontalmente */
+    bottom: 0; /* Coloca el pseudo-elemento en la parte inferior */
+    width: 80%; /* Ancho del pseudo-elemento */
+    height: 5px; /* Alto del pseudo-elemento */
+    background-color: #332146; /* Color de la línea */
+    transform: translateX(-50%); /* Ajusta la posición del pseudo-elemento */
+}
+
+.servicio ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
 }
 
 .sobre-mi-container {
@@ -274,7 +325,7 @@ footer {
 }
 
 .wrapper .github:hover {
-    background: #333333;
+    background: #010409;
     /* Gris oscuro de GitHub */
 }
 
@@ -292,5 +343,17 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .servicios-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
     }
 }
