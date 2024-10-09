@@ -79,6 +79,29 @@ section {
     border-radius: 10px; /* Bordes redondeados */
 }
 
+.btn-custom {
+    background-color: #5719c9; /* Morado */
+    color: white; /* Texto blanco */
+}
+
+.btn-custom:hover {
+    background-color: #5a32a1; /* Morado más oscuro al pasar el mouse */
+    color: white; /* Texto blanco */
+}
+
+/* Media query para pantallas más pequeñas (tablets y móviles) */
+@media (max-width: 768px) {
+    section {
+        margin: 0 30px; /* Reduce el espacio lateral en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        margin: 0 15px; /* Reduce aún más el espacio lateral en móviles */
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
