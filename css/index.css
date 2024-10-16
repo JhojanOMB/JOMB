@@ -62,9 +62,8 @@ footer {
 #sobre-nosotros,
 #servicios,
 #contacto {
-    background-color: rgba(0, 0, 0, 0.75); /* Negro con 75% de opacidad */
+    background-color: rgba(0, 0, 0, 0.87); /* Negro con 75% de opacidad */
     padding: 20px 15px; /* Espacio superior e inferior y lateral */
-    color: var(--color-texto);
 }
 
 #sobre-nosotros img {
@@ -117,7 +116,86 @@ section {
     animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-/* Ajustes para los elementos de texto dentro de los contenedores */
-section h2, section p {
+/* Estilos para los iconos sociales en el lado derecho */
+.redes {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redes .icon {
+    position: relative;
+    background: var(--color-fondo-icono);
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Tooltip */
+.redes .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: var(--color-fondo-tooltip);
     color: var(--color-texto);
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Triángulo del tooltip */
+.redes .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--color-fondo-tooltip);
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en el icono */
+.redes .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Efecto hover y color de los iconos */
+.redes .facebook:hover {
+    background: #1877F2;
+    /* Azul de Facebook */
+}
+
+.redes .instagram:hover {
+    background: #E4405F;
+    /* Rosa de Instagram */
+}
+
+.redes .github:hover {
+    background: #010409;
+    /* Gris oscuro de GitHub */
+}
+
+.redes .whatsapp:hover {
+    background: #04aa44;
+    /* Verde de Whatsapp */
 }
