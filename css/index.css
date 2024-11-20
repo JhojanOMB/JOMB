@@ -26,13 +26,15 @@ body {
 }
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     background: var(--color-header) !important;
 }
 
-h1, h2 {
+.seccion-ajustada {
+    scroll-margin-top: 7rem; /* Ajusta este valor según la altura de tu navbar */
+}
+
+h1,
+h2 {
     color: #333;
 }
 
@@ -62,42 +64,45 @@ footer {
 #sobre-nosotros,
 #servicios,
 #contacto {
-    background-color: rgba(0, 0, 0, 0.87); /* Negro con 75% de opacidad */
-    padding: 20px 15px; /* Espacio superior e inferior y lateral */
+    background-color: rgba(0, 0, 0, 0.87);
+    /* Negro con 75% de opacidad */
+    /* Espacio superior e inferior y lateral */
 }
 
 #sobre-nosotros img {
-    width: 80%; /* Cambia el tamaño según tus necesidades */
-    max-width: 300px; /* Máximo tamaño de la imagen */
-    margin: auto; /* Centra la imagen */
-}
-
-/* Espacio a los lados de las secciones */
-section {
-    margin: 0 150px; /* Espacio lateral */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 80%;
+    max-width: 300px;
+    /* Máximo tamaño de la imagen */
+    margin: auto;
+    /* Centra la imagen */
 }
 
 .btn-custom {
-    background-color: #5719c9; /* Morado */
-    color: white; /* Texto blanco */
+    background-color: #5719c9;
+    /* Morado */
+    color: white;
+    /* Texto blanco */
 }
 
 .btn-custom:hover {
-    background-color: #5a32a1; /* Morado más oscuro al pasar el mouse */
-    color: white; /* Texto blanco */
+    background-color: #5a32a1;
+    /* Morado más oscuro al pasar el mouse */
+    color: white;
+    /* Texto blanco */
 }
 
 /* Media query para pantallas más pequeñas (tablets y móviles) */
 @media (max-width: 768px) {
     section {
-        margin: 0 30px; /* Reduce el espacio lateral en tablets */
+        margin: 0 30px;
+        /* Reduce el espacio lateral en tablets */
     }
 }
 
 @media (max-width: 480px) {
     section {
-        margin: 0 15px; /* Reduce aún más el espacio lateral en móviles */
+        margin: 0 15px;
+        /* Reduce aún más el espacio lateral en móviles */
     }
 }
 
@@ -106,6 +111,7 @@ section {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -198,4 +204,66 @@ section {
 .redes .whatsapp:hover {
     background: #04aa44;
     /* Verde de Whatsapp */
+}
+
+.card-container {
+    width: 100%;
+    max-width: 300px;
+    perspective: 2000px; /* Define la profundidad para el efecto 3D */
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Altura uniforme para todas las tarjetas */
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.card-container:hover .card-flip {
+    transform: rotateY(180deg); /* Efecto de rotación */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el lado contrario al rotar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg); /* Rota el reverso para mostrarlo al girar */
+}
+
+.shadow-light {
+    box-shadow: inset 0px 0px 14px 5px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-container:hover .shadow-light {
+    box-shadow: inset 0px 0px 14px 5px rgba(255, 255, 255, 0.1);
+}
+
+#contacto::placeholder {
+    color: #a8a8d3;
+    /* Un morado claro para contraste */
+    opacity: 1;
+    /* Asegura que el color sea visible */
+}
+
+:-ms-input-placeholder {
+    /* Para Internet Explorer */
+    color: #a8a8d3;
+}
+
+::-ms-input-placeholder {
+    /* Para Microsoft Edge */
+    color: #a8a8d3;
 }
