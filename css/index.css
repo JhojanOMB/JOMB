@@ -25,6 +25,16 @@ body {
     background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-intermedio) 50%, var(--color-principal) 100%);
 }
 
+#particles-js {
+    position: fixed; /* Usamos 'fixed' para que se quede en su lugar al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% del ancho de la ventana */
+    height: 100vh; /* 100% de la altura de la ventana */
+    z-index: -1; /* Asegura que las partículas estén detrás del contenido */
+    pointer-events: none; /* Esto asegura que las partículas no interfieran con la interacción del usuario */
+}
+
 header {
     background: var(--color-header) !important;
 }
@@ -64,8 +74,8 @@ footer {
 #sobre-nosotros,
 #servicios,
 #contacto {
-    background-color: rgba(0, 0, 0, 0.87);
-    /* Negro con 75% de opacidad */
+    background-color: rgba(0, 0, 0, 0.75);
+    /* Negro con  opacidad */
     /* Espacio superior e inferior y lateral */
 }
 
@@ -266,4 +276,9 @@ section {
 ::-ms-input-placeholder {
     /* Para Microsoft Edge */
     color: #a8a8d3;
+}
+
+.fe-letter {
+    letter-spacing: 8px;
+    text-shadow: rgb(98, 31, 197) 6px 0px 0px;
 }
