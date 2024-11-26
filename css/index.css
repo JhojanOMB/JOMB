@@ -279,6 +279,22 @@ section {
 }
 
 .fe-letter {
-    letter-spacing: 8px;
+    font-size: calc(2.5rem + 1.5vw); /* Tamaño por defecto, adaptable */
+    letter-spacing: 7px; /* Espaciado por defecto */
     text-shadow: rgb(98, 31, 197) 6px 0px 0px;
+}
+
+@media (max-width: 768px) { /* Tablets y dispositivos medianos */
+    .fe-letter {
+        font-size: calc(2rem + 1.5vw); /* Reduce ligeramente el tamaño */
+        letter-spacing: 5px; /* Ajusta el espaciado */
+    }
+}
+
+@media (max-width: 576px) { /* Móviles */
+    .fe-letter {
+        font-size: 1.6rem; /* Tamaño reducido para móviles */
+        letter-spacing: 1px;
+        text-shadow: rgb(98, 31, 197) 2px 0px 0px;
+    }
 }
