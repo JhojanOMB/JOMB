@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body class="text-white">
+
+    <div class="container p-5 mt-4 mb-3 rounded-4 shadow-light border fondo-oscuro-transparente">
+
+        <h2 class="text-center mb-4 fw-semibold fs-1">¿Listo para Potenciar tu Tecnología?</h2>
+        <p class="text-center text-white">
+            Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu
+            presencia en línea.
+        </p>
+        <form id="contact-form" class="row g-4 needs-validation"
+            action="https://script.google.com/macros/s/AKfycbwIGe0E3iVaWFqHtUNfvJkSjcewBYfhObF4Uue47EtWA1WYZdt0XrqkeOz-sRFdafxO6Q/exec"
+            method="POST" novalidate>
+            <!-- Campo Nombre -->
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre."
+                        required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+            </div>
+
+            <!-- Campo Correo Electrónico -->
+            <div class="col-md-6">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="Ingresa tu correo electrónico" required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+            </div>
+
+            <!-- Campo Teléfono -->
+            <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-phone"></i></span>
+                    <input type="text" class="form-control" id="telefono" name="telefono"
+                        placeholder="Ingresa tu número telefónico" required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu número telefónico.</div>
+            </div>
+
+            <!-- Campo Mensaje -->
+            <div class="col-12">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-message"></i></span>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4"
+                        placeholder="Ingresa un mensaje explicando brevemente cómo podemos ayudarte"
+                        required></textarea>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
+            </div>
+
+            <!-- Botón Enviar -->
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-outline-light px-4 py-2 rounded-pill">
+                    <i class="fa-solid fa-paper-plane"></i> Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="redes py-3 text-white">
+        <div class="icon facebook" id="facebook">
+            <div class="tooltip">Facebook</div>
+            <span><i class="fab fa-facebook-f"></i></span>
+        </div>
+        <div class="icon instagram" id="instagram">
+            <div class="tooltip">Instagram</div>
+            <span><i class="fab fa-instagram"></i></span>
+        </div>
+        <div class="icon github" id="github">
+            <div class="tooltip">GitHub</div>
+            <span><i class="fab fa-github"></i></span>
+        </div>
+        <div class="icon whatsapp" id="whatsapp">
+            <div class="tooltip">Whatsapp</div>
+            <span><i class="fab fa-whatsapp"></i></span>
+        </div>
+    </div>
+
+    <script>
+        // Validación del formulario
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+
+{% endblock %}
