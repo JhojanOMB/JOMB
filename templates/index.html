@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- Sección Inicio -->
+<div id="inicio" class="text-center p-5 mb-3 bg-light bs-opacity-75">
+    <div class="container py-5">
+      <h1 class="fw-semibold fe-letter text-center align-middle display-3">Soluciones Tecnológicas a tu Alcance</h1>
+      <p class="lead fs-6">
+        Expertos en creación de sitios web de alta calidad creamos experiencias digitales únicas que potencian el impacto de tu marca. Vamos a construir algo extraordinario juntos.
+      </p>
+      <a href="#contacto" class="btn btn-dark " 
+        style="animation-delay: 1s;">
+        Contáctanos
+    </a>
+    </div>
+</div>
+
+<!-- Sección Sobre Nosotros -->
+<div id="sobre-nosotros" class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light">
+<div class="container">
+    <h2 class="text-center mb-4 fw-semibold fs-1">Sobre Nosotros</h2>
+    <div class="row align-items-center mt-4">
+    <div class="col-md-6 text-center mt-4">
+        <img src="{% static 'img/JOMB.png' %}"
+        class="img-fluid rounded-circle border border-2 p-3 border-opacity-50 sobre-nosotros-imagen"
+        alt="Sobre Nosotros" loading="lazy" style="width: 20rem;">
+    </div>
+    <div class="col-md-6">
+        <p class="mt-4 fs-5 text-center">
+        Somos un apasionado equipo de la informática con experiencia en el desarrollo de software, la mejora de rendimiento de equipos y la creación de soluciones tecnológicas personalizadas.<br>
+        Nuestra misión es ofrecer servicios que ayuden a nuestros clientes a aprovechar al máximo sus productos.
+        </p>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- Sección Nuestros Servicios (Tarjetas Flip) -->
+<div id="servicios" class="seccion-ajustada p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light">
+<div class="container">
+    <h2 class="text-center mb-4 text-light">Nuestros Servicios</h2>
+    <div class="row justify-content-around">
+        <!-- Tarjeta 1 -->
+        <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+            <div class="card-container">
+                <div class="card-flip">
+                    <div class="card-front bg-dark text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h3 class="card-title fw-bold align-middle px-2">Instalación de Windows</h3>
+                            <hr class="w-75 border border-3 rounded mb-3">
+                            <div class="rounded-circle bg-black d-flex justify-content-center align-items-center mb-4 border" style="width: 90px; height: 90px;">
+                                <i class="fa-brands fa-windows fa-3x text-white"></i>
+                            </div>
+                            <p class="card-text">Instalamos cualquier versión de Windows en tu equipo.</p>
+                        </div>
+                    </div>
+                    <div class="card-back bg-morado-gradient text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center p-3">
+                            <h4 class="fw-bold">Detalles</h4>
+                            <hr class="w-75 border border-3 bg-white rounded-3 mb-3 mt-0">
+                            <p>Incluye la instalación de drivers, programas esenciales y limpieza interna
+                                del equipo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+            <div class="card-container">
+                <div class="card-flip">
+                    <div class="card-front bg-dark text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center p-3">
+                            <h3 class="card-title fw-bold align-middle px-2">Mejora de Rendimiento</h3>
+                            <hr class="w-75 border border-3 rounded mb-2">
+                            <div class="rounded-circle bg-black d-flex justify-content-center align-items-center mb-4 mt-2 border" style="width: 90px; height: 90px;">
+                                <i class="fa-solid fa-rocket fa-3x text-white"></i>
+                            </div>
+                            <p class="card-text">Aceleramos tu equipo mejorando su capacidad y velocidad.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-back bg-morado-gradient text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center p-3">
+                            <h4 class="fw-bold">Detalles</h4>
+                            <hr class="w-75 border border-3 bg-white rounded-3 mb-3 mt-0">
+                            <p>Optimización de hardware y software, limpieza de archivos temporales y
+                                ajustes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+            <div class="card-container">
+                <div class="card-flip">
+                    <div class="card-front bg-dark text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h3 class="card-title fw-bold align-middle px-2">Desarrollo Web</h3>
+                            <hr class="w-75 border border-3 rounded mb-2">
+                            <div class="rounded-circle bg-black d-flex justify-content-center align-items-center mb-4 mt-2 border" style="width: 90px; height: 90px;">
+                                <i class="fa-solid fa-laptop-code fa-3x text-white align-middle"></i>
+                            </div>
+                            <p class="card-text">Desarrollamos sitios web profesionales y personalizados.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-back bg-morado-gradient text-light text-center shadow-light border rounded-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h4 class="fw-bold">Detalles</h4>
+                            <hr class="w-75 border border-3 bg-white rounded-3 mb-3 mt-0">
+                            <p>Diseño responsivo, integración de sistemas de pago y más.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Sección de Servicios Adicionales (Tarjetas Simples Elegantes) -->
+<div class="container-fluid p-5 mt-4 rounded-4 shadow-lg border fondo-oscuro-transparente text-light">
+<h2 class="text-center mb-4 fw-semibold fs-1 i-sombra text-white">Todo lo que tu Equipo Necesita para Sobresalir</h2>
+<h3 class="text-center mb-4 text-light">¿Sin servidor? No hay problema.</h3>
+
+<!-- Descripción -->
+<div class="row justify-content-center mb-5">
+    <div class="col-md-8 text-center">
+    <p class="fs-5 text-white">
+        Desbloquea el potencial completo de tu equipo creativo con nuestras herramientas y servicios de vanguardia, diseñados para mejorar la productividad y la creatividad.
+    </p>
+    </div>
+</div>
+
+<!-- Tarjetas de Servicios Elegantes -->
+<div class="row">
+    <!-- Servicio 1: Diseños Innovadores -->
+    <div class="col-md-4 mb-4">
+    <div class="card h-100 border-0 p-4 rounded-4 shadow-sm hover-shadow card-elegant">
+        <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-cogs fs-3 me-3" style="color: #A259FF;"></i>
+            <h5 class="fw-bold mb-0" style="color: #E0B3FF;">Diseños Innovadores</h5>
+        </div>
+        <p class="card-text" style="color: #F3E5F5;">
+            Potencia tu creatividad con herramientas avanzadas de diseño que optimizan tu flujo de trabajo.
+        </p>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Servicio 2: Almacenamiento en la Nube -->
+    <div class="col-md-4 mb-4">
+    <div class="card h-100 border-0 p-4 rounded-4 shadow-sm hover-shadow card-elegant">
+        <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-cloud fs-3 me-3" style="color: #A259FF;"></i>
+            <h5 class="fw-bold mb-0" style="color: #E0B3FF;">Almacenamiento en la Nube</h5>
+        </div>
+        <p class="card-text" style="color: #F3E5F5;">
+            Accede a tus archivos desde cualquier lugar con almacenamiento en la nube seguro y confiable.
+        </p>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Servicio 3: Espacio de trabajo Colaborativo -->
+    <div class="col-md-4 mb-4">
+    <div class="card h-100 border-0 p-4 rounded-4 shadow-sm hover-shadow card-elegant">
+        <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-users fs-3 me-3" style="color: #A259FF;"></i>
+            <h5 class="fw-bold mb-0" style="color: #E0B3FF;">Espacio de trabajo Colaborativo</h5>
+        </div>
+        <p class="card-text" style="color: #F3E5F5;">
+            Fomenta la colaboración y la creatividad con un espacio de trabajo digital que conecta a tu equipo en tiempo real.
+        </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Botón de Más Detalles -->
+<div class="text-center mt-4">
+    <a href="{% url 'web:servicios' %}" class="btn btn-sm btn-secondary rounded-4 px-4 py-2 btn-elegant">
+    Más detalles de nuestros servicios
+    </a>
+</div>
+</div>
+
+<!-- Sección de Contacto -->
+<div id="contacto" class="p-5 mt-4 mb-3 rounded-4 shadow-light border fondo-oscuro-transparente text-light">
+<div class="container">
+    <h2 class="text-center mb-4 fw-semibold fs-1">¿Listo para Potenciar tu Tecnología?</h2>
+    <p class="text-center text-white">
+    Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+    </p>
+    <form id="contact-form" class="row g-4 needs-validation" action="https://script.google.com/macros/s/AKfycbwIGe0E3iVaWFqHtUNfvJkSjcewBYfhObF4Uue47EtWA1WYZdt0XrqkeOz-sRFdafxO6Q/exec" method="POST" novalidate>
+    <!-- Campo Nombre -->
+    <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-user"></i></span>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre." required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+    </div>
+
+    <!-- Campo Correo Electrónico -->
+    <div class="col-md-6">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-envelope"></i></span>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+    </div>
+
+    <!-- Campo Teléfono -->
+    <div class="col-md-6">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-phone"></i></span>
+        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número telefónico" required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu número telefónico.</div>
+    </div>
+
+    <!-- Campo Mensaje -->
+    <div class="col-12">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-message"></i></span>
+        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Ingresa un mensaje explicando brevemente cómo podemos ayudarte" required></textarea>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
+    </div>
+
+    <!-- Botón Enviar -->
+    <div class="col-12 text-center">
+        <button type="submit" class="btn btn-outline-light px-4 py-2 rounded-pill">
+        <i class="fa-solid fa-paper-plane"></i> Enviar
+        </button>
+    </div>
+    </form>
+</div>
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+    // Validación del formulario
+    (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
+{% endblock %}
