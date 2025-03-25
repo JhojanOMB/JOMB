@@ -2,6 +2,8 @@
 
 Bienvenido al repositorio de Servicios de Tecnología. Este sitio web proporciona información sobre nuestros servicios de instalación de Windows, mejoras de rendimiento de PC y desarrollo de páginas web.
 
+https://jomb-production.up.railway.app/ Enlace a la web
+
 ## Estructura del Proyecto
 
 - `index.html`: La página principal del sitio web.
@@ -9,14 +11,6 @@ Bienvenido al repositorio de Servicios de Tecnología. Este sitio web proporcion
 - `img/`: Carpeta que contiene las imágenes utilizadas en el sitio web.
   - `JOMB.png`: Logotipo de Servicios Jomb.
 - `CNAME`: Archivo que especifica el dominio personalizado.
-
-## Cómo Contribuir
-
-1. Haz un fork de este repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza los cambios necesarios y haz commit (`git commit -am 'Agrega nueva funcionalidad'`).
-4. Haz push de la rama (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request.
 
 ## Contacto
 
