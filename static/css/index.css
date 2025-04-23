@@ -3,20 +3,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Variables CSS */
+/* 1. Variables de tema */
 :root {
+    --color-bg: #f8f9fa; /* Fondo general claro */
+    --color-text: #212529; /* Texto principal oscuro */
+    --color-header: #ffffff; /* Fondo header blanco */
+    --color-principal: #430cce; /* Color principal (mantenido) */
+    --color-secundario: #6c63ff; /* Un morado más suave para el tema claro */
+    --color-fondo: #ffffff; /* Fondo principal blanco */
+    --color-intermedio: #7a1ae8;
+    --color-texto-1: #000000; /* Texto general oscuro */
+    --color-texto-2: #ffffff; /* Texto general oscuro */
+    --familia-fuente: 'Roboto', sans-serif;
+    --familia-fuente-secundaria: 'Bree Serif', serif;
+    --color-fondo-icono: #e9ecef; /* Fondo de íconos más claro */
+    --color-icono: #000000; /* Icono */
+    --color-tarjetas: rgba(255, 255, 255, 0.9); /* Tarjetas casi blancas */
+}
+
+
+[data-bs-theme="dark"] {
+    --color-bg: #212529;            /* oscuro */
+    --color-text: #000000;
+    --color-header: #000;
     --color-principal: #430cce;
     --color-secundario: #2d0591;
     --color-header: #000000;
     --color-fondo: #424242;
     --color-intermedio: #7a1ae8;
-    --color-texto: #ffffff;
+    --color-texto-1: #000000; /* Texto general oscuro */
+    --color-texto-2: #ffffff; /* Texto general oscuro */
     --familia-fuente: 'Roboto', sans-serif;
     --familia-fuente-secundaria: 'Bree Serif', serif;
     --color-fondo-icono: #333;
-    --color-fondo-tooltip: #333;
+    --color-icono: #ffffff; /* Icono */
     --color-tarjetas: rgba(0, 0, 0, 0.8);
 }
+
+/* GitHub Hover - Tema Claro */
+[data-bs-theme="light"] .redes .github:hover {
+    background: #010409;
+    color: #ffffff;
+}
+
+[data-bs-theme="light"] .redes .github:hover .tooltip {
+    background: #010409;
+    color: #ffffff;
+}
+
+[data-bs-theme="light"] .redes .github:hover .tooltip::before {
+    background: #010409;
+}
+
+/* GitHub Hover - Tema Oscuro */
+[data-bs-theme="dark"] .redes .github:hover {
+    background: #010409;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .github:hover .tooltip {
+    background: #010409;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .github:hover .tooltip::before {
+    background: #010409;
+}
+
+/* Facebook */
+
+[data-bs-theme="light"] .redes .facebook:hover {
+    background: #1877F2;
+    color: #ffffff; /* color del ícono */
+}
+
+[data-bs-theme="light"] .redes .facebook:hover .tooltip {
+    background: #1877F2;
+    color: #ffffff; /* texto del tooltip */
+}
+
+[data-bs-theme="light"] .redes .facebook:hover .tooltip::before {
+    background: #1877F2;
+}
+
+/* Tema oscuro (opcional si ya se ve bien) */
+[data-bs-theme="dark"] .redes .facebook:hover {
+    background: #1877F2;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .facebook:hover .tooltip {
+    background: #1877F2;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .facebook:hover .tooltip::before {
+    background: #1877F2;
+}
+
+/* Instagram */
+
+[data-bs-theme="light"] .redes .instagram:hover {
+    background: #E4405F;
+    color: #ffffff; /* color del ícono */
+}
+
+[data-bs-theme="light"] .redes .instagram:hover .tooltip {
+    background: #E4405F;
+    color: #ffffff; /* texto del tooltip */
+}
+
+[data-bs-theme="light"] .redes .instagram:hover .tooltip::before {
+    background: #E4405F;
+}
+
+/* Tema oscuro */
+[data-bs-theme="dark"] .redes .instagram:hover {
+    background: #E4405F;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .instagram:hover .tooltip {
+    background: #E4405F;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .instagram:hover .tooltip::before {
+    background: #E4405F;
+}
+
+/* Whatsapp */
+
+[data-bs-theme="light"] .redes .whatsapp:hover {
+    background: #04aa44;
+    color: #ffffff; /* color del ícono */
+}
+
+[data-bs-theme="light"] .redes .whatsapp:hover .tooltip {
+    background: #04aa44;
+    color: #ffffff; /* texto del tooltip */
+}
+
+[data-bs-theme="light"] .redes .whatsapp:hover .tooltip::before {
+    background: #04aa44;
+}
+
+/* Tema oscuro */
+[data-bs-theme="dark"] .redes .whatsapp:hover {
+    background: #04aa44;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .whatsapp:hover .tooltip {
+    background: #04aa44;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .redes .whatsapp:hover .tooltip::before {
+    background: #04aa44;
+}
+
+
+
 
 /* Estilos generales */
 body {
@@ -52,12 +200,12 @@ h1, h2 {
 .bg-morado {
     --bs-bg-opacity: 1;
     background-color: var(--color-secundario) !important;
-    color: var(--color-texto);
+    color: var(--color-texto-1);
 }
 
 .bg-morado-gradient {
     background: linear-gradient(135deg, #3A0CA3, #6A0572);
-    color: var(--color-texto);
+    color: var(--color-texto-1);
 }
 
 .logo {
@@ -114,6 +262,7 @@ footer {
 .redes .icon {
     position: relative;
     background: var(--color-fondo-icono);
+    color: var(--color-icono);
     border-radius: 50%;
     margin: 10px;
     width: 50px;
@@ -132,8 +281,7 @@ footer {
     position: absolute;
     top: 0;
     font-size: 14px;
-    background: var(--color-fondo-tooltip);
-    color: var(--color-texto);
+    color: var(--color-texto-1);
     padding: 5px 8px;
     border-radius: 5px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -160,12 +308,6 @@ footer {
     visibility: visible;
     pointer-events: auto;
 }
-
-/* Colores Iconos Sociales */
-.redes .facebook:hover { background: #1877F2; }
-.redes .instagram:hover { background: #E4405F; }
-.redes .github:hover { background: #010409; }
-.redes .whatsapp:hover { background: #04aa44; }
 
 /* Tarjetas con Efecto 3D (para secciones anteriores) */
 .card-container {
@@ -326,4 +468,18 @@ footer {
     border-radius: 50%;
     font-size: 15px;
     cursor: pointer;
+}
+
+.redes .icon,
+.redes .tooltip {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.texto-color-1 {
+    color: var(--color-texto-1) !important;
+}
+
+.texto-color-2 {
+    color: var(--color-texto-2) !important;
 }

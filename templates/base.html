@@ -19,13 +19,7 @@
     <meta property="og:image" content="{% static 'img/JOMB.png' %}">
     <link rel="stylesheet" href="{% static 'css/iconos.css' %}">
     <!-- Animate.css para micro-animaciones -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        integrity="sha512-b7l0P+j0lLKqIuEM89+BfUhcFAZxP9ci97foYypEvk13RzFhIy3nS9qDka8sgg3SuIBu7fCKX5f+gPqDfU5n2g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- AOS para animaciones al hacer scroll -->
     <link
         href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -86,6 +80,9 @@
                     </li>
                 </ul>
             </div>
+            <button id="toggle-theme" class="btn btn-sm btn-outline-light ms-3">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
     </nav>
 
@@ -156,6 +153,7 @@
         });
     </script>
 
+<script src="{% static 'js/tema.js' %}"></script>
 </body>
 
 </html>
