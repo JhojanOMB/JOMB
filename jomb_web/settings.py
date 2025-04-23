@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-98vl$_dgj4g5tnna9*-3dx@v&ehu=eodjsox4151yg&@0%b^6v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jomb-production.up.railway.app', 'jombtecnologics.com', 'www.jombtecnologics.com']
+ALLOWED_HOSTS = ['jomb-production.up.railway.app', 'jombtecnologics.com', 'www.jombtecnologics.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -25,14 +25,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',  # Para servir archivos estáticos en desarrollo
     'django.contrib.staticfiles',
 
     # Aplicaciones
-
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

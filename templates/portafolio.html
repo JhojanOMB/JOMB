@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light shadow wow animate__fadeInUp">
+  <h1 class="text-center mb-4">Nuestro Portafolio</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for app in apps %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{% static app.imagen %}" class="card-img-top" alt="{{ app.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">{{ app.nombre }}</h5>
+          <p class="card-text">{{ app.descripcion }}</p>
+        </div>
+        <div class="card-footer text-end">
+          {% if app.demo %}
+            <a href="{{ app.link }}" class="btn btn-primary">Ver Demo</a>
+          {% else %}
+            <button class="btn btn-outline-secondary" disabled>Acceso privado</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

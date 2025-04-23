@@ -2,5 +2,106 @@
 {% load static %}
 
 {% block content %}
+<!-- Sección Contacto -->
+<section id="contacto" class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-semibold fs-1">¿Listo para Potenciar tu Tecnología?</h2>
+        <p class="text-center mb-5">
+            Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+        </p>
+        
+        <!-- Formulario de contacto -->
+        <form id="contact-form" class="row g-4 needs-validation" action="https://script.google.com/macros/…/exec" method="POST" novalidate data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-phone"></i></span>
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número telefónico" required>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu número telefónico.</div>
+            </div>
+            <div class="col-12">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-message"></i></span>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Ingresa un mensaje explicando cómo podemos ayudarte" required></textarea>
+                </div>
+                <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-outline-light px-4 py-2 rounded-pill animate__animated animate__rubberBand">
+                    <i class="fa-solid fa-paper-plane"></i> Enviar
+                </button>
+            </div>
+        </form>
+
+</section>
+
+<section id="contacto" class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light" data-aos="fade-up">
+    <!-- Preguntas Frecuentes -->
+    <div class="my-5">
+        <h3 class="text-center mb-4">Preguntas Frecuentes</h3>
+        <div class="accordion" id="faqAccordion">
+            <!-- Pregunta 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa-solid fa-question-circle me-3"></i> ¿Cómo puedo empezar a trabajar con ustedes?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Solo necesitas enviarnos un mensaje a través del formulario y nos pondremos en contacto contigo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fa-solid fa-question-circle me-3"></i> ¿Ofrecen soporte después de la implementación?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, ofrecemos soporte técnico continuo para garantizar el éxito de tu proyecto.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="fa-solid fa-question-circle me-3"></i> ¿Cuáles son sus métodos de pago?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Aceptamos pagos mediante transferencia bancaria, tarjeta de crédito y PayPal.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {% endblock %}
