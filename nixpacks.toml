@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python312", "git"]
+
+[phases.install]
+cmds = ["pip install --no-cache-dir -r requirements.txt"]
+
+[phases.build]
+cmds = ["python manage.py collectstatic --noinput"]
+
+[start]
+cmd = "gunicorn jomb_web.wsgi:application --bind 0.0.0.0:$PORT"
