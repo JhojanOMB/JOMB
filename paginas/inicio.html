@@ -1,0 +1,160 @@
+
+<!-- Sección Inicio -->
+<section id="inicio" class="p-5 mb-3 bg-light bs-opacity-75" data-aos="fade-down">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      
+      <!-- Columna de texto -->
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+        <h1 class="fe-letter fuente-secundaria fw-semibold texto-color-1 display-3 animate__animated animate__fadeInDown">
+          Soluciones Tecnológicas a tu Alcance
+        </h1>
+        <p class="lead fs-6 animate__animated animate__fadeInUp animate__delay-1s texto-color-1">
+          Expertos en creación de sitios web de alta calidad. Creamos experiencias digitales únicas que potencian el impacto de tu marca. Vamos a construir algo extraordinario juntos.
+        </p>
+        <a href="#contacto" class="btn btn-dark animate__animated animate__pulse animate__infinite animate__slow" style="animation-delay: 1s;">
+          Contáctanos
+        </a>
+      </div>
+
+      <!-- Columna de imagen -->
+      <div class="col-md-6 text-center">
+        <img src="../static/img/Jomby Saludando.png" alt="Jomby mascota" width="500" class="img-fluid animate__animated animate__zoomIn">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Sección Sobre Nosotros -->
+<section
+id="sobre-nosotros"
+class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light"
+data-aos="fade-up"
+data-aos-duration="800"
+>
+<div class="container">
+    <h2 class="text-center mb-4 fs-1 fuente-secundaria">Sobre Nosotros</h2>
+    <div class="row align-items-center mt-4">
+    <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="200">
+        <img
+        src="static/img/JOMB.png"
+        class="img-fluid rounded-circle border border-4 p-3"
+        alt="Sobre Nosotros"
+        loading="lazy"
+        style="width: 20rem;"
+        >
+    </div>
+    <div class="col-md-6" data-aos="fade-left" data-aos-delay="400">
+        <p class="mt-4 fs-5 text-center">
+        Somos un apasionado equipo de la informática con experiencia en el desarrollo de software, mejora de rendimiento de equipos y creación de soluciones tecnológicas personalizadas.<br>
+        Nuestra misión es ofrecer servicios que ayuden a nuestros clientes a aprovechar al máximo sus productos.
+        </p>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Sección Nuestros Servicios (Flip) -->
+<section id="servicios" class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light" data-aos="fade-up" data-aos-duration="800">
+    <div class="container">
+        <h2 class="text-center mb-4 display-5 fuente-secundaria fw-semibold">Nuestros Servicios</h2>
+        <p class="text-center fs-5 mb-5">Soluciones tecnológicas que impulsan tu productividad, presencia digital y rendimiento operativo.</p>
+
+        <div class="row justify-content-around" id="contenedor-servicios">
+            <!-- Aquí JS insertará las tarjetas -->
+        </div>
+
+        <hr class="my-5 border-light">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-semibold fs-1">Todo lo que tu equipo necesita</h2>
+            <h4 class="text-white-50">¿Sin servidor? No hay problema.</h4>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                <p class="fs-5">
+                    Potencia al máximo tu equipo de trabajo con nuestras soluciones de alto nivel en diseño, soporte y configuración.
+                    En <strong>JOMB</strong> trabajamos contigo para que tu tecnología deje de ser un problema y se convierta en una ventaja.
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" onclick="cargarContenido('paginas/servicios.html')" class="btn btn-outline-light rounded-pill shadow px-4 py-2">
+                Conoce más sobre nuestros servicios
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Sección Contacto -->
+<section
+id="contacto"
+class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light"
+data-aos="fade-up"
+>
+<div class="container">
+    <h2 class="text-center mb-4 fs-1 fuente-secundaria">¿Listo para Potenciar tu Tecnología?</h2>
+    <p class="text-center">
+    Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+    </p>
+    <form
+    id="contact-form"
+    class="row g-4 needs-validation"
+    action="https://script.google.com/macros/…/exec"
+    method="POST"
+    novalidate
+    data-aos="fade-up"
+    data-aos-delay="200"
+    >
+    <!-- Nombre -->
+    <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-user"></i></span>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre." required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+    </div>
+    <!-- Email -->
+    <div class="col-md-6">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-envelope"></i></span>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+    </div>
+    <!-- Teléfono -->
+    <div class="col-md-6">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-phone"></i></span>
+        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número telefónico" required>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu número telefónico.</div>
+    </div>
+    <!-- Mensaje -->
+    <div class="col-12">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <div class="input-group">
+        <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-message"></i></span>
+        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Ingresa un mensaje explicando cómo podemos ayudarte" required></textarea>
+        </div>
+        <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
+    </div>
+    <!-- Botón Enviar -->
+    <div class="col-12 text-center">
+        <button type="submit" class="btn btn-outline-light px-4 py-2 rounded-pill animate__animated animate__rubberBand">
+        <i class="fa-solid fa-paper-plane"></i> Enviar
+        </button>
+    </div>
+    </form>
+</div>
+
+</section>

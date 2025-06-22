@@ -1,6 +1,0 @@
-# This is a Procfile for a Heroku deployment
-# Define the process types for your application
-
-web: gunicorn jomb_web.wsgi:application
-
-

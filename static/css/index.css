@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 
 /* 1. Variables de tema */
 :root {
@@ -15,7 +16,8 @@
     --color-texto-1: #000000; /* Texto general oscuro */
     --color-texto-2: #ffffff; /* Texto general oscuro */
     --familia-fuente: 'Roboto', sans-serif;
-    --familia-fuente-secundaria: 'Bree Serif', serif;
+    --familia-fuente-secundaria: "Winky Sans", sans-serif;
+    --familia-fuente-terciaria: 'Winky Sans', cursive;
     --color-fondo-icono: #e9ecef; /* Fondo de íconos más claro */
     --color-icono: #000000; /* Icono */
     --color-tarjetas: rgba(255, 255, 255, 0.9); /* Tarjetas casi blancas */
@@ -34,7 +36,7 @@
     --color-texto-1: #000000; /* Texto general oscuro */
     --color-texto-2: #ffffff; /* Texto general oscuro */
     --familia-fuente: 'Roboto', sans-serif;
-    --familia-fuente-secundaria: 'Bree Serif', serif;
+    --familia-fuente-secundaria: "Winky Sans", sans-serif;
     --color-fondo-icono: #333;
     --color-icono: #ffffff; /* Icono */
     --color-tarjetas: rgba(0, 0, 0, 0.8);
@@ -175,6 +177,10 @@ body {
 
 .fuente-secundaria {
     font-family: var(--familia-fuente-secundaria) !important;
+}
+
+.fuente-terciaria {
+    font-family: var(--familia-fuente-terciaria) !important;
 }
 
 /* Particles.js */
