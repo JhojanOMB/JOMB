@@ -42,6 +42,10 @@
     --color-tarjetas: rgba(0, 0, 0, 0.8);
 }
 
+[data-bs-theme="light"] .redes .icon {
+    border: 1px solid #00000060;
+}
+
 /* GitHub Hover - Tema Claro */
 [data-bs-theme="light"] .redes .github:hover {
     background: #010409;
@@ -224,7 +228,7 @@ footer {
 
 /* Fondos Transparente */
 .fondo-oscuro-transparente {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .fondo-luminoso-transparente {
