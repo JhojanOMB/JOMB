@@ -27,52 +27,149 @@
     <!-- WOW.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <script>
+        (function(){
+            const URL = 'https://script.google.com/macros/s/AKfycbzqc06Xlv1voQVR2Ub2TsDeM8_RY674yZIgHyWsLSPjH6x1c3Efo2dG8XdH1ejTo3W_1Q/exec';
+            const form = document.getElementById('contact-form');
+            const btn = document.getElementById('btn-enviar');
+
+            btn.addEventListener('click', function(e){
+            // Primero validamos manualmente
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // Recolectamos los datos
+            const data = new FormData(form);
+
+            // Envío con fetch
+            fetch(URL, {
+                method: 'POST',
+                mode: 'cors',
+                body: data
+            })
+            .then(res => res.json())
+            .then(json => {
+                if (json.status === 'success') {
+                alert('¡Gracias! Tu mensaje se envió correctamente.');
+                form.reset();
+                form.classList.remove('was-validated');
+                } else {
+                alert('Error: ' + json.detail);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('No se pudo enviar el formulario. Intenta de nuevo más tarde.');
+            });
+            });
+        })();
+    </script>
+
+
 </head>
 
 <body>
 
-    <nav
-        class="navbar navbar-expand-lg navbar-light bg-dark sticky-top border-secondary border-3 border-bottom">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#" onclick="cargarContenido('paginas/inicio.html')">
-                <img src="./img/JOMB.png" alt="Logo de JOMB" class="logo i-sombra" style="width: 40px;" />
-                <h1 class="fs-4 fw-semibold text-white m-0">JOMB</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
-                        viewBox="0 0 16 16">
-                        <path fill="#ffff" fill-rule="evenodd"
-                            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
-                        </path>
-                    </svg>
-                </span>
+<nav class="navbar navbar-expand-lg bg-black sticky-top border-secondary border-3 border-bottom" data-bs-theme="dark">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#" onclick="cargarContenido('paginas/inicio.html')">
+      <img src="./img/JOMB.png" alt="Logo de JOMB" class="logo i-sombra" style="width: 40px;" />
+      <h1 class="fs-4 fw-semibold text-white m-0">JOMB</h1>
+    </a>
+
+    <!-- Botón hamburguesa (solo visible en móvil) -->
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+          viewBox="0 0 16 16">
+          <path fill="#fff" fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </span>
+    </button>
+
+    <!-- Enlaces navbar normales (solo en pantallas grandes) -->
+    <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/inicio.html')">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/sobre_nosotros.html')">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/servicios.html')">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/contacto.html')">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/portafolio.html')">Portafolio</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Idioma + Tema (solo en pantallas grandes) -->
+    <div class="d-none d-lg-flex align-items-center gap-2">
+      <select class="form-select form-select-sm bg-dark text-white border-light" id="idioma-selector" style="width: auto; min-width: 100px;">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+
+      <button id="toggle-theme" class="btn btn-outline-light btn-sm" style="min-width: 90px;">
+        <i class="bi bi-moon-fill me-1"></i> Oscuro
+      </button>
+    </div>
+
+    <!-- Offcanvas (solo móvil) -->
+    <div class="offcanvas offcanvas-end bg-black text-white d-lg-none" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+          aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/inicio.html')">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/sobre_nosotros.html')">Sobre Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/servicios.html')">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/contacto.html')">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="cargarContenido('paginas/portafolio.html')">Portafolio</a>
+          </li>
+          <li class="nav-item mt-3">
+            <label class="form-label text-white small">Idioma:</label>
+            <select class="form-select form-select-sm bg-dark text-white border-light">
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </li>
+          <li class="nav-item mt-2">
+            <button id="toggle-theme-offcanvas" class="btn btn-outline-light btn-sm w-100">
+              <i class="bi bi-moon-fill me-1"></i> Oscuro
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" onclick="cargarContenido('paginas/inicio.html')">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" onclick="cargarContenido('paginas/sobre_nosotros.html')">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" onclick="cargarContenido('paginas/servicios.html')">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" onclick="cargarContenido('paginas/contacto.html')">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" onclick="cargarContenido('paginas/portafolio.html')">Portafolio</a>
-                    </li>
-                </ul>
-            </div>
-            <button id="toggle-theme" class="btn btn-sm btn-outline-light ms-3">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-        </div>
-    </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
     <div id="particles-js"></div>
 

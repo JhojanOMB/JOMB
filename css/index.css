@@ -4,43 +4,135 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 
-/* 1. Variables de tema */
+/* 1. Variables de tema claro por defecto */
 :root {
     --color-bg: #f8f9fa; /* Fondo general claro */
-    --color-text: #212529; /* Texto principal oscuro */
     --color-header: #ffffff; /* Fondo header blanco */
     --color-principal: #430cce; /* Color principal (mantenido) */
     --color-secundario: #6c63ff; /* Un morado más suave para el tema claro */
-    --color-fondo: #ffffff; /* Fondo principal blanco */
+    --color-fondo: #3806675c; /* Fondo principal blanco */
     --color-intermedio: #7a1ae8;
     --color-texto-1: #000000; /* Texto general oscuro */
-    --color-texto-2: #ffffff; /* Texto general oscuro */
+    --color-texto-2: #000000; /* Texto general oscuro */
     --familia-fuente: 'Roboto', sans-serif;
     --familia-fuente-secundaria: "Winky Sans", sans-serif;
     --familia-fuente-terciaria: 'Winky Sans', cursive;
-    --color-fondo-icono: #e9ecef; /* Fondo de íconos más claro */
-    --color-icono: #000000; /* Icono */
+    --color-fondo-icono: #141414; /* Fondo de íconos más claro */
+    --color-icono: #ffffff; /* Icono */
     --color-tarjetas: rgba(255, 255, 255, 0.9); /* Tarjetas casi blancas */
 }
 
 
 [data-bs-theme="dark"] {
     --color-bg: #212529;            /* oscuro */
-    --color-text: #000000;
     --color-header: #000;
     --color-principal: #430cce;
     --color-secundario: #2d0591;
     --color-header: #000000;
     --color-fondo: #424242;
-    --color-intermedio: #7a1ae8;
-    --color-texto-1: #000000; /* Texto general oscuro */
+    --color-intermedio: #7a1ae8;        
+    --color-texto-1: #ffffff; /* Texto general oscuro */
     --color-texto-2: #ffffff; /* Texto general oscuro */
     --familia-fuente: 'Roboto', sans-serif;
     --familia-fuente-secundaria: "Winky Sans", sans-serif;
-    --color-fondo-icono: #333;
-    --color-icono: #ffffff; /* Icono */
+    --color-fondo-icono: #3e3e3e;
+    --color-icono: #e3e3e3; /* Icono */
     --color-tarjetas: rgba(0, 0, 0, 0.8);
 }
+
+/* Estilo personalizado del botón con gradiente */
+.btn-jomb {
+  transition: all 0.3s ease;
+  font-family: var(--familia-fuente-secundaria) !important;
+}
+
+/* Tema claro */
+[data-bs-theme="light"] .btn-jomb {
+  background: linear-gradient(45deg, #0d6efd, #6610f2) !important;
+  color: #fff !important;
+  border: 1px solid #6610f2 !important;
+}
+
+/* Tema oscuro */
+[data-bs-theme="dark"] .btn-jomb {
+  background: linear-gradient(45deg, #f8f9fa, #adb5bd) !important;
+  color: #212529 !important;
+}
+
+/* Hover efecto */
+.btn-jomb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+/* =====================================
+   ESTILO BASE (estructura general)
+===================================== */
+.btn-jomb-glow {
+  --btn-color: transparent !important;
+  border: 0.2em solid var(--glow-color) !important;
+  padding: 1em 3em !important;
+  color: var(--glow-color) !important;
+  background-color: var(--btn-color) !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  border-radius: 1em !important;
+  outline: none !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 0 0 0.5em var(--glow-color) !important;
+  box-shadow:
+    0 0 1em 0.2em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color) !important;
+}
+
+.btn-jomb-glow::after {
+  pointer-events: none !important;
+  content: "" !important;
+  position: absolute !important;
+  top: 110% !important;
+  left: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: var(--glow-spread-color) !important;
+  filter: blur(2em) !important;
+  opacity: 0.7 !important;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6) !important;
+}
+
+.btn-jomb-glow:hover {
+  background-color: var(--glow-color) !important;
+  color: var(--text-color-h) !important;
+  border: 0.2em solid var(--glow-color) !important;
+  box-shadow:
+    0 0 1em 0.1em var(--glow-color),
+    0 0 2em 1em var(--glow-spread-color),
+    inset 0 0 0.55em 0.25em var(--glow-color) !important;
+}
+
+.btn-jomb-glow:active {
+  box-shadow:
+    0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color) !important;
+}
+
+/* ========= MODO OSCURO (MORADO) ========= */
+[data-bs-theme="dark"] .btn-jomb-glow {
+  --glow-color: rgb(217, 176, 255) !important;
+  --glow-spread-color: rgba(191, 123, 255, 0.781) !important;
+  --text-color-h: #643d88 !important; /* Texto en modo oscuro */
+}
+
+/* ========= MODO CLARO (AZUL) ========= */
+[data-bs-theme="light"] .btn-jomb-glow {
+    --glow-color: rgb(49, 0, 91) !important;         /* DodgerBlue */
+    --glow-spread-color: rgba(165, 30, 255, 0.6) !important;
+    --text-color-h: #ffffff !important; /* Texto en modo claro */
+}
+
 
 [data-bs-theme="light"] .redes .icon {
     border: 1px solid #00000060;
@@ -171,11 +263,9 @@
 
 
 
-
 /* Estilos generales */
 body {
     font-family: var(--familia-fuente) !important;
-    line-height: 1.6 !important;
     background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-intermedio) 50%, var(--color-principal) 100%);
 }
 
@@ -203,9 +293,6 @@ header {
     background: var(--color-header) !important;
 }
 
-h1, h2 {
-    color: #333;
-}
 
 .bg-morado {
     --bs-bg-opacity: 1;
@@ -226,14 +313,6 @@ footer {
     background: #000000;
 }
 
-/* Fondos Transparente */
-.fondo-oscuro-transparente {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.fondo-luminoso-transparente {
-    background-color: rgba(255, 255, 255, 0.75);
-}
 
 /* Botones */
 .btn-custom {

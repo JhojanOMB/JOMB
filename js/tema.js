@@ -1,14 +1,29 @@
-const btn = document.getElementById('toggle-theme');
-const setTheme = t => {
-    document.documentElement.setAttribute('data-bs-theme', t);
-    localStorage.setItem('theme', t);
-    btn.innerHTML = t === 'dark'
-    ? '<i class="fa-solid fa-sun"></i> Claro'
-    : '<i class="fa-solid fa-moon"></i> Oscuro';
-};
-btn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-bs-theme');
-    setTheme(current === 'dark' ? 'light' : 'dark');
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('toggle-theme');
+  const html = document.documentElement;
+
+  // Verifica si hay tema guardado, si no, aplica "light" por defecto
+  const temaGuardado = localStorage.getItem('theme');
+  const temaInicial = temaGuardado || 'light';
+  html.setAttribute('data-bs-theme', temaInicial);
+
+  // Si quieres que el botón refleje el estado inicial, puedes actualizar su icono aquí
+  if (btn) {
+    actualizarBoton(btn, temaInicial);
+
+    btn.addEventListener('click', () => {
+      const temaActual = html.getAttribute('data-bs-theme');
+      const nuevoTema = temaActual === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-bs-theme', nuevoTema);
+      localStorage.setItem('theme', nuevoTema);
+      actualizarBoton(btn, nuevoTema);
+    });
+  }
+
+  // Función opcional para cambiar el ícono del botón según el tema
+  function actualizarBoton(boton, tema) {
+    boton.innerHTML = tema === 'dark'
+      ? '<i class="bi bi-sun-fill me-1"></i> Claro'
+      : '<i class="bi bi-moon-fill me-1"></i> Oscuro';
+  }
 });
-// Aplica tema guardado al cargar la página
-setTheme(localStorage.getItem('theme') || 'light');
