@@ -28,22 +28,22 @@ function cargarContenido(url) {
 function insertarTarjetasServicios() {
     const servicios = [
         {
-            titulo: "Diseño Web",
-            icono: "bi-globe", // 🌐
-            resumen: "Creamos páginas modernas, responsivas y rápidas.",
-            detalles: "Tu sitio estará optimizado para móviles, con SEO básico y listo para posicionar tu marca."
+            titulo: "Diseño Web Profesional",
+            icono: "bi-globe2",
+            resumen: "Sitios modernos, rápidos y adaptables a todos los dispositivos.",
+            detalles: "Optimización móvil, SEO básico y diseño visual atractivo para tu marca."
         },
         {
-            titulo: "Optimización de PCs",
-            icono: "bi-speedometer2", // 🚀
-            resumen: "Mejoramos el rendimiento de tu equipo.",
-            detalles: "Limpieza de virus, optimización de arranque, y mejoras de velocidad garantizadas."
+            titulo: "Gestión de Computadores",
+            icono: "bi-pc-display-horizontal",
+            resumen: "Equipos configurados para uso seguro y corporativo.",
+            detalles: "Instalación, limpieza, bloqueo de accesos y protección de información."
         },
         {
-            titulo: "Instalación de Software",
-            icono: "bi-download", // ⬇️
-            resumen: "Instalamos y configuramos tus herramientas de trabajo.",
-            detalles: "Office, Adobe, navegadores, software contable y más, todo legal y funcional."
+            titulo: "Instalación de Software Legal",
+            icono: "bi-download",
+            resumen: "Todo el software que necesitas correctamente instalado.",
+            detalles: "Office, Adobe, antivirus, contables, navegadores y más."
         }
     ];
 
