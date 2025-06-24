@@ -1,8 +1,7 @@
 /* Importa las fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kavoon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 /* 1. Variables de tema claro por defecto */
 :root {
@@ -14,9 +13,11 @@
     --color-intermedio: #7a1ae8;
     --color-texto-1: #000000; /* Texto general oscuro */
     --color-texto-2: #000000; /* Texto general oscuro */
-    --familia-fuente: 'Roboto', sans-serif;
-    --familia-fuente-secundaria: "Winky Sans", sans-serif;
-    --familia-fuente-terciaria: 'Winky Sans', cursive;
+    --familia-fuente-1: 'Quicksand', sans-serif;
+    --familia-fuente-2: "Winky Sans", sans-serif;
+    --familia-fuente-3: "Lilita One", sans-serif;
+    --familia-fuente-4: "Playpen Sans Thai", sans-serif;
+    --familia-fuente-5: "Kavoon", sans-serif;
     --color-fondo-icono: #141414; /* Fondo de íconos más claro */
     --color-icono: #ffffff; /* Icono */
     --color-tarjetas: rgba(255, 255, 255, 0.9); /* Tarjetas casi blancas */
@@ -33,8 +34,9 @@
     --color-intermedio: #7a1ae8;        
     --color-texto-1: #ffffff; /* Texto general oscuro */
     --color-texto-2: #ffffff; /* Texto general oscuro */
-    --familia-fuente: 'Roboto', sans-serif;
-    --familia-fuente-secundaria: "Winky Sans", sans-serif;
+    --familia-fuente-1: 'Quicksand', sans-serif;
+    --familia-fuente-2: "Winky Sans", sans-serif;
+    --familia-fuente-3: "Lilita One", sans-serif;
     --color-fondo-icono: #3e3e3e;
     --color-icono: #e3e3e3; /* Icono */
     --color-tarjetas: rgba(0, 0, 0, 0.8);
@@ -43,7 +45,7 @@
 /* Estilo personalizado del botón con gradiente */
 .btn-jomb {
   transition: all 0.3s ease;
-  font-family: var(--familia-fuente-secundaria) !important;
+  font-family: var(--familia-fuente-2) !important;
 }
 
 /* Tema claro */
@@ -265,17 +267,25 @@
 
 /* Estilos generales */
 body {
-    font-family: var(--familia-fuente) !important;
+    font-family: var(--familia-fuente-1) !important;
     background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-intermedio) 50%, var(--color-principal) 100%);
 }
 
-.fuente-secundaria {
-    font-family: var(--familia-fuente-secundaria) !important;
+.fuente-2 {
+    font-family: var(--familia-fuente-2) !important;
 }
 
-.fuente-terciaria {
-    font-family: var(--familia-fuente-terciaria) !important;
+.fuente-3 {
+    font-family: var(--familia-fuente-3) !important;
 }
+
+.fuente-4 {
+    font-family: var(--familia-fuente-4) !important;
+}
+.fuente-5 {
+    font-family: var(--familia-fuente-5) !important;
+}
+
 
 /* Particles.js */
 #particles-js {
@@ -571,4 +581,8 @@ footer {
 
 .texto-color-2 {
     color: var(--color-texto-2) !important;
+}
+
+.shadow-interno {
+box-shadow: inset 0px 0px 100px 12px rgba(36, 0, 59, 0.39);
 }
