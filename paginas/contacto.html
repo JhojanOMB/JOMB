@@ -1,96 +1,96 @@
-<!-- Sección Contacto -->
-<section id="contacto" class="bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12" data-aos="fade-up">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold text-center mb-4">¿Listo para Potenciar tu Tecnología?</h2>
-    <p class="text-center text-gray-600 mb-8">
-      Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
-    </p>
+<body class="bg-gray-50 text-gray-800 relative px-6 py-10 lg:px-24">
 
-    <form id="contact-form" action="https://script.google.com/macros/…/exec" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate data-aos="fade-up" data-aos-delay="200">
-      <!-- Nombre -->
-      <div>
-        <label for="nombre" class="block text-gray-700 mb-1">Nombre</label>
-        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-indigo-200">
-          <span class="px-3 bg-gray-800 text-white">
-            <i class="fa-solid fa-user"></i>
-          </span>
-          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required
-            class="w-full p-3 bg-white focus:outline-none">
-        </div>
-        <p class="mt-1 text-sm text-red-500 hidden">Por favor, ingresa tu nombre.</p>
-      </div>
+  <!-- Sección Contacto -->
+  <section id="contacto" class="neumorph bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-semibold text-center mb-4">¿Listo para Potenciar tu Tecnología?</h2>
+      <p class="text-center text-gray-600 mb-8">
+        Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+      </p>
 
-      <!-- Correo -->
-      <div>
-        <label for="email" class="block text-gray-700 mb-1">Correo Electrónico</label>
-        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-indigo-200">
-          <span class="px-3 bg-gray-800 text-white">
-            <i class="fa-solid fa-envelope"></i>
-          </span>
-          <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required
-            class="w-full p-3 bg-white focus:outline-none">
-        </div>
-        <p class="mt-1 text-sm text-red-500 hidden">Por favor, ingresa un correo electrónico válido.</p>
-      </div>
-
-      <!-- Teléfono -->
-      <div>
-        <label for="telefono" class="block text-gray-700 mb-1">Teléfono</label>
-        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-indigo-200">
-          <span class="px-3 bg-gray-800 text-white">
-            <i class="fa-solid fa-phone"></i>
-          </span>
-          <input type="text" id="telefono" name="telefono" placeholder="Ingresa tu número telefónico" required
-            class="w-full p-3 bg-white focus:outline-none">
-        </div>
-        <p class="mt-1 text-sm text-red-500 hidden">Por favor, ingresa tu número telefónico.</p>
-      </div>
-
-      <!-- Mensaje (toma todo ancho) -->
-      <div class="md:col-span-2">
-        <label for="mensaje" class="block text-gray-700 mb-1">Mensaje</label>
-        <div class="flex items-start border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-indigo-200">
-          <span class="px-3 pt-3 bg-gray-800 text-white">
-            <i class="fa-solid fa-message"></i>
-          </span>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Ingresa un mensaje explicando cómo podemos ayudarte" required
-            class="w-full p-3 bg-white focus:outline-none resize-none"></textarea>
-        </div>
-        <p class="mt-1 text-sm text-red-500 hidden">Por favor, ingresa tu mensaje.</p>
-      </div>
-
-      <!-- Botón envío (toma todo ancho) -->
-      <div class="md:col-span-2 text-center">
-        <button type="submit"
-          class="inline-flex items-center justify-center bg-indigo-600 text-white py-3 px-6 rounded-full hover:bg-indigo-700 transition animate-rubberBand">
-          <i class="fa-solid fa-paper-plane mr-2"></i> Enviar
-        </button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- Sección Preguntas Frecuentes -->
-<section id="faq" class="bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12" data-aos="fade-up">
-  <div class="max-w-4xl mx-auto">
-    <h3 class="text-3xl font-semibold text-center mb-8">Preguntas Frecuentes</h3>
-    <div class="space-y-4" id="faqAccordion">
-      {% comment %} Cada item del acordeón {% endcomment %}
-      {% for item in faqs %}
-      <div x-data="{ open: {{ forloop.first|yesno:'true,false' }} }" class="border border-gray-200 rounded-lg overflow-hidden">
-        <button @click="open = !open"
-          class="w-full flex items-center justify-between px-4 py-3 bg-gray-100 focus:outline-none">
-          <div class="flex items-center space-x-2">
-            <i class="fa-solid fa-question-circle text-indigo-600"></i>
-            <span class="font-medium">{{ item.pregunta }}</span>
+      <div class="neumorph-inset rounded-3xl p-8 lg:p-12 mx-auto max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+        <form id="contact-form" action="https://script.google.com/macros/.../exec" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
+          <!-- Nombre -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input name="nombre" type="text" placeholder="Tu nombre" required
+                   class="w-full pl-10 pr-4 py-3 neumorph rounded-xl focus:ring-2 focus:ring-indigo-300" />
           </div>
-          <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'" class="text-gray-600"></i>
-        </button>
-        <div x-show="open" x-collapse class="px-4 py-3 bg-white text-gray-700">
-          {{ item.respuesta }}
-        </div>
+
+          <!-- Correo -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            <input name="correo" type="email" placeholder="Tu correo electrónico" required
+                   class="w-full pl-10 pr-4 py-3 neumorph rounded-xl focus:ring-2 focus:ring-indigo-300" />
+          </div>
+
+          <!-- Teléfono -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <input name="telefono" type="tel" placeholder="Tu número telefónico" required
+                   class="w-full pl-10 pr-4 py-3 neumorph rounded-xl focus:ring-2 focus:ring-indigo-300" />
+          </div>
+
+          <!-- Mensaje -->
+          <div class="md:col-span-2 relative">
+            <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
+              <i class="fa-solid fa-message"></i>
+            </span>
+            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje" required
+                      class="w-full pl-10 pr-4 py-3 neumorph rounded-xl focus:ring-2 focus:ring-indigo-300 resize-none"></textarea>
+          </div>
+
+          <!-- Botón -->
+          <div class="md:col-span-2 text-center mt-4">
+            <button type="submit"
+                    class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Mensaje
+            </button>
+          </div>
+        </form>
+
+        <!-- Mensaje de estado -->
+        <p id="form-msg" class="hidden mt-4 text-center text-lg neumorph-inset p-4"></p>
       </div>
-      {% endfor %}
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Sección Preguntas Frecuentes -->
+  <section id="faq" class="bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold text-center mb-8">Preguntas Frecuentes</h3>
+      <div class="space-y-4" id="faqAccordion">
+        {% for item in faqs %}
+        <div x-data="{ open: {{ forloop.first|yesno:'true,false' }} }" class="border border-gray-200 rounded-lg overflow-hidden neumorph">
+          <button @click="open = !open"
+                  class="w-full flex items-center justify-between px-4 py-3 bg-gray-100 focus:outline-none">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-question-circle text-indigo-600"></i>
+              <span class="font-medium">{{ item.pregunta }}</span>
+            </div>
+            <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'" class="text-gray-600"></i>
+          </button>
+          <div x-show="open" x-collapse class="px-4 py-3 bg-white text-gray-700 neumorph-inset">
+            {{ item.respuesta }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Asegurar que las tarjetas se inserten tras cargar el DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('contenedor-servicios')) insertarTarjetasServicios();
+      if (document.getElementById('proyectos-grid')) insertarProyectosDestacados();
+      if (window.AOS) AOS.refresh();
+    });
+  </script>
+</body>

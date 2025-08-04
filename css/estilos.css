@@ -138,3 +138,26 @@
 .fondo {
   background: var(--neumo-pg);
 }
+
+/* Sombra neumórfica adaptada a fondo morado */
+.btn-neumorph.bg-purple-600 {
+  --shadow-light: rgba(255, 255, 255, 0.6);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  box-shadow:
+    8px 8px 12px -2px var(--shadow-dark),
+    -6px -6px 12px -1px var(--shadow-light);
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+
+.btn-neumorph.bg-purple-600:hover {
+  box-shadow:
+    6px 6px 10px -2px rgba(0, 0, 0, 0.25),
+    -4px -4px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.btn-neumorph.bg-purple-600:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 4px 4px 6px -2px var(--shadow-dark),
+    inset -3px -3px 6px -1px var(--shadow-light);
+}
