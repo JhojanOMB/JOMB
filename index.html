@@ -2,244 +2,174 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JOMB</title>
-    <link rel="stylesheet" href="./css/index.css" />
-    <link rel="icon" href="./img/JOMB.png" type="image/png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <meta name="google-site-verification" content="oAh0fdncGo8SF5BI0N2HSTewI1COvk-3aCcWiwzsyRc" />
-    <meta name="description" content="Servicios de tecnología, desarrollo de páginas web." />
-    <meta property="og:title" content="JOMB - Servicios de Tecnología" />
-    <meta property="og:description" content="Ofrecemos instalación de cualquier versión de Windows, mejoras de rendimiento y más." />
-    <meta property="og:image" content="./img/JOMB.png" />
-    <link rel="stylesheet" href="./css/iconos.css" />
-    <!-- Animate.css para micro-animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- AOS para animaciones al hacer scroll -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
-        integrity="sha512-G5YwLIeWkwbfrYvO6ds2v7zWDtokRWrQwnnd2I4otBUj0jQlvfSUCZnMLbhWct+zpddg2kkYyOch8zHfTtYkKQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-    <script>
-        (function(){
-            const URL = 'https://script.google.com/macros/s/AKfycbzqc06Xlv1voQVR2Ub2TsDeM8_RY674yZIgHyWsLSPjH6x1c3Efo2dG8XdH1ejTo3W_1Q/exec';
-            const form = document.getElementById('contact-form');
-            const btn = document.getElementById('btn-enviar');
+  <!-- 1. Metadatos esenciales -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            btn.addEventListener('click', function(e){
-            // Primero validamos manualmente
-            if (!form.checkValidity()) {
-                form.classList.add('was-validated');
-                return;
-            }
+  <!-- 2. SEO básico -->
+  <title>Desarrollo de Páginas Web | Creamos tu Web Profesional – JOMB</title>
+  <meta 
+    name="description" 
+    content="JOMB desarrolla tu página web profesional. Creamos sitios web personalizados, optimizados para SEO y adaptados a móviles. ¡Solicita tu web hoy!" 
+  />
+  <meta 
+    name="keywords" 
+    content="crear página web, desarrollo web, diseñar web, páginas web profesionales, SEO, Bootstrap, Django" 
+  />
 
-            // Recolectamos los datos
-            const data = new FormData(form);
+  <!-- 3. Favicons -->
+  <link rel="icon" href="./img/JOMB.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
 
-            // Envío con fetch
-            fetch(URL, {
-                method: 'POST',
-                mode: 'cors',
-                body: data
-            })
-            .then(res => res.json())
-            .then(json => {
-                if (json.status === 'success') {
-                alert('¡Gracias! Tu mensaje se envió correctamente.');
-                form.reset();
-                form.classList.remove('was-validated');
-                } else {
-                alert('Error: ' + json.detail);
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                alert('No se pudo enviar el formulario. Intenta de nuevo más tarde.');
-            });
-            });
-        })();
-    </script>
+  <!-- 4. CSS local -->
+  <link rel="stylesheet" href="./css/estilos.css" />
+  <link rel="stylesheet" href="./css/iconos.css" />
 
+  <!-- 5. JSON-LD para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JOMB",
+    "url": "https://jhojanomb.github.io/JOMB/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jhojanomb.github.io/JOMB/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JOMB",
+    "url": "https://jhojanomb.github.io/JOMB/",
+    "logo": "https://jhojanomb.github.io/JOMB/img/JOMB.png",
+    "sameAs": [
+      "https://github.com/jhojanomb",
+      "https://linkedin.com/in/jhojanomb"
+    ]
+  }
+  </script>
 
+  <!-- 6. CSS de terceros (defer si posible) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" defer />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" defer />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" defer />
+
+  <!-- 7. Frameworks de utilidad -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- 8. Scripts locales: carga dinámica -->
+  <script src="./js/carga.js" defer></script>
+
+  <!-- 9. Librerías que necesitan inicializarse pronto -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<nav class="navbar navbar-expand-lg bg-black sticky-top border-secondary border-3 border-bottom" data-bs-theme="dark">
-  <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="#" onclick="cargarContenido('paginas/inicio.html')">
-      <img src="./img/JOMB.png" alt="Logo de JOMB" class="logo i-sombra me-1" style="width: 50px" />
-      <h1 class="fs-3 fuente-1 text-white m-0">JOMB</h1>
-    </a>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-gradient-to-r from-black to-purple-900 shadow-lg text-white">
+    <div class="max-w-7xl mx-auto relative flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <a href="#inicio" onclick="cargarContenido('paginas/inicio.html')" class="flex items-center space-x-3 z-10">
+        <img src="./img/JOMB.png" alt="JOMB Logo" class="w-10 h-10" />
+        <span class="text-2xl font-semibold">JOMB</span>
+      </a>
 
-    <!-- Botón hamburguesa (solo visible en móvil) -->
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path fill="#fff" fill-rule="evenodd"
-            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg>
-      </span>
-    </button>
-
-    <!-- Enlaces navbar normales (solo en pantallas grandes) -->
-    <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/inicio.html')">Inicio</a>
+      <!-- Enlaces de escritorio centrados -->
+      <ul class="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8">
+        <li class="relative group">
+          <a href="#inicio"
+             onclick="cargarContenido('paginas/inicio.html')"
+             class="text-white hover:text-purple-300 transition"
+          >Inicio</a>
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/sobre_nosotros.html')">Sobre Nosotros</a>
+        <li class="relative group">
+          <a href="#sobre-nosotros"
+             onclick="cargarContenido('paginas/sobre_nosotros.html')"
+             class="text-white hover:text-purple-300 transition"
+          >Sobre Nosotros</a>
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/servicios.html')">Servicios</a>
+        <li class="relative group">
+          <a href="#servicios"
+             onclick="cargarContenido('paginas/servicios.html')"
+             class="text-white hover:text-purple-300 transition"
+          >Servicios</a>
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/contacto.html')">Contacto</a>
+        <li class="relative group">
+          <a href="#portafolio"
+             onclick="cargarContenido('paginas/portafolio.html')"
+             class="text-white hover:text-purple-300 transition"
+          >Portafolio</a>
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/portafolio.html')">Portafolio</a>
+        <li class="relative group">
+          <a href="#contacto"
+             onclick="cargarContenido('paginas/contacto.html')"
+             class="text-white hover:text-purple-300 transition"
+          >Contacto</a>
+          <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
       </ul>
-    </div>
 
-    <!-- Idioma + Tema (solo en pantallas grandes) -->
-    <div class="d-none d-lg-flex align-items-center gap-2">
-      <select class="form-select form-select-sm bg-dark text-white border-light" id="idioma-selector" style="width: auto; min-width: 100px;">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-      </select>
-
-      <button id="toggle-theme" class="btn btn-outline-light btn-sm" style="min-width: 90px;">
-        <i class="bi bi-moon-fill me-1"></i> Oscuro
+      <!-- Botón móvil -->
+      <button id="menu-btn" class="lg:hidden p-2 text-white focus:outline-none z-10">
+        <i class="fas fa-bars text-2xl"></i>
       </button>
     </div>
 
-    <!-- Offcanvas (solo móvil) -->
-    <div class="offcanvas offcanvas-end bg-black text-white d-lg-none" tabindex="-1" id="offcanvasNavbar"
-      aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-          aria-label="Cerrar"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/inicio.html')">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/sobre_nosotros.html')">Sobre Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/servicios.html')">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/contacto.html')">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white fw-semibold" href="#" onclick="cargarContenido('paginas/portafolio.html')">Portafolio</a>
-          </li>
-          <li class="nav-item mt-3">
-            <label class="form-label text-white small">Idioma:</label>
-            <select class="form-select form-select-sm bg-dark text-white border-light">
-              <option value="es">Español</option>
-              <option value="en">English</option>
-              <option value="fr">Français</option>
-            </select>
-          </li>
-          <li class="nav-item mt-2">
-            <button id="toggle-theme-offcanvas" class="btn btn-outline-light btn-sm w-100">
-              <i class="bi bi-moon-fill me-1"></i> Oscuro
-            </button>
-          </li>
+    <!-- Drawer lateral móvil -->
+    <div 
+      id="mobile-menu" 
+      class="fixed inset-0 bg-black bg-opacity-75 transform -translate-x-full transition-transform lg:hidden z-40"
+    >
+      <div class="absolute top-0 left-0 w-64 h-full bg-gradient-to-b from-purple-900 to-purple-800 p-6">
+        <div class="flex items-center justify-between mb-10">
+          <span class="text-2xl font-bold text-white">Menú</span>
+          <button id="menu-close" class="p-2 text-white focus:outline-none">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <ul class="flex flex-col space-y-6">
+          <li><a href="#inicio"         onclick="cargarContenido('paginas/inicio.html'); toggleDrawer()"         class="text-white text-xl hover:text-purple-300 transition">Inicio</a></li>
+          <li><a href="#sobre-nosotros" onclick="cargarContenido('paginas/sobre_nosotros.html'); toggleDrawer()" class="text-white text-xl hover:text-purple-300 transition">Sobre Nosotros</a></li>
+          <li><a href="#servicios"      onclick="cargarContenido('paginas/servicios.html'); toggleDrawer()"     class="text-white text-xl hover:text-purple-300 transition">Servicios</a></li>
+          <li><a href="#portafolio"     onclick="cargarContenido('paginas/portafolio.html'); toggleDrawer()"    class="text-white text-xl hover:text-purple-300 transition">Portafolio</a></li>
+          <li><a href="#contacto"       onclick="cargarContenido('paginas/contacto.html'); toggleDrawer()"      class="text-white text-xl hover:text-purple-300 transition">Contacto</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</nav>
-
-
-    <div id="particles-js"></div>
-
-    <div class="redes py-3 text-white" style="z-index: 1000;">
-        <div class="icon borde-icono facebook wow animate__fadeInRight" id="facebook">
-            <div class="tooltip">Facebook</div>
-            <span><i class="fab fa-facebook-f"></i></span>
-        </div>
-        <div class="icon borde-icono instagram wow animate__fadeInRight" id="instagram">
-            <div class="tooltip">Instagram</div>
-            <span><i class="fab fa-instagram"></i></span>
-        </div>
-        <div class="icon borde-icono github wow animate__fadeInRight" id="github">
-            <div class="tooltip">GitHub</div>
-            <span><i class="fab fa-github"></i></span>
-        </div>
-        <div class="icon borde-icono whatsapp wow animate__fadeInRight" id="whatsapp">
-            <div class="tooltip">Whatsapp</div>
-            <span><i class="fab fa-whatsapp"></i></span>
-        </div>
-    </div>
-
-    <main>
-        <!-- Aquí iría el contenido específico de cada página -->
-    </main>
-
-    <!-- Botón para subir al inicio -->
-    <button id="back-to-top" title="Subir"><i class="fas fa-chevron-up"></i></button>
-
-    <footer class="text-white text-center py-3 border-secondary border-3 border-top bg-dark mt-4">
-        <p>&copy; 2025 JOMB. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="./js/redes.js"></script>
-    <script src="./js/particulas.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
 
     <script>
-        new WOW({
-            boxClass: 'wow', // clase que busca
-            animateClass: 'animate__animated', // Animate.css v4
-            offset: 100, // despliega 100px antes
-            mobile: true,
-            live: true
-        }).init();
+      const menuBtn   = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-menu');
+      const closeBtn  = document.getElementById('menu-close');
+
+      function toggleDrawer() {
+        mobileNav.classList.toggle('-translate-x-full');
+      }
+
+      menuBtn.addEventListener('click', toggleDrawer);
+      closeBtn.addEventListener('click', toggleDrawer);
     </script>
+  </nav>
 
-    <script>
-        // Mostrar el botón para subir al bajar la página
-        window.onscroll = function () {
-            let btn = document.getElementById('back-to-top');
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                btn.style.display = 'block';
-            } else {
-                btn.style.display = 'none';
-            }
-        };
+  <!-- Contenido dinámico -->
+  <main id="content"></main>
 
-        // Función para subir al inicio
-        document.getElementById('back-to-top').addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
-    <script src="./js/tema.js"></script>
-    <script src="./js/carga.js"></script>
-    <script src="./js/tarjetas.js"></script>
-
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({duration:800,once:true});</script>
+  <script>new WOW({boxClass:'wow',animateClass:'animate__animated',offset:100,mobile:true,live:true}).init();</script>
 </body>
 
 </html>

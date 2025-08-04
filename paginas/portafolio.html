@@ -1,25 +1,57 @@
-
-<div class="p-5 mt-4 rounded-4 shadow-light border fondo-oscuro-transparente text-light shadow wow animate__fadeInUp">
-  <h1 class="text-center mb-4">Nuestro Portafolio</h1>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for app in apps %}
-    <div class="col">
-      <div class="card h-100 shadow-sm">
-        <img src="{% static app.imagen %}" class="card-img-top" alt="{{ app.nombre }}">
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">{{ app.nombre }}</h5>
-          <p class="card-text">{{ app.descripcion }}</p>
-        </div>
-        <div class="card-footer text-end">
-          {% if app.demo %}
-            <a href="{{ app.link }}" class="btn btn-primary">Ver Demo</a>
-          {% else %}
-            <button class="btn btn-outline-secondary" disabled>Acceso privado</button>
-          {% endif %}
-        </div>
-      </div>
+<!-- PORTAFOLIO -->
+<section
+  id="portafolio"
+  class="bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12"
+  data-aos="fade-up"
+  data-aos-duration="800"
+>
+  <div class="max-w-6xl mx-auto space-y-8">
+    <h2 class="text-3xl font-semibold text-center">Nuestro Portafolio</h2>
+    
+    <!-- Barra de búsqueda -->
+    <div class="flex justify-center">
+      <input
+        type="text"
+        id="portafolio-search"
+        placeholder="Buscar proyecto..."
+        class="w-full md:w-1/2 border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
     </div>
-    {% endfor %}
+
+    <!-- Filtros por categoría -->
+    <div class="flex justify-center gap-4">
+      <button data-cat="all" class="filter-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full hover:bg-indigo-200 transition">Todos</button>
+      <button data-cat="web" class="filter-btn text-gray-600 px-4 py-1 rounded-full hover:bg-gray-100 transition">Web</button>
+      <button data-cat="mobile" class="filter-btn text-gray-600 px-4 py-1 rounded-full hover:bg-gray-100 transition">Móvil</button>
+      <button data-cat="desktop" class="filter-btn text-gray-600 px-4 py-1 rounded-full hover:bg-gray-100 transition">Desktop</button>
+    </div>
+
+    <!-- Grid vacío: JS rellenará con tarjetas -->
+    <div id="portafolio-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
   </div>
-</div>
+</section>
+
+<!-- Template de tarjeta, invisible en el DOM -->
+<template id="portafolio-card-template">
+  <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group border border-gray-200">
+    <!-- Imagen -->
+    <img src="" alt="" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
+
+    <!-- Overlay al hover -->
+    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <!-- Contenedor genérico para acción -->
+      <div data-role="action" class="flex items-center justify-center gap-4"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="p-6 flex flex-col justify-between h-[200px]">
+      <div>
+        <h5 class="text-xl font-semibold text-gray-800 mb-2" data-role="title">Título</h5>
+        <p class="text-gray-600 text-sm mb-4" data-role="desc">Descripción breve.</p>
+      </div>
+      <!-- Tech tags -->
+      <div class="flex flex-wrap gap-2" data-role="tags"></div>
+    </div>
+  </div>
+</template>
 

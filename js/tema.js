@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const temaInicial = temaGuardado || 'light';
   html.setAttribute('data-bs-theme', temaInicial);
 
-  // Si quieres que el botón refleje el estado inicial, puedes actualizar su icono aquí
   if (btn) {
     actualizarBoton(btn, temaInicial);
 

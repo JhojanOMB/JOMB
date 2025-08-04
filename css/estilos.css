@@ -1,0 +1,99 @@
+/* Variables */
+:root {
+  /* Colores base */
+  --neumo-bg: #e3e3e3;
+  --neumo-light: #ffffff;
+  --neumo-dark: #bebebe;
+
+  /* Contenedores generales */
+  --offset: 6px;
+  --blur: 12px;
+
+  /* Botones */
+  --btn-offset: 8px;
+  --btn-blur: 12px;
+}
+
+/* Neumorphic containers */
+.neumorph {
+  background: var(--neumo-bg) !important;
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+  transition: box-shadow 0.2s;
+}
+
+.neumorph:active {
+  /* Al hacer clic se hunde un poco */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+/* Neumorphic inset (para tarjetas, modales, etc.) */
+.neumorph-inset {
+  background: var(--neumo-bg) !important;
+  border-radius: 1rem;
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+}
+
+/* Botones neumórficos */
+.btn-neumorph {
+  background: var(--neumo-bg);
+  border-radius: 1rem;
+  box-shadow:
+    var(--btn-offset) var(--btn-offset) var(--btn-blur) -2px rgba(72, 79, 96, 0.4),
+    calc(-1 * var(--btn-offset)) calc(-1 * var(--btn-offset)) var(--btn-blur) -1px var(--neumo-light);
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.btn-neumorph:hover {
+  box-shadow:
+    4px 4px 8px -2px rgba(72, 79, 96, 0.5),
+    -3px -3px 8px -1px var(--neumo-light);
+}
+.btn-neumorph:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 2px 2px 4px rgba(72, 79, 96, 0.3),
+    inset -2px -2px 4px var(--neumo-light);
+}
+
+/* Flip Card Effect */
+.flip-card { perspective: 1000px; }
+.flip-card-inner {
+  position: relative;            /* para que front/back se posicionen bien */
+  width: 100%;                   /* cubre todo el contenedor */
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* para coherencia con neumorphism: */
+  background: var(--neumo-bg);
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  /* sombra inset al reverso: */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}

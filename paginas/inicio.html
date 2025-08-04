@@ -1,138 +1,175 @@
-<div class="container-fluid px-3 px-md-4 px-lg-5 py-3">
+<body class="bg-gray-50 text-gray-800 relative px-6 py-10 lg:px-24">
 
-  <!-- Sección Inicio -->
-  <section id="inicio" class="p-4 shadow-interno rounded-2 mb-4 bg-body bs-opacity-75" data-aos="fade-down">
-    <div class="container py-5">
-      <div class="row align-items-center">
-        <!-- Texto -->
-        <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-          <h1 class="fuente-1 texto-color-1 fw-semibold display-1 mb-3 animate__animated animate__fadeInDown">
-            Soluciones a tu Alcance
-          </h1>
-          <p class="lead fs-6 texto-color-1 animate__animated animate__fadeInUp animate__delay-1s">
-            Expertos en creación de sitios web de alta calidad. Creamos experiencias digitales únicas que potencian el impacto de tu marca. ¡Construyamos algo extraordinario juntos!
-          </p>
-          <a href="#contacto" class="btn btn-jomb bg-gradient animate__animated animate__fadeInUp" style="animation-delay: 1s;">
-            Contáctanos
-          </a>
-        </div>
+<!-- Hero -->
+<section
+  id="inicio"
+  role="banner"
+  class="relative bg-gray-400 text-white pt-20 pb-32 overflow-hidden"
+>
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
+    <div class="space-y-6" data-aos="fade-right">
+      <h1 class="text-5xl leading-tight">
+        Soluciones a tu <span class="text-purple-800 font-medium">Alcance</span>
+      </h1>
+      <p class="text-lg max-w-lg">
+        Expertos en creación de sitios web de alta calidad. Creamos experiencias digitales únicas que potencian el impacto de tu marca.
+      </p>
+      <a
+        href="#contacto"
+        aria-label="Contáctanos"
+        onclick="cargarContenido('paginas/contacto.html')"
+        class="inline-block btn-neumorph py-2 px-6 rounded-lg"
+      >
+        Contáctanos
+      </a>
+    </div>
+    <div class="flex justify-center" data-aos="fade-left">
+      <img
+        src="./img/Jomby Saludando.png"
+        alt="Mascota Jomby saludando"
+        class="w-80 animate__animated animate__fadeIn"
+        loading="lazy"
+      >
+    </div>
+  </div>
+</section>
 
-        <!-- Imagen -->
-        <div class="col-md-6 text-center">
-          <img src="./img/Jomby Saludando.png" alt="Mascota Jomby saludando" width="500" class="img-fluid animate__animated animate__zoomIn" loading="lazy">
+
+  <!-- Servicios -->
+  <section id="servicios" role="region" aria-labelledby="servicios-title" class="relative -mt-24 bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 id="servicios-title" class="text-4xl mb-8" data-aos="zoom-in">Nuestros Servicios</h2>
+      <div
+        id="contenedor-servicios"
+        class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center max-w-7xl mx-auto px-4 py-8"
+      >
+        <!-- Ejemplo de tarjeta flip -->
+        <div class="flip-card w-64 h-64 focus:outline-none neumorph-inset rounded-xl overflow-hidden shadow-lg" tabindex="0" data-aos="flip-left">
+          <div class="flip-card-inner relative w-full h-full">
+            <div class="flip-card-front bg-white flex items-center justify-center">
+              <i class="bi bi-code-slash text-4xl text-purple-600"></i>
+            </div>
+            <div class="flip-card-back bg-purple-600 text-white flex items-center justify-center p-4">
+              <p>Desarrollo Web a medida con Django y Bootstrap.</p>
+            </div>
+          </div>
         </div>
+        <!-- Más tarjetas insertadas vía JS -->
       </div>
     </div>
   </section>
 
-  <!-- Sección Sobre Nosotros -->
-  <section id="sobre-nosotros" class="p-4 mt-4 shadow-interno rounded-2 border bg-body" data-aos="fade-up" data-aos-duration="800">
-    <div class="container">
-      <h2 class="text-center mb-4 fs-1 fuente-1 texto-color-1 fw-semibold">Sobre Nosotros</h2>
-      <div class="row align-items-center mt-4">
-        <!-- Imagen -->
-        <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="200">
-          <img src="./img/JOMB.png" alt="Logo JOMB" class="img-fluid rounded-circle border border-4 p-3" style="width: 20rem;" loading="lazy">
-        </div>
-        <!-- Texto -->
-        <div class="col-md-6" data-aos="fade-left" data-aos-delay="400">
-          <p class="mt-4 fs-5 text-center texto-color-1">
-            Somos un apasionado equipo de la informática con experiencia en desarrollo de software, mejora de rendimiento de equipos y creación de soluciones tecnológicas personalizadas.<br>
-            Nuestra misión es ofrecer servicios que ayuden a nuestros clientes a aprovechar al máximo sus productos.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Servicios -->
-  <section id="servicios" class="p-4 mt-4 shadow-interno rounded-2 shadow-light border bg-body" data-aos="fade-up" data-aos-duration="800" aria-labelledby="servicios-title">
-    <div class="container texto-color-1">
-
-      <!-- Encabezado -->
-      <div class="text-center mb-5">
-        <h2 id="servicios-title" class="fs-1 fuente-1 texto-color-1 fw-bold animate__animated animate__fadeInDown">Nuestros Servicios</h2>
-        <p class="lead texto-color-1 animate__animated animate__fadeInUp animate__delay-1s">Soluciones que transforman tu forma de trabajar.</p>
-      </div>
-
-      <!-- Tarjetas -->
-      <div class="row justify-content-around" id="contenedor-servicios">
-        <!-- Aquí se insertan las tarjetas dinámicamente -->
-      </div>
-
-      <!-- Línea divisoria -->
-      <hr class="my-5 border-light">
-
-      <!-- Llamado a la acción -->
-      <div class="text-center mb-5 animate__animated animate__fadeIn">
-        <h3 class="fs-2 fw-semibold texto-color-1">Todo lo que tu equipo necesita</h3>
-        <p class="fs-5 texto-color-1">En JOMB convertimos tu tecnología en una ventaja competitiva.</p>
-      </div>
-
-      <!-- Botón CTA -->
-      <div class="text-center">
-        <a href="#" onclick="cargarContenido('paginas/servicios.html')" class="btn-jomb-glow rounded-pill shadow px-4 py-2 animate__animated animate__pulse animate__infinite" role="button">
-          Conoce más
-        </a>
-      </div>
+  <!-- Sobre Nosotros -->
+  <section id="sobre-nosotros" role="region" aria-labelledby="sobre-title" class="neumorph bg-gray-100 py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h2 id="sobre-title" class="text-4xl mb-4">Sobre Nosotros</h2>
+      <p class="text-gray-700 mb-6">
+        Somos un equipo apasionado de la informática, dedicados a crear soluciones con estilo y funcionalidad.
+      </p>
+      <img
+        src="./img/JOMB.png"
+        alt="Logo JOMB"
+        class="mx-auto w-32 rounded-full shadow-lg"
+        loading="lazy"
+      >
     </div>
   </section>
 
   <!-- Sección Contacto -->
-  <section id="contacto" class="p-4 mt-4 shadow-interno rounded-2 shadow-light border bg-body" data-aos="fade-up">
-    <div class="container">
-      <h2 class="text-center mb-4 fs-1 fuente-1 texto-color-1 fw-semibold">¿Listo para Potenciar tu Tecnología?</h2>
-      <p class="text-center mb-4">Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.</p>
-      <form id="contact-form" class="row g-4 needs-validation" action="https://script.google.com/macros/…/exec" method="POST" novalidate data-aos="fade-up" data-aos-delay="200">
-        
-        <!-- Nombre -->
-        <div class="col-md-6">
-          <label for="nombre" class="form-label">Nombre</label>
-          <div class="input-group">
-            <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-user"></i></span>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre." required>
-          </div>
-          <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
-        </div>
+  <section id="contacto" class="neumorph py-16">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="neumorph-inset rounded-3xl p-8 lg:p-12" data-aos="fade-up">
+        <h2 class="text-3xl text-center mb-8">Contáctanos</h2>
 
-        <!-- Email -->
-        <div class="col-md-6">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <div class="input-group">
-            <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-envelope"></i></span>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
+          <!-- Nombre -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input name="nombre" type="text" placeholder="Tu nombre" required
+                   class="w-full pl-10 pr-4 py-3 rounded-xl bg-var(--neumo-bg) focus:ring-2 focus:ring-indigo-300 neumorph" />
           </div>
-          <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
-        </div>
 
-        <!-- Teléfono -->
-        <div class="col-md-6">
-          <label for="telefono" class="form-label">Teléfono</label>
-          <div class="input-group">
-            <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-phone"></i></span>
-            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número telefónico" required>
+          <!-- Correo -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            <input name="correo" type="email" placeholder="Tu correo electrónico" required
+                   class="w-full pl-10 pr-4 py-3 rounded-xl bg-var(--neumo-bg) focus:ring-2 focus:ring-indigo-300 neumorph" />
           </div>
-          <div class="invalid-feedback">Por favor, ingresa tu número telefónico.</div>
-        </div>
 
-        <!-- Mensaje -->
-        <div class="col-12">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <div class="input-group">
-            <span class="input-group-text bg-dark text-light"><i class="fa-solid fa-message"></i></span>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Ingresa un mensaje explicando cómo podemos ayudarte" required></textarea>
+          <!-- Teléfono -->
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <input name="telefono" type="tel" placeholder="Tu número telefónico" required
+                   class="w-full pl-10 pr-4 py-3 rounded-xl bg-var(--neumo-bg) focus:ring-2 focus:ring-indigo-300 neumorph" />
           </div>
-          <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
-        </div>
 
-        <!-- Botón Enviar -->
-        <div class="col-12 text-center">
-          <button type="submit" id="btn-enviar" class="btn btn-jomb px-4 py-2 rounded-pill animate__animated animate__rubberBand">
-            <i class="fa-solid fa-paper-plane"></i> Enviar
-          </button>
-        </div>
-      </form>
+          <!-- Mensaje -->
+          <div class="md:col-span-2 relative">
+            <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
+              <i class="fa-solid fa-message"></i>
+            </span>
+            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje" required
+                      class="w-full pl-10 pr-4 py-3 rounded-xl bg-var(--neumo-bg) focus:ring-2 focus:ring-indigo-300 resize-none neumorph"></textarea>
+          </div>
+
+          <!-- Botón -->
+          <div class="md:col-span-2 text-center mt-4">
+            <button type="submit"
+                    class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Mensaje
+            </button>
+          </div>
+        </form>
+
+        <!-- Mensaje de estado -->
+        <p id="form-msg" class="hidden mt-4 text-center text-lg neumorph-inset p-4"></p>
+      </div>
     </div>
   </section>
 
-</div>
+  <!-- Botón Volver Arriba -->
+  <button id="back-to-top" aria-label="Volver al inicio" class="btn-neumorph fixed bottom-6 right-6">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts sin estilos inline -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 800, once: true });
+      const backToTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 300);
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const form = document.getElementById('contact-form');
+      const msgP = document.getElementById('form-msg');
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxONhzAPwqITYawZ4qx7cvn4w4d8XLdC-FD3L7lclTToSvIFnPa3hnJTrUPznKpdvaXsA/exec';
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault(); msgP.classList.add('hidden');
+        const datos = { nombre: form.nombre.value.trim(), correo: form.correo.value.trim(), telefono: form.telefono.value.trim(), mensaje: form.mensaje.value.trim() };
+        try {
+          const respuesta = await fetch(scriptURL, { method: 'POST', body: JSON.stringify(datos), headers: { 'Content-Type': 'application/json' } });
+          const json = await respuesta.json();
+          msgP.textContent = (json.status === 'success' ? '✅ ' : '❌ ') + json.detail;
+          msgP.className = 'mt-4 text-center ' + (json.status === 'success' ? 'text-green-600' : 'text-red-600');
+          if (json.status === 'success') form.reset();
+        } catch (err) {
+          msgP.textContent = '❌ Error: ' + err.message;
+          msgP.className = 'mt-4 text-center text-red-600';
+        }
+        msgP.classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
