@@ -1,6 +1,7 @@
 /* Variables */
 :root {
   /* Colores base */
+  --neumo-pg: #EBECF0;
   --neumo-bg: #e3e3e3;
   --neumo-light: #ffffff;
   --neumo-dark: #bebebe;
@@ -21,6 +22,7 @@
     var(--offset) var(--offset) var(--blur) var(--neumo-dark),
     calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
   transition: box-shadow 0.2s;
+  border-radius: 1rem;
 }
 
 .neumorph:active {
@@ -51,22 +53,23 @@
 .btn-neumorph:hover {
   box-shadow:
     4px 4px 8px -2px rgba(72, 79, 96, 0.5),
-    -3px -3px 8px -1px var(--neumo-light);
+    -3px -3px 8px -1px var(--neumo-light) !important;
 }
 .btn-neumorph:active {
   transform: translateY(1px);
   box-shadow:
     inset 2px 2px 4px rgba(72, 79, 96, 0.3),
-    inset -2px -2px 4px var(--neumo-light);
+    inset -2px -2px 4px var(--neumo-light) !important;
 }
 
 /* Flip Card Effect */
 .flip-card { perspective: 1000px; }
+/* Tarjetas flip de servicios */
 .flip-card-inner {
-  position: relative;            /* para que front/back se posicionen bien */
-  width: 100%;                   /* cubre todo el contenedor */
+  position: relative;
+  width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.7s;
   transform-style: preserve-3d;
 }
 
@@ -96,4 +99,42 @@
   box-shadow:
     inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
     inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* Campo de búsqueda neumórfico */
+.search-neumorph {
+  background: var(--neumo-bg);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 400px;
+
+  /* Sombra externa */
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+
+  /* Transición suave al enfocar */
+  transition: box-shadow 0.2s, background 0.2s;
+  font-size: 1rem;
+  color: #333;
+}
+
+.search-neumorph:focus {
+  outline: none;
+  background: #f0f0f0;
+  /* Sombra interna leve al enfocar */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.fondo {
+  background: var(--neumo-pg);
 }

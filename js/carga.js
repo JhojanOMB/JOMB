@@ -121,7 +121,7 @@ function insertarProyectosDestacados() {
       <h5 class="text-xl font-semibold text-gray-800 mb-4">${app.nombre}</h5>
       <p class="text-gray-700 text-sm mb-6">${app.descripcion}</p>
       <a href="#"
-         class="inline-flex items-center gap-2 text-indigo-600 font-medium
+         class="btn-neumorph inline-flex items-center text-indigo-600
                 hover:text-indigo-700 transition-colors">
         Ver más
         <i class="bi bi-arrow-right-short text-2xl"></i>
@@ -205,7 +205,7 @@ function renderPortafolio(items) {
 // ------------------ Búsqueda y Filtros ------------------
 function setupPortafolioControls() {
   const input   = document.getElementById('portafolio-search');
-  const buttons = document.querySelectorAll('.filter-btn');
+  const buttons = document.querySelectorAll('.btn-neumorph');
   let cat   = 'all';
   let query = '';
 
