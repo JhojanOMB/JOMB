@@ -71,24 +71,22 @@ function insertarTarjetasServicios() {
   servicios.forEach((s, i) => {
     const delay = (i + 1) * 100;
     contenedor.innerHTML += `
-      <div class="flip-card w-full max-w-sm h-80" data-aos="fade-up" data-aos-delay="${delay}">
-        <div class="flip-card-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d]">
-          <!-- Front -->
-          <div class="flip-card-front absolute inset-0 bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center 
-                      [backface-visibility:hidden] shadow-[8px_8px_16px_#bebebe,_-8px_-8px_16px_#ffffff]">
-            <div class="text-indigo-600 text-5xl mb-4"><i class="${s.icono}"></i></div>
-            <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">${s.titulo}</h3>
-            <p class="text-gray-600 text-center">${s.resumen}</p>
-          </div>
-          <!-- Back -->
-          <div class="flip-card-back absolute inset-0 bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center 
-                      [backface-visibility:hidden] transform rotate-y-180 shadow-[inset_6px_6px_12px_#bebebe,_inset_-6px_-6px_12px_#ffffff]">
-            <h4 class="text-indigo-700 text-lg font-medium mb-2">Detalles</h4>
-            <hr class="w-1/2 border-indigo-300 mb-3" />
-            <p class="text-center text-gray-700">${s.detalles}</p>
-          </div>
+    <div class="flip-card w-full max-w-sm h-80" data-aos="fade-up" data-aos-delay="${delay}">
+      <div class="flip-card-inner relative w-full h-full">
+        <!-- Front -->
+        <div class="flip-card-front bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[8px_8px_16px_#bebebe,_-8px_-8px_16px_#ffffff]">
+          <div class="text-indigo-600 text-5xl mb-4"><i class="${s.icono}"></i></div>
+          <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">${s.titulo}</h3>
+          <p class="text-gray-600 text-center">${s.resumen}</p>
+        </div>
+        <!-- Back -->
+        <div class="flip-card-back bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[inset_6px_6px_12px_#bebebe,_inset_-6px_-6px_12px_#ffffff]">
+          <h4 class="text-indigo-700 text-lg font-medium mb-2">Detalles</h4>
+          <hr class="w-1/2 border-indigo-300 mb-3" />
+          <p class="text-center text-gray-700">${s.detalles}</p>
         </div>
       </div>
+    </div>
     `;
   });
 }
