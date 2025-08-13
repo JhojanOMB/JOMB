@@ -41,6 +41,22 @@
     inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
 }
 
+/* Neumorphic containers */
+.neumorph-bg {
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+  transition: box-shadow 0.2s;
+  border-radius: 1rem;
+}
+
+.neumorph-bg:active {
+  /* Al hacer clic se hunde un poco */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
 /* Botones neumórficos */
 .btn-neumorph {
   background: var(--neumo-bg);

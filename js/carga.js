@@ -113,14 +113,13 @@ function insertarProyectosDestacados() {
     card.setAttribute('data-aos-delay', 200 + idx * 100);
 
     card.innerHTML = `
-      <div class="absolute right-4 top-4 bg-indigo-600 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-md">
+      <div class="neumorph-bg absolute right-4 top-4 bg-indigo-600 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-md">
         <i class="bi bi-star-fill text-xl"></i>
       </div>
       <h5 class="text-xl font-semibold text-gray-800 mb-4">${app.nombre}</h5>
       <p class="text-gray-700 text-sm mb-6">${app.descripcion}</p>
       <a href="#"
-         class="btn-neumorph inline-flex items-center text-indigo-600
-                hover:text-indigo-700 transition-colors">
+         class="btn-neumorph inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors px-5">
         Ver más
         <i class="bi bi-arrow-right-short text-2xl"></i>
       </a>
