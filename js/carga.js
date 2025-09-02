@@ -146,6 +146,14 @@ const portafolioData = [
     category: 'web',
     tech: ['Django', 'Bootstrap', 'Chart.js']
   },
+    {
+    nombre: 'Finanworld',
+    descripcion: 'Sistema de créditos de libranza pensados para pensionados.',
+    imagen: 'img/JOMB.webp',
+    live: "https://jhojanomb.github.io/Finanworld/",
+    category: 'web',
+    tech: ['Django', 'Tailwind']
+  },
 ];
 
 // Función que renderiza el grid completo
