@@ -75,7 +75,7 @@ function insertarTarjetasServicios() {
       <div class="flip-card-inner relative w-full h-full">
         <!-- Front -->
         <div class="flip-card-front bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[8px_8px_16px_#bebebe,_-8px_-8px_16px_#ffffff]">
-          <div class="text-indigo-600 text-5xl mb-4"><i class="${s.icono}"></i></div>
+          <div class="text-indigo-600 text-4xl mb-4 w-20 h-20 rounded-full neumorph-inset p-4"><i class="${s.icono}"></i></div>
           <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">${s.titulo}</h3>
           <p class="text-gray-600 text-center">${s.resumen}</p>
         </div>

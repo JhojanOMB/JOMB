@@ -1,0 +1,391 @@
+/* Variables */
+:root {
+  /* Colores base */
+  --neumo-pg: #EBECF0;
+  --neumo-bg: #e3e3e3;
+  --neumo-light: #ffffff;
+  --neumo-dark: #bebebe;
+  --primary: #6c63ff;
+  --greyLight-1: #e0e0e0;
+  --greyLight-2: #c9c9c9;
+  --white: #ffffff;
+  --primary-dark-morado: #350060;    /* color accent */
+  --primary-morado: #6b21a8;         /* color primary */
+  --primary-light-morado: #a78bfa;   /* color light */
+  --text: #0f172a;       /* color de texto por defecto */
+
+  /* Contenedores generales */
+  --offset: 6px;
+  --blur: 12px;
+
+  /* Botones */
+  --btn-offset: 8px;
+  --btn-blur: 12px;
+
+}
+
+/* Neumorphic containers */
+.neumorph {
+  background: var(--neumo-bg) !important;
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+  transition: box-shadow 0.2s;
+  border-radius: 1rem;
+}
+
+.neumorph:active {
+  /* Al hacer clic se hunde un poco */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+/* Neumorphic inset (para tarjetas, modales, etc.) */
+.neumorph-inset {
+  background: var(--neumo-bg) !important;
+  border-radius: 12px;
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Efecto cuando está en focus */
+.neumorph-inset:focus {
+  box-shadow:
+    inset calc(var(--offset) / 2) calc(var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-dark),
+    inset calc(-1 * var(--offset) / 2) calc(-1 * var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-light),
+    0 0 0 2px rgba(79, 70, 229, 0.4); /* un halo en focus */
+}
+
+/* Neumorphic containers */
+.neumorph-bg {
+  background: var(--neumo-bg);
+  border-radius: 1rem;
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+  transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.neumorph-bg:active {
+  /* Al hacer clic se hunde un poco */
+  box-shadow:
+    inset calc(var(--offset) / 2) calc(var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-dark),
+    inset calc(-1 * var(--offset) / 2) calc(-1 * var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-light);
+  transform: translateY(1px);
+}
+
+/* Botones neumórficos */
+.btn-neumorph {
+  background: var(--neumo-bg);
+  border-radius: 1rem;
+  color: var(--text);
+  box-shadow:
+    var(--btn-offset) var(--btn-offset) var(--btn-blur) rgba(12,12,12,0.10),
+    calc(-1 * var(--btn-offset)) calc(-1 * var(--btn-offset)) var(--btn-blur) 0px var(--neumo-light);
+  transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.btn-neumorph:hover {
+  box-shadow:
+    4px 4px 8px -2px rgba(72, 79, 96, 0.5),
+    -3px -3px 8px -1px var(--neumo-light) !important;
+}
+
+.btn-neumorph:active {
+  box-shadow:
+    inset 4px 4px 10px rgba(12,12,12,0.08),
+    inset -4px -4px 10px var(--neumo-light) !important; 
+  transform: translateY(1px);
+}
+
+/* Flip Card Effect */
+.flip-card { perspective: 1000px; }
+/* Tarjetas flip de servicios */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* para coherencia con neumorphism: */
+  background: var(--neumo-bg);
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  /* sombra inset al reverso: */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* Tarjetas semiredondas */
+.tarjeta-semiredonda {
+  width: 30rem;
+  height: 15rem;
+  background-color: transparent;
+  box-shadow: inset 10px 10px 10px 10px rgba(0, 0, 0, 0.158),
+    10px 10px 20px rgba(0, 0, 0, 0.466),
+    inset -10px -10px 10px 10px rgba(255, 255, 255, 0.897);
+  border-radius: 51% 49% 62% 38% / 25% 57% 43% 75%;
+  position: relative;
+  padding: 4rem 4rem 12rem 6rem;
+}
+
+.tarjeta-semiredonda::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.842);
+  border-radius: 80% 20% 91% 9% / 48% 67% 33% 52%;
+  top: 40px;
+  left: 40px;
+}
+
+.tarjeta-semiredonda::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.842);
+  border-radius: 48% 52% 45% 55% / 48% 67% 33% 52%;
+  top: 35px;
+  left: 60px;
+}
+
+/* Campo de búsqueda neumórfico */
+.search-neumorph {
+  background: var(--neumo-bg);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 400px;
+
+  /* Sombra externa */
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+
+  /* Transición suave al enfocar */
+  transition: box-shadow 0.2s, background 0.2s;
+  font-size: 1rem;
+  color: #333;
+}
+
+.search-neumorph:focus {
+  outline: none;
+  background: #f0f0f0;
+  /* Sombra interna leve al enfocar */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.fondo {
+  background: var(--neumo-pg);
+}
+
+/* Botón neumórfico púrpura */
+.btn-neumorph-morado {
+  background: var(--primary-morado);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  --shadow-light: rgba(255, 255, 255, 0.5);
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover → más elevación */
+.btn-neumorph-morado:hover {
+  box-shadow:
+    12px 12px 20px rgba(0, 0, 0, 0.3),
+    -8px -8px 16px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Click → efecto presionado */
+.btn-neumorph-morado:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 6px 6px 12px var(--shadow-dark),
+    inset -6px -6px 12px var(--shadow-light);
+}
+
+
+/* Spinner */
+.btn-spinner {
+  border: 3px solid var(--neumo-dark);
+  border-top: 3px solid var(--neumo-light);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animación éxito */
+.btn-success {
+  background: #4ade80 !important; /* verde */
+  color: white !important;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animación de vuelo */
+@keyframes flyAway {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(60px) translateY(-30px) rotate(20deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(150px) translateY(-80px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Fade out del texto */
+.fade-out {
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+.circulo-acuatico {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 2rem auto;
+}
+
+.circulo-acuatico-img {
+  position: relative;
+  z-index: 3;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--greyLight-1);
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--greyLight-2),
+              -0.4rem -0.4rem 0.8rem var(--white);
+  overflow: hidden;
+}
+
+.circulo-acuatico-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Ondas traseras */
+.circulo-acuatico-trasero-1,
+.circulo-acuatico-trasero-2 {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom right, var(--greyLight-2) 0%, var(--white) 100%);
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--greyLight-2),
+              -0.4rem -0.4rem 0.8rem var(--white);
+  filter: blur(1px);
+  z-index: 1;
+  animation: waves 4s linear infinite;
+}
+
+.circulo-acuatico-trasero-2 {
+  width: 8rem;
+  height: 8rem;
+  animation: waves 4s linear 2s infinite;
+  z-index: 0;
+}
+
+@keyframes waves {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Botón oculto por defecto */
+#back-to-top {
+  opacity: 0;
+  pointer-events: none; /* no clickeable si está oculto */
+  transition: opacity 0.3s ease;
+  z-index: 9999; /* por si algo lo tapa */
+}
+
+/* Mostrar el botón cuando tiene la clase .show */
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
