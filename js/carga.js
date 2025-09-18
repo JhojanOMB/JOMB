@@ -154,6 +154,14 @@ const portafolioData = [
     category: 'web',
     tech: ['Django', 'Tailwind']
   },
+  {
+    nombre: 'Youtube-JOMB',
+    descripcion: 'Aplicativo para descargar videos y audios de YouTube en múltiples formatos, sirve para Windows y Linux.',
+    imagen: 'img/JOMB.webp',
+    download: "https://github.com/JhojanOMB/Youtube-JOMB/releases/latest",
+    category: 'desktop',
+    tech: ['Python', 'Tkinter', 'Pytube']
+  }, 
 ];
 
 // Función que renderiza el grid completo
@@ -178,21 +186,34 @@ function renderPortafolio(items) {
     const tags = clone.querySelector('[data-role="tags"]');
     app.tech.forEach(t => {
       const span = document.createElement('span');
-      span.className = 'text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full';
+      span.className = 'text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full neumorph-bg';
       span.textContent = t;
       tags.appendChild(span);
     });
 
-    // Acción (Live o candado)
+    // Acción (Live, candado o descarga)
     const action = clone.querySelector('[data-role="action"]');
+
     if (app.live) {
+      // Botón Live
       const a = document.createElement('a');
       a.href = app.live;
       a.target = '_blank';
       a.className = 'w-10 h-10 flex items-center justify-center text-white text-lg bg-indigo-600 hover:bg-indigo-700 rounded-full transition-all';
       a.innerHTML = '<i class="bi bi-box-arrow-up-right"></i>';
       action.appendChild(a);
+
+    } else if (app.download) {
+      // Botón Descargar
+      const a = document.createElement('a');
+      a.href = app.download;
+      a.download = ''; // fuerza descarga
+      a.className = 'w-10 h-10 flex items-center justify-center text-white text-lg bg-green-600 hover:bg-green-700 rounded-full transition-all';
+      a.innerHTML = '<i class="bi bi-download"></i>';
+      action.appendChild(a);
+
     } else {
+      // Bloqueado
       const span = document.createElement('span');
       span.className = 'w-10 h-10 flex items-center justify-center text-white text-lg bg-gray-500 rounded-full';
       span.innerHTML = '<i class="bi bi-lock-fill"></i>';
