@@ -389,3 +389,32 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Bordes de error y éxito */
+input.error, textarea.error {
+  border: 2px solid #e3342f; /* rojo */
+}
+
+input.success, textarea.success {
+  border: 2px solid #38c172; /* verde */
+}
+
+/* Mensajes de error (ya fuera del relative) */
+.error-message {
+  color: #e3342f;
+  font-size: 0.875rem; /* 14px aprox */
+  margin-top: 4px;
+  min-height: 1rem; /* reserva espacio para evitar "saltos" */
+}
+
+/* Contenedor del ícono */
+.input-icon {
+  position: absolute;
+  left: 0.75rem;   /* ~12px */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;  /* gris */
+  pointer-events: none;
+  width: 20px;
+  text-align: center;
+}

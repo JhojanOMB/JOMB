@@ -44,6 +44,9 @@ function cargarContenido(url) {
         renderPortafolio(portafolioData);
         setupPortafolioControls();
       }
+      if (document.getElementById("contenedor-faq")) {
+        insertarPreguntasFrecuentes();
+      }
     })
     .catch((error) => {
       document.querySelector("main").innerHTML =
@@ -274,4 +277,61 @@ function setupPortafolioControls() {
 
   // Render inicial
   apply();
+}
+
+// ------------------ Preguntas Frecuentes ------------------
+function insertarPreguntasFrecuentes() {
+  const faqs = [
+    { pregunta: "¿Cómo puedo solicitar un servicio?", respuesta: "Puedes usar el formulario de contacto o escribirnos directamente a WhatsApp." },
+    { pregunta: "¿Trabajan de forma remota?", respuesta: "Sí, ofrecemos soporte remoto y presencial según el caso." },
+    { pregunta: "¿Aceptan pagos en línea?", respuesta: "Sí, aceptamos transferencias, tarjetas y plataformas digitales." },
+    { pregunta: "¿Qué tiempo tardan en responder?", respuesta: "Generalmente respondemos en menos de 24 horas." }
+  ];
+
+  const contenedor = document.getElementById("contenedor-faq");
+  if (!contenedor) return;
+  contenedor.innerHTML = ""; // limpiar
+
+  faqs.forEach((f, i) => {
+    const delay = (i + 1) * 100;
+    contenedor.innerHTML += `
+      <div class="border border-gray-200 rounded-lg overflow-hidden neumorph" data-aos="fade-up" data-aos-delay="${delay}">
+        <button type="button" class="faq-toggle w-full flex items-center justify-between px-4 py-3 bg-gray-100 hover:bg-gray-200 transition focus:outline-none">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-question-circle text-indigo-600"></i>
+            <span class="font-medium text-gray-800">${f.pregunta}</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-gray-600"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden px-4 bg-white text-gray-700 border-t border-gray-200 transition-all duration-300">
+          <p class="py-3">${f.respuesta}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  // Añadir listeners
+  contenedor.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('i.fa-chevron-down, i.fa-chevron-up');
+
+      // Si ya está abierto, cerrarlo
+      if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+        answer.style.maxHeight = '0px';
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      } else {
+        // opcional: cerrar otros (si quieres comport. accordion)
+        contenedor.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+        contenedor.querySelectorAll('.faq-toggle i.fa-chevron-up').forEach(ic => { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); });
+
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+      }
+    });
+  });
+
+  if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
 }

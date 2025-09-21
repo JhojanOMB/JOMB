@@ -1,116 +1,118 @@
 <body class="bg-gray-50 text-gray-800 relative px-6 py-10 lg:px-24">
 
-  <!-- Sección Contacto -->
-  <section id="contacto" class="py-16">
-    <div class="max-w-2lg mx-auto px-20">
-      <div class="neumorph rounded-3xl p-8 lg:p-12" data-aos="fade-up">
-        <h2 class="text-3xl font-semibold text-center mb-4">¿Listo para Potenciar tu Tecnología?</h2>
-        <p class="text-center text-gray-600 mb-8">
+<!-- Sección Contacto -->
+<section id="contacto" class="py-16">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 neumorph rounded-3xl p-8 lg:p-12" data-aos="fade-up">
+
+      <!-- Columna: Formulario -->
+      <div>
+        <h2 class="text-3xl font-semibold text-center md:text-left mb-4">
+          ¿Listo para Potenciar tu Tecnología?
+        </h2>
+        <p class="text-center md:text-left text-gray-600 mb-8">
           Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
         </p>
 
-      <!-- Formulario -->
-      <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
-        <!-- Nombre -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-user text-sm"></i>
-          </span>
-          <input name="nombre" type="text" placeholder="Tu nombre" required
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
+        <!-- Formulario -->
+        <form id="contact-form" class="grid grid-cols-1 gap-6" novalidate>
+          <!-- Nombre -->
+          <div class="relative">
+            <div class="input-icon">
+              <i class="fa-solid fa-user text-sm"></i>
+            </div>
+            <input name="nombre" type="text" placeholder="Tu nombre" required
+              class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset border border-gray-200 text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+          </div>
+          <p class="error-message hidden">El nombre es obligatorio</p>
 
-        <!-- Empresa -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-building text-sm"></i>
-          </span>
-          <input name="empresa" type="text" placeholder="Empresa"
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
+          <!-- Empresa -->
+          <div class="relative">
+            <div class="input-icon">
+              <i class="fa-solid fa-building text-sm"></i>
+            </div>
+            <input name="empresa" type="text" placeholder="Empresa"
+              class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset border border-gray-200 text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+          </div>
+          <p class="error-message hidden"></p>
 
-        <!-- Correo -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-envelope text-sm"></i>
-          </span>
-          <input name="correo" type="email" placeholder="Tu correo electrónico" required
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
+          <!-- Correo -->
+          <div class="relative">
+            <div class="input-icon">
+              <i class="fa-solid fa-envelope text-sm"></i>
+            </div>
+            <input name="correo" type="email" placeholder="Tu correo electrónico" required
+              class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset border border-gray-200 text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+          </div>
+          <p class="error-message hidden"></p>
 
-        <!-- Teléfono -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-phone text-sm"></i>
-          </span>
-          <input name="telefono" type="tel" placeholder="Tu número telefónico" required pattern="^[0-9]{7,15}$"
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
+          <!-- Teléfono -->
+          <div class="relative">
+            <div class="input-icon">
+              <i class="fa-solid fa-phone text-sm"></i>
+            </div>
+            <input name="telefono" type="tel" placeholder="Tu número telefónico" required pattern="^[0-9]{7,15}$"
+              class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset border border-gray-200 text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+          </div>
+          <p class="error-message hidden"></p>
 
-        <!-- Mensaje -->
-        <div class="md:col-span-2 relative">
-          <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
-            <i class="fa-solid fa-message text-sm"></i>
-          </span>
-          <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o idea" required
-                    class="peer w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-indigo-300"></textarea>
-        </div>
+          <!-- Mensaje -->
+          <div class="relative">
+            <div class="input-icon top-4">
+              <i class="fa-solid fa-message text-sm"></i>
+            </div>
+            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o idea" required
+              class="peer w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset border border-gray-200 text-sm sm:text-base focus:ring-2 focus:ring-indigo-300"></textarea>
+          </div>
+          <p class="error-message hidden"></p>
 
-        <!-- Botón -->
-        <div class="md:col-span-2 text-center mt-4">
+          <!-- Botón -->
+          <div class="text-center mt-4">
             <button type="submit"
-                    class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2"
-                    >
-                      <g style="filter: url(#shadow)">
-                        <path
-                          d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
-                          fill="currentColor"
-                        ></path>
-                      </g>
-                      <defs>
-                        <filter id="shadow">
-                          <fedropshadow
-                            dx="0"
-                            dy="1"
-                            stdDeviation="0.6"
-                            flood-opacity="0.5"
-                          ></fedropshadow>
-                        </filter>
-                      </defs>
-                    </svg> Enviar Mensaje
+              class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Mensaje
             </button>
-        </div>
-      </form>
+          </div>
+        </form>
       </div>
+
+      <!-- Columna: Datos de contacto -->
+      <div class="flex flex-col space-y-6 text-center md:text-left">
+        <h3 class="text-2xl font-semibold">Datos para comunicarse</h3>
+        <p class="text-gray-600">Puedes escribirnos o llamarnos directamente:</p>
+
+        <div class="space-y-4">
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <i class="fa-solid fa-envelope text-violet-500"></i>
+            <a href="mailto:
+            jombcorreos@gmail.com" class="hover:underline">jombcorreos@gmail.com</a>
+          </p>
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <i class="fa-solid fa-phone text-violet-500"></i>
+            <a href="tel:+57 302 593 45 18" class="hover:underline">+57 302 593 45 18</a>
+          </p>
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <i class="fa-solid fa-location-dot text-violet-500"></i>
+            Cll 123 #45-67, Bogotá, Colombia
+          </p>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-4 mt-4">
+          <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61579810604956" class="text-violet-500 hover:text-violet-700"><i class="fa-brands fa-facebook fa-lg"></i></a>
+          <a href="https://www.instagram.com/jomb_tecnologias/" class="text-violet-500 hover:text-violet-700"><i class="fa-brands fa-instagram fa-lg"></i></a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Sección Preguntas Frecuentes -->
   <section id="faq" class="bg-white mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12" data-aos="fade-up">
     <div class="max-w-4xl mx-auto">
       <h3 class="text-3xl font-semibold text-center mb-8">Preguntas Frecuentes</h3>
-      <div class="space-y-4" id="faqAccordion">
-        {% for item in faqs %}
-        <div x-data="{ open: {{ forloop.first|yesno:'true,false' }} }" class="border border-gray-200 rounded-lg overflow-hidden neumorph">
-          <button @click="open = !open"
-                  class="w-full flex items-center justify-between px-4 py-3 bg-gray-100 focus:outline-none">
-            <div class="flex items-center space-x-2">
-              <i class="fa-solid fa-question-circle text-indigo-600"></i>
-              <span class="font-medium">{{ item.pregunta }}</span>
-            </div>
-            <i :class="open ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'" class="text-gray-600"></i>
-          </button>
-          <div x-show="open" x-collapse class="px-4 py-3 bg-white text-gray-700 neumorph-inset">
-            {{ item.respuesta }}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+      <div class="space-y-4" id="contenedor-faq"><!-- Aquí se cargarán las FAQ dinámicamente --></div>
     </div>
   </section>
 
