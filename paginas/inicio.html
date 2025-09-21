@@ -1,27 +1,38 @@
 <body class="bg-gray-50 text-gray-800 relative px-6 py-10 lg:px-24">
 
 <!-- Hero -->
-<section id="inicio" role="banner" class="relative bg-gradient-to-br from-gray-400 via-white to-purple-200 pt-20 pb-32 overflow-hidden"
->
+<section id="inicio" role="banner"
+  class="relative bg-gradient-to-br from-white via-zinc-300 to-violet-950 pt-20 pb-32 overflow-hidden">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
+    
+    <!-- Texto -->
     <div class="space-y-6" data-aos="fade-right">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white leading-tight font-bold">
-        Soluciones a tu <span class="text-purple-800">Alcance</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-tight font-bold">
+        Soluciones a tu <span class="text-purple-600">Alcance</span>
       </h1>
-      <p class="text-lg text-white max-w-lg">
+
+      <p class="text-lg text-gray-600 max-w-lg">
         Expertos en creación de sitios web de alta calidad. Creamos experiencias digitales únicas que potencian el impacto de tu marca.
       </p>
-        <a href="#contacto" aria-label="Contáctanos" onclick="cargarContenido('paginas/contacto.html')" class="inline-block btn-neumorph-morado rounded-full py-2 px-6"        >
-          Contáctanos
-        </a>
+
+      <!-- Botón: opción A = usa tu clase neumórfica morada (si quieres mantenerla) -->
+      <a href="#contacto" aria-label="Contáctanos" onclick="cargarContenido('paginas/contacto.html')"
+        class="inline-block btn-neumorph-morado text-white rounded-full py-2 px-6 shadow-sm">
+        Contáctanos
+      </a>
+
     </div>
+
+    <!-- Imagen (envoltorio blanco neutro para integrar la mascota) -->
     <div class="flex justify-center" data-aos="fade-left">
-      <img
-        src="./img/Jomby Saludando.png"
-        alt="Mascota Jomby saludando"
-        class="w-80 animate__animated animate__fadeIn"
-        loading="lazy"
-      >
+      <div class="rounded-2xl p-4">
+        <img
+          src="./img/Jomby Saludando.png"
+          alt="Mascota Jomby saludando"
+          class="w-72"
+          loading="lazy"
+        >
+      </div>
     </div>
   </div>
 </section>
@@ -72,47 +83,60 @@
   <section id="contacto" class="py-16">
     <div class="max-w-2lg mx-auto px-20">
       <div class="neumorph rounded-3xl p-8 lg:p-12" data-aos="fade-up">
-        <h2 class="text-3xl text-center mb-8 font-semibold">Contáctanos</h2>
+        <h2 class="text-3xl font-semibold text-center mb-4">¿Listo para Potenciar tu Tecnología?</h2>
+        <p class="text-center text-gray-600 mb-8">
+          Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+        </p>
 
-        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
-          <!-- Nombre -->
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-              <i class="fa-solid fa-user"></i>
-            </span>
-            <input name="nombre" type="text" placeholder="Tu nombre" required
-                  class="w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset focus:ring-2 focus:ring-indigo-300" />
-          </div>
+      <!-- Formulario -->
+      <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
+        <!-- Nombre -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+            <i class="fa-solid fa-user text-sm"></i>
+          </span>
+          <input name="nombre" type="text" placeholder="Tu nombre" required
+                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+        </div>
 
-          <!-- Correo -->
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-              <i class="fa-solid fa-envelope"></i>
-            </span>
-            <input name="correo" type="email" placeholder="Tu correo electrónico" required
-                  class="w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset focus:ring-2 focus:ring-indigo-300" />
-          </div>
+        <!-- Empresa -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+            <i class="fa-solid fa-building text-sm"></i>
+          </span>
+          <input name="empresa" type="text" placeholder="Empresa"
+                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+        </div>
 
-          <!-- Teléfono -->
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-              <i class="fa-solid fa-phone"></i>
-            </span>
-            <input name="telefono" type="tel" placeholder="Tu número telefónico" required
-                  class="w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset focus:ring-2 focus:ring-indigo-300" />
-          </div>
+        <!-- Correo -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+            <i class="fa-solid fa-envelope text-sm"></i>
+          </span>
+          <input name="correo" type="email" placeholder="Tu correo electrónico" required
+                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+        </div>
 
-          <!-- Mensaje -->
-          <div class="md:col-span-2 relative">
-            <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
-              <i class="fa-solid fa-message"></i>
-            </span>
-            <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje" required
-                      class="w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset focus:ring-2 focus:ring-indigo-300"></textarea>
-          </div>
+        <!-- Teléfono -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+            <i class="fa-solid fa-phone text-sm"></i>
+          </span>
+          <input name="telefono" type="tel" placeholder="Tu número telefónico" required pattern="^[0-9]{7,15}$"
+                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+        </div>
 
-          <!-- Botón -->
-          <div class="md:col-span-2 text-center mt-4">
+        <!-- Mensaje -->
+        <div class="md:col-span-2 relative">
+          <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
+            <i class="fa-solid fa-message text-sm"></i>
+          </span>
+          <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o idea" required
+                    class="peer w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-indigo-300"></textarea>
+        </div>
+
+        <!-- Botón -->
+        <div class="md:col-span-2 text-center mt-4">
             <button type="submit"
                     class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
                     <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2"
@@ -139,14 +163,22 @@
                       </defs>
                     </svg> Enviar Mensaje
             </button>
-          </div>
-        </form>
-
-        <!-- Mensaje de estado -->
-        <p id="form-msg" class="hidden mt-4 text-center text-lg neumorph-inset p-4"></p>
+        </div>
+      </form>
       </div>
     </div>
   </section>
+
+  <!-- Modal oculto -->
+  <div id="modal-msg" class="fixed inset-0 hidden bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 text-center shadow-xl max-w-sm w-full">
+      <p id="modal-text" class="text-lg font-medium mb-4"></p>
+      <button id="closeModal" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
 
   <!-- Scripts sin estilos inline -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>

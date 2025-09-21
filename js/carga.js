@@ -1,14 +1,13 @@
 // carga.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Leer la última URL guardada (o usar la de inicio por defecto)
-  const ultimaUrl = localStorage.getItem('ultimaPagina') || "paginas/inicio.html";
+  const ultimaUrl = localStorage.getItem("ultimaPagina") || "paginas/inicio.html";
   cargarContenido(ultimaUrl).then(() => {
     // 2. Restaurar scroll si lo guardaste antes
-    const y = parseInt(localStorage.getItem('ultimaPosY'), 10);
+    const y = parseInt(localStorage.getItem("ultimaPosY"), 10);
     if (!isNaN(y)) {
-      window.scrollTo({ top: y, behavior: 'auto' });
-      localStorage.removeItem('ultimaPosY');
+      window.scrollTo({ top: y, behavior: "auto" });
+      localStorage.removeItem("ultimaPosY");
     }
   });
 });
@@ -16,53 +15,58 @@ document.addEventListener("DOMContentLoaded", () => {
 // Carga dinámica de contenido y guardado de estado
 function cargarContenido(url) {
   return fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error('No se pudo cargar la página');
+    .then((response) => {
+      if (!response.ok) throw new Error("No se pudo cargar la página");
       return response.text();
     })
-    .then(html => {
-      // Inyecta el HTML en el <main>
-      document.querySelector('main').innerHTML = html;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    .then((html) => {
+      // Inyecta el HTML en <main>
+      document.querySelector("main").innerHTML = html;
+
+      // Subir al inicio
+      window.scrollTo({ top: 0, behavior: "smooth" });
 
       // Guardar la URL actual
-      localStorage.setItem('ultimaPagina', url);
+      localStorage.setItem("ultimaPagina", url);
 
-      // Detectar y renderizar módulos dinámicos
-      if (document.getElementById('contenedor-servicios')) {
+      // --- REINICIALIZAR COMPONENTES DINÁMICOS ---
+      if (typeof inicializarFormContacto === "function") {
+        inicializarFormContacto();
+      }
+
+      if (document.getElementById("contenedor-servicios")) {
         insertarTarjetasServicios();
       }
-      if (document.getElementById('proyectos-grid')) {
+      if (document.getElementById("proyectos-grid")) {
         insertarProyectosDestacados();
       }
-      if (document.getElementById('portafolio-grid')) {
+      if (document.getElementById("portafolio-grid")) {
         renderPortafolio(portafolioData);
         setupPortafolioControls();
       }
     })
-    .catch(error => {
-      document.querySelector('main').innerHTML =
+    .catch((error) => {
+      document.querySelector("main").innerHTML =
         `<div class="alert alert-danger">Error: ${error.message}</div>`;
     });
 }
 
 // Antes de recargar o cerrar, guardo scroll
-window.addEventListener('beforeunload', () => {
-  localStorage.setItem('ultimaPosY', window.scrollY);
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem("ultimaPosY", window.scrollY);
 });
 
 // ------------------ Servicios ------------------
-
 function insertarTarjetasServicios() {
   const servicios = [
-    { titulo: "Diseño Web Profesional", icono: "bi-globe2", resumen: "Sitios modernos, rápidos y adaptables.", detalles: "Optimización móvil, SEO básico y diseño visual atractivo." },
-    { titulo: "Gestión de Computadores", icono: "bi-pc-display-horizontal", resumen: "Equipos seguros y corporativos.", detalles: "Instalación, limpieza, bloqueo de accesos y más." },
-    { titulo: "Software Legal", icono: "bi-download", resumen: "Instalación de todo tu software.", detalles: "Office, Adobe, antivirus, navegadores y más." },
-    { titulo: "Mantenimiento y Soporte", icono: "bi-tools", resumen: "Respaldo y monitoreo continuo.", detalles: "Actualizaciones, parches de seguridad y asistencia 24/7." },
-    { titulo: "Consultoría Tecnológica", icono: "bi-people", resumen: "Estrategia para tu infraestructura.", detalles: "Diagnóstico, optimización de procesos y roadmap tecnológico." },
-    { titulo: "Apps Móviles", icono: "bi-phone", resumen: "iOS y Android nativas o híbridas.", detalles: "Diseño UX/UI, integración con tu backend y publicación en tiendas." },
-    { titulo: "Integración de APIs", icono: "bi-plug", resumen: "Conecta tus sistemas.", detalles: "REST, GraphQL, servicios de terceros (pagos, mapas, mensajería...)." },
-    { titulo: "SEO y Rendimiento", icono: "bi-speedometer2", resumen: "Mejora tu visibilidad en Google.", detalles: "Auditoría SEO, Core Web Vitals y optimización de carga." },
+    { titulo: "Diseño Web Profesional", icono: "bi bi-globe2", resumen: "Sitios modernos, rápidos y adaptables.", detalles: "Optimización móvil, SEO básico y diseño visual atractivo." },
+    { titulo: "Gestión de Computadores", icono: "bi bi-pc-display-horizontal", resumen: "Equipos seguros y corporativos.", detalles: "Instalación, limpieza, bloqueo de accesos y más." },
+    { titulo: "Software Legal", icono: "bi bi-download", resumen: "Instalación de todo tu software.", detalles: "Office, Adobe, antivirus, navegadores y más." },
+    { titulo: "Mantenimiento y Soporte", icono: "bi bi-tools", resumen: "Respaldo y monitoreo continuo.", detalles: "Actualizaciones, parches de seguridad y asistencia 24/7." },
+    { titulo: "Consultoría Tecnológica", icono: "bi bi-people", resumen: "Estrategia para tu infraestructura.", detalles: "Diagnóstico, optimización de procesos y roadmap tecnológico." },
+    { titulo: "Apps Móviles", icono: "bi bi-phone", resumen: "iOS y Android nativas o híbridas.", detalles: "Diseño UX/UI, integración con tu backend y publicación en tiendas." },
+    { titulo: "Integración de APIs", icono: "bi bi-plug", resumen: "Conecta tus sistemas.", detalles: "REST, GraphQL, servicios de terceros (pagos, mapas, mensajería...)." },
+    { titulo: "SEO y Rendimiento", icono: "bi bi-speedometer2", resumen: "Mejora tu visibilidad en Google.", detalles: "Auditoría SEO, Core Web Vitals y optimización de carga." },
   ];
 
   const contenedor = document.getElementById("contenedor-servicios");
@@ -75,7 +79,11 @@ function insertarTarjetasServicios() {
       <div class="flip-card-inner relative w-full h-full">
         <!-- Front -->
         <div class="flip-card-front bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[8px_8px_16px_#bebebe,_-8px_-8px_16px_#ffffff]">
-          <div class="text-indigo-600 text-4xl mb-4 w-20 h-20 rounded-full neumorph-inset p-4"><i class="${s.icono}"></i></div>
+          <!-- Círculo con icono centrado usando solo Tailwind -->
+          <div class="mb-4 w-20 h-20 rounded-full flex items-center justify-center bg-[#e0e0e0] overflow-hidden shadow-[inset_6px_6px_12px_#bebebe,_inset_-6px_-6px_12px_#ffffff]">
+            <i class="${s.icono} text-indigo-600 text-3xl block leading-none"></i>
+          </div>
+
           <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">${s.titulo}</h3>
           <p class="text-gray-600 text-center">${s.resumen}</p>
         </div>

@@ -1,60 +1,87 @@
-  document.addEventListener('DOMContentLoaded', () => {
-    AOS.init({ duration: 800, once: true });
+// contacto.js
+function inicializarFormContacto() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('show', window.scrollY > 300);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  const modal = document.getElementById("modal-msg");
+  const modalText = document.getElementById("modal-text");
+  const closeModal = document.getElementById("closeModal");
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-    // Elementos del formulario y botón
-    const form = document.getElementById('contact-form');
-    const msgP = document.getElementById('form-msg');
-    const btn = document.getElementById('submitBtn');
-    const plane = document.getElementById('planeIcon');
-    const text = document.getElementById('btnText');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxONhzAPwqITYawZ4qx7cvn4w4d8XLdC-FD3L7lclTToSvIFnPa3hnJTrUPznKpdvaXsA/exec';
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    // Un solo submit para animación + envío
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msgP.classList.add('hidden');
+    // --- VALIDACIONES ---
+    const nombre = form.nombre.value.trim();
+    const correo = form.correo.value.trim();
+    const telefono = form.telefono.value.trim();
+    const mensaje = form.mensaje.value.trim();
 
-      // 🔹 Animación
-      plane.style.animation = "flyAway 1s forwards";
-      text.classList.add("fade-out");
-      btn.disabled = true;
+    if (nombre.length < 2) {
+      mostrarModal("❌ Ingresa un nombre válido (mínimo 2 letras).");
+      return;
+    }
 
-      // 🔹 Datos
-      const datos = {
-        nombre: form.nombre.value.trim(),
-        correo: form.correo.value.trim(),
-        telefono: form.telefono.value.trim(),
-        mensaje: form.mensaje.value.trim()
-      };
+    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!correoRegex.test(correo)) {
+      mostrarModal("❌ Ingresa un correo válido.");
+      return;
+    }
 
-      try {
-        const respuesta = await fetch(scriptURL, {
-          method: 'POST',
-          body: JSON.stringify(datos),
-          headers: { 'Content-Type': 'application/json' }
-        });
+    const telRegex = /^[0-9]{7,15}$/;
+    if (!telRegex.test(telefono)) {
+      mostrarModal("❌ Ingresa un teléfono válido (7 a 15 números).");
+      return;
+    }
 
-        const json = await respuesta.json();
+    if (mensaje.length < 5) {
+      mostrarModal("❌ El mensaje debe tener al menos 5 caracteres.");
+      return;
+    }
 
-        msgP.textContent = (json.status === 'success' ? '✅ ' : '❌ ') + json.detail;
-        msgP.className = 'mt-4 text-center ' + (json.status === 'success' ? 'text-green-600' : 'text-red-600');
+    // --- BLOQUEAR BOTÓN ---
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
 
-        if (json.status === 'success') {
-          form.reset();
+    try {
+      const datos = new FormData(form);
+      const r = await fetch(
+        "https://script.google.com/macros/s/AKfycbxONhzAPwqITYawZ4qx7cvn4w4d8XLdC-FD3L7lclTToSvIFnPa3hnJTrUPznKpdvaXsA/exec",
+        {
+          method: "POST",
+          body: datos,
         }
-      } catch (err) {
-        msgP.textContent = '❌ Error: ' + err.message;
-        msgP.className = 'mt-4 text-center text-red-600';
-      }
+      );
 
-      msgP.classList.remove('hidden');
-    });
+      const json = await r.json();
+
+      if (json.status === "success") {
+        mostrarModal("✅ " + json.detail);
+        form.reset();
+      } else {
+        mostrarModal("❌ " + json.detail);
+      }
+    } catch (err) {
+      mostrarModal("❌ Error: " + err.message);
+    }
+
+    // --- DESBLOQUEAR BOTÓN ---
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar Mensaje";
   });
+
+  // Función para mostrar el modal
+  function mostrarModal(msg) {
+    modalText.textContent = msg;
+    modal.classList.remove("hidden");
+  }
+
+  // Eventos para cerrar modal
+  closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
+}
