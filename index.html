@@ -186,6 +186,22 @@
   </button>
   
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({
+      duration: 1.2,  // velocidad
+      smooth: true
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  </script>
+
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>AOS.init({duration:800,once:true});</script>
   <script>new WOW({boxClass:'wow',animateClass:'animate__animated',offset:100,mobile:true,live:true}).init();</script>
