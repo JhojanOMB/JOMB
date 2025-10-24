@@ -1,4 +1,4 @@
-// carga.js (versión optimizada y robusta)
+// js/carga.js (versión completa, ajustada y parcheada)
 (() => {
   // ---------- Config ----------
   const DEFAULT_PAGE = "paginas/inicio.html";
@@ -9,9 +9,9 @@
   const FETCH_TIMEOUT = 8000; // ms
 
   // ---------- Helpers ----------
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const clearChildren = (el) => { while (el.firstChild) el.removeChild(el.firstChild); };
+  const $ = (sel, root = document) => root && root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from((root || document).querySelectorAll(sel));
+  const clearChildren = (el) => { if (!el) return; while (el.firstChild) el.removeChild(el.firstChild); };
   const create = (tag, props = {}, children = []) => {
     const el = document.createElement(tag);
     Object.entries(props).forEach(([k, v]) => {
@@ -29,6 +29,7 @@
   };
 
   async function safeFetch(url, timeout = FETCH_TIMEOUT) {
+    // Nota: fetch desde file:// no funcionará; prueba con un servidor local si es el caso.
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), timeout);
     try {
@@ -41,7 +42,7 @@
     }
   }
 
-  // ---------- Data (puedes mantenerlas igual que antes) ----------
+  // ---------- Data (las mismas que tenías) ----------
   const servicios = [
     { titulo: "Diseño Web Profesional", icono: "bi bi-globe2", resumen: "Sitios modernos, rápidos y adaptables.", detalles: "Optimización móvil, SEO básico y diseño visual atractivo." },
     { titulo: "Gestión de Computadores", icono: "bi bi-pc-display-horizontal", resumen: "Equipos seguros y corporativos.", detalles: "Instalación, limpieza, bloqueo de accesos y más." },
@@ -62,7 +63,7 @@
     { nombre: 'Tienda Online', descripcion: 'E-commerce con carrito dinámico y pasarela de pagos.', imagen: 'img/JOMB.webp', live: "http://217.196.48.97/", category: 'web', tech: ['Django', 'Bootstrap', 'Tailwind', 'Chart.js'] },
     { nombre: 'Masivos OLÉ! Logistics', descripcion: 'Sistema de gestión logistico con gráficos para manejo de cotizaciones de transporte.', imagen: 'img/JOMB.webp', live: "https://masivosolelogistics.com/", category: 'web', tech: ['Django', 'Bootstrap', 'Chart.js'] },
     { nombre: 'Finanworld', descripcion: 'Sistema de créditos de libranza pensados para pensionados.', imagen: 'img/JOMB.webp', live: "https://jhojanomb.github.io/Finanworld/", category: 'web', tech: ['Django', 'Tailwind'] },
-    { nombre: 'Youtube-JOMB', descripcion: 'Aplicativo para descargar videos y audios de YouTube en múltiples formatos, sirve para Windows y Linux.', imagen: 'img/JOMB.webp', download: "https://github.com/JhojanOMB/Youtube-JOMB/releases/latest", category: 'desktop', tech: ['Python', 'Tkinter', 'Pytube'] },
+    { nombre: 'Youtube-JOMB', descripcion: 'Aplicativo para descargar videos y audios de YouTube en múltiples formatos, sirve para Windows y Linux.', imagen: 'img/JOMB.webp', download: "https://github.com/JhojanOMB/Youtube-JOMB/releases/latest", category: 'movil', tech: ['Python', 'Tkinter', 'Pytube'] },
   ];
 
   const faqs = [
@@ -72,7 +73,7 @@
     { pregunta: "¿Qué tiempo tardan en responder?", respuesta: "Generalmente respondemos en menos de 24 horas." }
   ];
 
-  // ---------- Renderers y Setup ----------
+  // ---------- Renderers y Setup (sin cambios funcionales) ----------
   function renderServicios() {
     const container = document.getElementById("contenedor-servicios");
     if (!container) return;
@@ -278,10 +279,11 @@
     if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
   }
 
-  // ---------- Carga dinámica ----------
+  // ---------- Carga dinámica (fix: busca #content o <main>) ----------
   async function cargarContenido(url) {
-    const main = $('main');
-    if (!main) throw new Error("Elemento <main> no encontrado en el DOM");
+    // Soportar tanto id="content" como elemento <main>
+    const main = document.getElementById('content') || document.querySelector('main');
+    if (!main) throw new Error("Elemento <main> o #content no encontrado en el DOM");
 
     try {
       const html = await safeFetch(url);
@@ -289,7 +291,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
       localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, url);
 
-      // Ejecutar reinicializadores (en try/catch internamente)
+      // Ejecutar reinicializadores
       inicializadoresPostCarga();
     } catch (err) {
       console.error("Error al cargar contenido:", err);
@@ -310,10 +312,46 @@
     }
   }
 
+  // ---------- Interceptar clicks en enlaces que usan onclick inline o data-load ----------
+  document.addEventListener('click', (e) => {
+    // Si hay un <a> padre del target
+    const a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+
+    // 1) Si tiene atributo data-load -> usamos esa ruta
+    const dataLoad = a.dataset && a.dataset.load;
+    if (dataLoad) {
+      e.preventDefault();
+      cargarContenido(dataLoad).catch(err => console.error(err));
+      return;
+    }
+
+    // 2) Si tiene onclick inline que llama a cargarContenido('ruta') -> interceptamos y evitamos navegación
+    const onclick = a.getAttribute && a.getAttribute('onclick');
+    if (onclick && onclick.includes('cargarContenido')) {
+      e.preventDefault();
+      const m = onclick.match(/cargarContenido\(\s*['"]([^'"]+)['"]\s*\)/);
+      if (m && m[1]) {
+        cargarContenido(m[1]).catch(err => console.error(err));
+      } else {
+        // si no se pudo parsear, intentamos llamar global (por compatibilidad)
+        try { window.cargarContenido && window.cargarContenido(null); } catch (er) {}
+      }
+      return;
+    }
+
+    // 3) Si es href="" o href="#" y no existe uso explícito -> evitar recarga accidental
+    const href = a.getAttribute('href');
+    if (href === '' || href === '#') {
+      // prevenimos recarga; si el enlace tiene data-load debería haberse manejado antes
+      e.preventDefault();
+    }
+  }, true);
+
   // ---------- Inicio / Restauración ----------
   document.addEventListener("DOMContentLoaded", async () => {
     const ultimaUrl = localStorage.getItem(STORAGE_KEYS.ULTIMA_PAGINA) || DEFAULT_PAGE;
-    await cargarContenido(ultimaUrl);
+    try { await cargarContenido(ultimaUrl); } catch (e) { console.warn(e); }
 
     // Restaurar scroll si existe (y luego borrar la clave)
     const y = parseInt(localStorage.getItem(STORAGE_KEYS.ULTIMA_POS_Y), 10);
@@ -328,9 +366,18 @@
     try { localStorage.setItem(STORAGE_KEYS.ULTIMA_POS_Y, window.scrollY); } catch (e) { /* no crítico */ }
   });
 
-  // Exponer función para solicitudes externas (si lo necesitas)
-  window.appCarga = {
-    cargarContenido, // permite llamar appCarga.cargarContenido(url) desde otros scripts
-    renderServicios, renderProyectos, renderPortafolio, renderFAQ
+  // ---------- Exponer API pública ----------
+  window.appCarga = window.appCarga || {};
+  window.appCarga.cargarContenido = cargarContenido;
+  window.appCarga.renderServicios = renderServicios;
+  window.appCarga.renderProyectos = renderProyectos;
+  window.appCarga.renderPortafolio = renderPortafolio;
+  window.appCarga.renderFAQ = renderFAQ;
+
+  // Para compatibilidad con onclick inline: onclick="cargarContenido('paginas/..')"
+  window.cargarContenido = function(url) {
+    if (!url) return;
+    cargarContenido(url).catch(err => console.error(err));
   };
+
 })();
