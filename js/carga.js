@@ -1,4 +1,4 @@
-// js/carga.js — Versión final, idempotente y compatible con tu HTML
+// js/carga.js — Versión final, idempotente
 (() => {
   // Evitar doble inicialización si el script se carga más de una vez
   if (window.appCarga && window.appCarga._initialized) return;
