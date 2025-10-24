@@ -1,8 +1,24 @@
-// js/carga.js — Versión final, idempotente
+// js/carga.js — Versión final, idempotente y compatible con onclick inline
 (() => {
-  // Evitar doble inicialización si el script se carga más de una vez
+  // Si ya está inicializado, salir
   if (window.appCarga && window.appCarga._initialized) return;
   const MODULE = {};
+
+  // ---------- Alias global provisional para evitar ReferenceError en onclick inline ----------
+  // Si alguien llama cargarContenido antes de que el módulo esté listo, encolamos la petición.
+  if (!window.cargarContenido) {
+    window._pendingCarga = window._pendingCarga || [];
+    window.cargarContenido = function(url) {
+      if (window.appCarga && typeof window.appCarga.cargarContenido === 'function') {
+        return window.appCarga.cargarContenido(url);
+      }
+      window._pendingCarga.push(url);
+      return Promise.resolve();
+    };
+  } else {
+    // asegurarnos de que la cola exista si hay un alias preexistente
+    window._pendingCarga = window._pendingCarga || [];
+  }
 
   // ---------- Config ----------
   const DEFAULT_PAGE = "paginas/inicio.html";
@@ -379,6 +395,40 @@
     renderFAQ,
     initNavHandlers
   });
+
+  // Procesar llamadas encoladas mientras el módulo se inicializaba
+  if (window._pendingCarga && window._pendingCarga.length) {
+    const pend = window._pendingCarga.slice();
+    window._pendingCarga = [];
+    pend.forEach(p => {
+      try { window.appCarga.cargarContenido(p); } catch (e) { console.warn("Error ejecutando pending carga:", e); }
+    });
+  }
+
+  // Asegurar alias global definitivo (compatibilidad con onclick inline)
+  if (!window.cargarContenido || window.cargarContenido === Function.prototype) {
+    window.cargarContenido = function(url) {
+      if (window.appCarga && typeof window.appCarga.cargarContenido === 'function') {
+        return window.appCarga.cargarContenido(url);
+      }
+      window._pendingCarga = window._pendingCarga || [];
+      window._pendingCarga.push(url);
+      return Promise.resolve();
+    };
+  } else {
+    // si ya existía, reemplazarlo por uno que delega a appCarga (más seguro)
+    const prev = window.cargarContenido;
+    window.cargarContenido = function(url) {
+      if (window.appCarga && typeof window.appCarga.cargarContenido === 'function') {
+        return window.appCarga.cargarContenido(url);
+      }
+      // si prev era una función que hacía algo útil, intentamos llamar también
+      try { prev(url); } catch (e) {}
+      window._pendingCarga = window._pendingCarga || [];
+      window._pendingCarga.push(url);
+      return Promise.resolve();
+    };
+  }
 
   // marcar módulo interno como inicializado
   MODULE._initialized = true;
