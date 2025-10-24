@@ -1,5 +1,9 @@
-// js/carga.js (versión completa, ajustada y parcheada)
+// js/carga.js — Versión final, idempotente y compatible con tu HTML
 (() => {
+  // Evitar doble inicialización si el script se carga más de una vez
+  if (window.appCarga && window.appCarga._initialized) return;
+  const MODULE = {};
+
   // ---------- Config ----------
   const DEFAULT_PAGE = "paginas/inicio.html";
   const STORAGE_KEYS = {
@@ -9,18 +13,18 @@
   const FETCH_TIMEOUT = 8000; // ms
 
   // ---------- Helpers ----------
-  const $ = (sel, root = document) => root && root.querySelector(sel);
+  const $ = (sel, root = document) => (root || document).querySelector(sel);
   const $$ = (sel, root = document) => Array.from((root || document).querySelectorAll(sel));
   const clearChildren = (el) => { if (!el) return; while (el.firstChild) el.removeChild(el.firstChild); };
   const create = (tag, props = {}, children = []) => {
     const el = document.createElement(tag);
-    Object.entries(props).forEach(([k, v]) => {
+    Object.entries(props || {}).forEach(([k, v]) => {
       if (k === "class") el.className = v;
       else if (k === "html") el.innerHTML = v;
       else if (k === "text") el.textContent = v;
       else el.setAttribute(k, v);
     });
-    children.forEach(c => el.appendChild(c));
+    (children || []).forEach(c => el.appendChild(c));
     return el;
   };
   const debounce = (fn, ms = 200) => {
@@ -29,7 +33,7 @@
   };
 
   async function safeFetch(url, timeout = FETCH_TIMEOUT) {
-    // Nota: fetch desde file:// no funcionará; prueba con un servidor local si es el caso.
+    // No usar file:// — prueba en servidor local si desarrollas.
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), timeout);
     try {
@@ -42,7 +46,7 @@
     }
   }
 
-  // ---------- Data (las mismas que tenías) ----------
+  // ---------- Data ----------
   const servicios = [
     { titulo: "Diseño Web Profesional", icono: "bi bi-globe2", resumen: "Sitios modernos, rápidos y adaptables.", detalles: "Optimización móvil, SEO básico y diseño visual atractivo." },
     { titulo: "Gestión de Computadores", icono: "bi bi-pc-display-horizontal", resumen: "Equipos seguros y corporativos.", detalles: "Instalación, limpieza, bloqueo de accesos y más." },
@@ -73,7 +77,7 @@
     { pregunta: "¿Qué tiempo tardan en responder?", respuesta: "Generalmente respondemos en menos de 24 horas." }
   ];
 
-  // ---------- Renderers y Setup (sin cambios funcionales) ----------
+  // ---------- Renderers (mantengo tus implementaciones) ----------
   function renderServicios() {
     const container = document.getElementById("contenedor-servicios");
     if (!container) return;
@@ -267,89 +271,87 @@
   }
 
   function inicializadoresPostCarga() {
-    try {
-      if (typeof inicializarFormContacto === "function") inicializarFormContacto();
-    } catch (err) { console.warn("Error en inicializarFormContacto:", err); }
-
+    try { if (typeof inicializarFormContacto === "function") inicializarFormContacto(); } catch (err) { console.warn("Error en inicializarFormContacto:", err); }
     try { renderServicios(); } catch (err) { console.warn("Error renderServicios:", err); }
     try { renderProyectos(); } catch (err) { console.warn("Error renderProyectos:", err); }
     try { renderPortafolio(portafolioData); setupPortafolioControls(); } catch (err) { console.warn("Error portafolio:", err); }
     try { renderFAQ(); } catch (err) { console.warn("Error FAQs:", err); }
-
     if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
   }
 
-  // ---------- Carga dinámica (fix: busca #content o <main>) ----------
+  // ---------- Cargar contenido ----------
   async function cargarContenido(url) {
-    // Soportar tanto id="content" como elemento <main>
     const main = document.getElementById('content') || document.querySelector('main');
-    if (!main) throw new Error("Elemento <main> o #content no encontrado en el DOM");
+    if (!main) {
+      console.error("Elemento <main> o #content no encontrado en el DOM");
+      return;
+    }
 
     try {
-      const html = await safeFetch(url);
+      // pequeña normalización de url
+      const target = (typeof url === 'string' && url.trim()) ? url.trim() : DEFAULT_PAGE;
+      const html = await safeFetch(target);
       main.innerHTML = html;
       window.scrollTo({ top: 0, behavior: "smooth" });
-      localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, url);
-
-      // Ejecutar reinicializadores
+      localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, target);
       inicializadoresPostCarga();
     } catch (err) {
       console.error("Error al cargar contenido:", err);
-      if (url !== DEFAULT_PAGE) {
-        // fallback a inicio
+      const fallback = (url !== DEFAULT_PAGE) ? DEFAULT_PAGE : null;
+      if (fallback) {
         try {
-          const html = await safeFetch(DEFAULT_PAGE);
+          const html = await safeFetch(fallback);
           main.innerHTML = html;
           window.scrollTo({ top: 0, behavior: "auto" });
-          localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, DEFAULT_PAGE);
+          localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, fallback);
           inicializadoresPostCarga();
         } catch (err2) {
-          main.innerHTML = `<div class="alert alert-danger">Error crítico: no se pudo cargar la página. Detalle: ${err2.message || err.message}</div>`;
+          main.innerHTML = `<div class="alert alert-danger">Error crítico: no se pudo cargar la página. Detalle: ${String(err2.message || err.message)}</div>`;
         }
       } else {
-        main.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
+        main.innerHTML = `<div class="alert alert-danger">Error: ${String(err.message)}</div>`;
       }
     }
   }
 
-  // ---------- Interceptar clicks en enlaces que usan onclick inline o data-load ----------
-  document.addEventListener('click', (e) => {
-    // Si hay un <a> padre del target
-    const a = e.target.closest && e.target.closest('a');
-    if (!a) return;
+  // ---------- Manejo de enlaces (idempotente) ----------
+  function initNavHandlers() {
+    if (MODULE._navInitialized) return;
+    MODULE._navInitialized = true;
 
-    // 1) Si tiene atributo data-load -> usamos esa ruta
-    const dataLoad = a.dataset && a.dataset.load;
-    if (dataLoad) {
-      e.preventDefault();
-      cargarContenido(dataLoad).catch(err => console.error(err));
-      return;
-    }
+    // Interceptar enlaces con data-load, data-cargar o href que apunten a 'paginas/'
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a');
+      if (!a) return;
 
-    // 2) Si tiene onclick inline que llama a cargarContenido('ruta') -> interceptamos y evitamos navegación
-    const onclick = a.getAttribute && a.getAttribute('onclick');
-    if (onclick && onclick.includes('cargarContenido')) {
-      e.preventDefault();
-      const m = onclick.match(/cargarContenido\(\s*['"]([^'"]+)['"]\s*\)/);
-      if (m && m[1]) {
-        cargarContenido(m[1]).catch(err => console.error(err));
-      } else {
-        // si no se pudo parsear, intentamos llamar global (por compatibilidad)
-        try { window.cargarContenido && window.cargarContenido(null); } catch (er) {}
+      const dataLoad = a.dataset && (a.dataset.load || a.dataset.cargar);
+      if (dataLoad) {
+        e.preventDefault();
+        cargarContenido(dataLoad);
+        return;
       }
-      return;
-    }
 
-    // 3) Si es href="" o href="#" y no existe uso explícito -> evitar recarga accidental
-    const href = a.getAttribute('href');
-    if (href === '' || href === '#') {
-      // prevenimos recarga; si el enlace tiene data-load debería haberse manejado antes
-      e.preventDefault();
-    }
-  }, true);
+      // si el href contiene 'paginas/' y no es externo -> cargar via AJAX
+      try {
+        const href = a.getAttribute('href');
+        if (href && typeof href === 'string' && href.includes('paginas/') && (href.indexOf('http') !== 0 && href.indexOf('//') !== 0)) {
+          e.preventDefault();
+          cargarContenido(href);
+          return;
+        }
+      } catch (err) { /* ignore */ }
+
+      // prevenir recargas accidentales en href="#" o empty
+      const href = a.getAttribute && a.getAttribute('href');
+      if (href === '' || href === '#') e.preventDefault();
+    }, true);
+  }
 
   // ---------- Inicio / Restauración ----------
   document.addEventListener("DOMContentLoaded", async () => {
+    // inicializar handlers de navegación
+    initNavHandlers();
+
     const ultimaUrl = localStorage.getItem(STORAGE_KEYS.ULTIMA_PAGINA) || DEFAULT_PAGE;
     try { await cargarContenido(ultimaUrl); } catch (e) { console.warn(e); }
 
@@ -366,18 +368,18 @@
     try { localStorage.setItem(STORAGE_KEYS.ULTIMA_POS_Y, window.scrollY); } catch (e) { /* no crítico */ }
   });
 
-  // ---------- Exponer API pública ----------
+  // ---------- Export API ----------
   window.appCarga = window.appCarga || {};
-  window.appCarga.cargarContenido = cargarContenido;
-  window.appCarga.renderServicios = renderServicios;
-  window.appCarga.renderProyectos = renderProyectos;
-  window.appCarga.renderPortafolio = renderPortafolio;
-  window.appCarga.renderFAQ = renderFAQ;
+  Object.assign(window.appCarga, {
+    _initialized: true,
+    cargarContenido,
+    renderServicios,
+    renderProyectos,
+    renderPortafolio,
+    renderFAQ,
+    initNavHandlers
+  });
 
-  // Para compatibilidad con onclick inline: onclick="cargarContenido('paginas/..')"
-  window.cargarContenido = function(url) {
-    if (!url) return;
-    cargarContenido(url).catch(err => console.error(err));
-  };
-
+  // marcar módulo interno como inicializado
+  MODULE._initialized = true;
 })();
