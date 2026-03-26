@@ -93,7 +93,7 @@
     { pregunta: "¿Qué tiempo tardan en responder?", respuesta: "Generalmente respondemos en menos de 24 horas." }
   ];
 
-  // ---------- Renderers (mantengo tus implementaciones) ----------
+  // ---------- Renderers ----------
   function renderServicios() {
     const container = document.getElementById("contenedor-servicios");
     if (!container) return;
@@ -104,18 +104,18 @@
       const card = create('div', { class: 'flip-card w-full max-w-sm h-80', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
       const inner = create('div', { class: 'flip-card-inner relative w-full h-full' });
 
-      const front = create('div', { class: 'flip-card-front bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[8px_8px_16px_#bebebe,_-8px_-8px_16px_#ffffff]' });
-      const circle = create('div', { class: 'mb-4 w-20 h-20 rounded-full flex items-center justify-center bg-[#e0e0e0] overflow-hidden shadow-[inset_6px_6px_12px_#bebebe,_inset_-6px_-6px_12px_#ffffff]' });
-      const icon = create('i', { class: `${s.icono} text-indigo-600 text-3xl block leading-none` });
+      const front = create('div', { class: 'flip-card-front neumorph bg-white dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
+      const circle = create('div', { class: 'mb-4 w-20 h-20 rounded-full flex items-center justify-center bg-purple-600 text-white dark:bg-purple-500 overflow-hidden neumorph-inset shadow-inner' });
+      const icon = create('i', { class: `${s.icono} servicio-icon text-3xl block leading-none` });
       circle.appendChild(icon);
       front.appendChild(circle);
-      front.appendChild(create('h3', { class: 'text-lg font-semibold text-center text-gray-800 mb-2', text: s.titulo }));
-      front.appendChild(create('p', { class: 'text-gray-600 text-center', text: s.resumen }));
+      front.appendChild(create('h3', { class: 'text-lg font-semibold text-center text-slate-900 dark:text-slate-100 mb-2', text: s.titulo }));
+      front.appendChild(create('p', { class: 'text-slate-600 dark:text-slate-300 text-center', text: s.resumen }));
 
-      const back = create('div', { class: 'flip-card-back bg-[#e0e0e0] rounded-2xl p-6 flex flex-col items-center justify-center shadow-[inset_6px_6px_12px_#bebebe,_inset_-6px_-6px_12px_#ffffff]' });
-      back.appendChild(create('h4', { class: 'text-indigo-700 text-lg font-medium mb-2', text: 'Detalles' }));
-      back.appendChild(create('hr', { class: 'w-1/2 border-indigo-300 mb-3' }));
-      back.appendChild(create('p', { class: 'text-center text-gray-700', text: s.detalles }));
+      const back = create('div', { class: 'flip-card-back neumorph-inset bg-white dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
+      back.appendChild(create('h4', { class: 'text-purple-700 dark:text-purple-300 text-lg font-medium mb-2', text: 'Detalles' }));
+      back.appendChild(create('hr', { class: 'w-1/2 border-purple-500 dark:border-purple-300 mb-3' }));
+      back.appendChild(create('p', { class: 'text-center text-slate-700 dark:text-slate-300', text: s.detalles }));
 
       inner.appendChild(front);
       inner.appendChild(back);

@@ -1,6 +1,6 @@
 /* Variables */
 :root {
-  /* Colores base */
+  /* Colores base - TEMA CLARO */
   --neumo-pg: #EBECF0;
   --neumo-bg: #e3e3e3;
   --neumo-light: #ffffff;
@@ -13,6 +13,8 @@
   --primary-morado: #6b21a8;         /* color primary */
   --primary-light-morado: #a78bfa;   /* color light */
   --text: #0f172a;       /* color de texto por defecto */
+  --bg-body: #f3f4f6;
+  --bg-secondary: #ffffff;
 
   /* Contenedores generales */
   --offset: 6px;
@@ -22,6 +24,93 @@
   --btn-offset: 8px;
   --btn-blur: 12px;
 
+}
+
+/* TEMA OSCURO */
+[data-bs-theme="dark"] {
+  --neumo-pg: #0f1419;
+  --neumo-bg: #1a202c;
+  --neumo-light: #2d3748;
+  --neumo-dark: #0a0e12;
+  --primary: #7c3aed;
+  --greyLight-1: #374151;
+  --greyLight-2: #4b5563;
+  --white: #1a202c;
+  --primary-dark-morado: #581c87;
+  --primary-morado: #7c3aed;
+  --primary-light-morado: #a78bfa;
+  --text: #e2e8f0;
+  --bg-body: #0f1419;
+  --bg-secondary: #1a202c;
+  
+  /* Sombras más sutiles para tema oscuro */
+  --offset: 2px;
+  --blur: 4px;
+  --btn-offset: 2px;
+  --btn-blur: 4px;
+}
+
+/* Aplicar cambios en el body */
+body {
+  background-color: var(--bg-body) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro con clase en Tailwind-style */
+.dark body {
+  background-color: var(--bg-body) !important;
+  color: var(--text) !important;
+}
+
+/* Elementos secundarios */
+main {
+  background-color: var(--bg-body) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section {
+  background-color: var(--bg-body) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Reemplazar colores de Tailwind en tema oscuro */
+[data-bs-theme="dark"] .bg-white {
+  background-color: #111827 !important;
+}
+
+[data-bs-theme="dark"] .bg-gray-50 {
+  background-color: #111827 !important;
+}
+
+[data-bs-theme="dark"] .bg-gray-100 {
+  background-color: #1f2937 !important;
+}
+
+[data-bs-theme="dark"] .text-gray-900 {
+  color: #f3f4f6 !important;
+}
+
+[data-bs-theme="dark"] .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+[data-bs-theme="dark"] .text-gray-700 {
+  color: #e5e7eb !important;
+}
+
+[data-bs-theme="dark"] .text-gray-600 {
+  color: #d1d5db !important;
+}
+
+[data-bs-theme="dark"] .border-gray-200 {
+  border-color: #374151 !important;
+}
+
+[data-bs-theme="dark"] .border-gray-300 {
+  border-color: #4b5563 !important;
 }
 
 /* Neumorphic containers */
@@ -88,6 +177,60 @@
     var(--btn-offset) var(--btn-offset) var(--btn-blur) rgba(12,12,12,0.10),
     calc(-1 * var(--btn-offset)) calc(-1 * var(--btn-offset)) var(--btn-blur) 0px var(--neumo-light);
   transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.btn-neumorph-morado {
+  background: var(--primary-morado);
+  color: #ffffff;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow:
+    5px 5px 12px rgba(0,0,0,0.25),
+    -5px -5px 12px rgba(255,255,255,0.15);
+}
+
+.btn-neumorph-morado:hover {
+  background: var(--primary-dark-morado);
+  box-shadow:
+    7px 7px 14px rgba(0,0,0,0.32),
+    -6px -6px 14px rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+.btn-neumorph-morado:active {
+  background: var(--primary-dark-morado);
+  box-shadow:
+    inset 4px 4px 12px rgba(0,0,0,0.24),
+    inset -4px -4px 12px rgba(255,255,255,0.1);
+  transform: translateY(1px);
+}
+
+.dark .btn-neumorph-morado,
+[data-bs-theme="dark"] .btn-neumorph-morado {
+  background: #7c3aed;
+  color: #fff;
+  box-shadow:
+    4px 4px 10px rgba(0,0,0,0.38),
+    -4px -4px 10px rgba(255,255,255,0.1);
+}
+
+.dark .btn-neumorph-morado:hover,
+[data-bs-theme="dark"] .btn-neumorph-morado:hover {
+  background: #5b21b6;
+}
+
+.dark .btn-neumorph-morado:active,
+[data-bs-theme="dark"] .btn-neumorph-morado:active {
+  background: #4c1d95;
+}
+
+/* Icono de tarjeta de servicio: morado oscuro clarito según tema */
+.servicio-icon {
+  color: #4c1d95; /* purple-800 / morado fuerte en claro */
+}
+
+.dark .servicio-icon,
+[data-bs-theme="dark"] .servicio-icon {
+  color: #c4b5fd; /* purple-200 / morado claro en oscuro */
 }
 
 .btn-neumorph:hover {
@@ -217,36 +360,35 @@
   background: var(--neumo-pg);
 }
 
-/* Botón neumórfico púrpura */
-.btn-neumorph-morado {
-  background: var(--primary-morado);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  --shadow-light: rgba(255, 255, 255, 0.5);
-  --shadow-dark: rgba(0, 0, 0, 0.25);
+/* Botones neumórficos en tema oscuro */
+[data-bs-theme="dark"] .btn-neumorph {
   box-shadow:
-    8px 8px 16px var(--shadow-dark),
-    -8px -8px 16px var(--shadow-light);
-  transition: all 0.2s ease;
-  cursor: pointer;
+    var(--btn-offset) var(--btn-offset) var(--btn-blur) rgba(0,0,0,0.3),
+    calc(-1 * var(--btn-offset)) calc(-1 * var(--btn-offset)) var(--btn-blur) rgba(255,255,255,0.05);
 }
 
-/* Hover → más elevación */
-.btn-neumorph-morado:hover {
+[data-bs-theme="dark"] .btn-neumorph:hover {
   box-shadow:
-    12px 12px 20px rgba(0, 0, 0, 0.3),
-    -8px -8px 16px rgba(255, 255, 255, 0.6);
-  transform: translateY(-2px);
+    4px 4px 8px -2px rgba(0, 0, 0, 0.5),
+    -3px -3px 8px -1px rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Click → efecto presionado */
-.btn-neumorph-morado:active {
-  transform: translateY(2px);
+[data-bs-theme="dark"] .btn-neumorph:active {
   box-shadow:
-    inset 6px 6px 12px var(--shadow-dark),
-    inset -6px -6px 12px var(--shadow-light);
+    inset 4px 4px 10px rgba(0,0,0,0.4),
+    inset -4px -4px 10px rgba(255,255,255,0.05) !important; 
+}
+
+/* Botón neumórfico púrpura en tema oscuro */
+[data-bs-theme="dark"] .btn-neumorph-morado {
+  --shadow-light: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+}
+
+[data-bs-theme="dark"] .btn-neumorph-morado:hover {
+  box-shadow:
+    12px 12px 20px rgba(0, 0, 0, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.15);
 }
 
 
@@ -382,11 +524,17 @@
   visibility: hidden;
   pointer-events: none;
   transform: translateY(8px);
-  transition: opacity .25s ease, transform .25s ease, visibility .25s;
-  z-index: 9999; /* asegurarse que esté por encima */
+  transition: opacity .25s ease, transform .25s ease, visibility .25s, background .25s;
+  z-index: 9999;
+  border-radius: 999px;
+  background: #6d28d9; /* morado predeterminado */
+  color: #f8fafc;
+  box-shadow:
+    4px 4px 8px rgba(0,0,0,0.35),
+    -4px -4px 8px rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
-/* Cuando debe mostrarse */
 #back-to-top.show {
   opacity: 1;
   visibility: visible;
@@ -394,10 +542,22 @@
   transform: translateY(0);
 }
 
-/* estado deshabilitado temporal (durante animación) */
 #back-to-top.disabled {
   pointer-events: none;
-  opacity: .7;
+  opacity: .8;
+  transform: scale(0.96);
+  box-shadow:
+    inset 3px 3px 6px rgba(0,0,0,0.45),
+    inset -3px -3px 6px rgba(255,255,255,0.08);
+}
+
+.dark #back-to-top,
+[data-bs-theme="dark"] #back-to-top {
+  background: #7c3aed;
+  color: #f8fafc;
+  box-shadow:
+    4px 4px 10px rgba(0,0,0,0.45),
+    -4px -4px 10px rgba(255,255,255,0.08);
 }
 
 

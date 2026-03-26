@@ -34,6 +34,12 @@
   <link rel="stylesheet" href="./css/estilo.css" />
   <link rel="stylesheet" href="./css/iconos.css" />
 
+  <!-- Script de tema: ejecutar inmediatamente para evitar flash -->
+  <script>
+    const temaGuardado = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', temaGuardado);
+  </script>
+
   <!-- JSON-LD para Google -->
   <script type="application/ld+json">
   {
@@ -75,6 +81,7 @@
   <!-- Scripts locales: carga dinámica -->
   <script src="./js/contacto.js" defer></script>
   <script src="./js/carga.js" defer></script>
+  <script src="./js/tema.js" defer></script>
   <script src="./js/top.js" defer></script>
   <script src="./js/3D.js" defer></script>
 
@@ -134,6 +141,11 @@
           <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
         </li>
       </ul>
+
+      <!-- Botón Toggle Tema -->
+      <button id="toggle-theme" class="p-2 text-white hover:text-purple-300 transition focus:outline-none z-10 hidden lg:block">
+        <i class="bi bi-moon-fill text-xl"></i>
+      </button>
 
       <!-- Botón móvil -->
       <button id="menu-btn" class="lg:hidden p-2 text-white focus:outline-none z-10">

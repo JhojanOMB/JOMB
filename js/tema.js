@@ -2,27 +2,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('toggle-theme');
   const html = document.documentElement;
 
-  // Verifica si hay tema guardado, si no, aplica "light" por defecto
-  const temaGuardado = localStorage.getItem('theme');
-  const temaInicial = temaGuardado || 'light';
-  html.setAttribute('data-bs-theme', temaInicial);
-
-  if (btn) {
-    actualizarBoton(btn, temaInicial);
-
-    btn.addEventListener('click', () => {
-      const temaActual = html.getAttribute('data-bs-theme');
-      const nuevoTema = temaActual === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-bs-theme', nuevoTema);
-      localStorage.setItem('theme', nuevoTema);
-      actualizarBoton(btn, nuevoTema);
-    });
+  // Función para actualizar el ícono del botón según el tema
+  function actualizarBoton(boton, tema) {
+    const icono = boton.querySelector('i');
+    if (icono) {
+      icono.className = tema === 'dark'
+        ? 'bi bi-sun-fill text-xl'
+        : 'bi bi-moon-fill text-xl';
+    }
   }
 
-  // Función opcional para cambiar el ícono del botón según el tema
-  function actualizarBoton(boton, tema) {
-    boton.innerHTML = tema === 'dark'
-      ? '<i class="bi bi-sun-fill me-1"></i> Claro'
-      : '<i class="bi bi-moon-fill me-1"></i> Oscuro';
+  // Obtener tema actual del HTML (ya fue establecido en el script inline del head)
+  const temaActual = html.getAttribute('data-bs-theme') || 'light';
+
+  const aplicarTema = (tema) => {
+    html.setAttribute('data-bs-theme', tema);
+    html.classList.toggle('dark', tema === 'dark');
+
+    // Tailwind utiliza `.dark` en el root para variantes dark:*
+    document.body.classList.toggle('dark', tema === 'dark');
+
+    localStorage.setItem('theme', tema);
+    actualizarBoton(btn, tema);
+  };
+
+  if (btn) {
+    // Actualizar icono del botón y aplicar estado inicial
+    aplicarTema(temaActual);
+
+    // Evento click para cambiar de tema
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const nuevoTema = html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      aplicarTema(nuevoTema);
+      console.log('Tema cambiado a:', nuevoTema);
+    });
+  } else {
+    console.warn('Botón toggle-theme no encontrado');
   }
 });

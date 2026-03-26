@@ -19,29 +19,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Manejo del click: evita dobles clicks y soporta Lenis si está presente
   let isScrolling = false;
+  const liberarBoton = () => {
+    isScrolling = false;
+    backToTop.classList.remove('disabled');
+  };
+
   backToTop.addEventListener('click', (e) => {
     e.preventDefault();
+
     if (isScrolling) return;
+    if (window.scrollY <= 0) {
+      // ya estamos arriba
+      liberarBoton();
+      return;
+    }
+
     isScrolling = true;
     backToTop.classList.add('disabled');
 
-    // Si existe Lenis (tu smooth-scroller), usar su API
     if (window.lenis && typeof window.lenis.scrollTo === 'function') {
-      try {
-        // Lenis acepta scrollTo(y, options) en versiones recientes
-        window.lenis.scrollTo(0, { duration: 1.2 });
-        // liberamos el botón poco después (no siempre sabemos cuándo termina)
-        setTimeout(() => { isScrolling = false; backToTop.classList.remove('disabled'); }, 1300);
-      } catch (err) {
-        // fallback si lenis falla
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => { isScrolling = false; backToTop.classList.remove('disabled'); }, 800);
-      }
+      let terminado = false;
+      const finalizar = () => {
+        if (terminado) return;
+        terminado = true;
+        liberarBoton();
+      };
+
+      window.lenis.scrollTo(0, { duration: 1.2 });
+
+      const onScroll = () => {
+        if (window.scrollY <= 1) {
+          requestAnimationFrame(() => {
+            if (window.scrollY <= 1) finalizar();
+          });
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setTimeout(() => {
+        window.removeEventListener('scroll', onScroll);
+        finalizar();
+      }, 1700);
     } else {
-      // fallback nativo
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      // no hay API para 'end of smooth', estimamos tiempo
-      setTimeout(() => { isScrolling = false; backToTop.classList.remove('disabled'); }, 800);
+      setTimeout(liberarBoton, 900);
     }
   });
 
