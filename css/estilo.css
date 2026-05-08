@@ -115,18 +115,12 @@ section {
 
 /* Neumorphic containers */
 .neumorph {
-  /* Solo aplicar background si no hay clase de Tailwind bg- */
-  background: var(--neumo-bg);
+  background: var(--neumo-bg) !important;
   box-shadow:
     var(--offset) var(--offset) var(--blur) var(--neumo-dark),
     calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
   transition: box-shadow 0.2s;
   border-radius: 1rem;
-}
-
-/* Permitir que Tailwind controle el background cuando se especifica */
-.neumorph[class*="bg-"] {
-  background: inherit !important;
 }
 
 .neumorph:active {
@@ -138,19 +132,12 @@ section {
 
 /* Neumorphic inset (para tarjetas, modales, etc.) */
 .neumorph-inset {
-  /* Solo aplicar background si no hay clase de Tailwind bg- */
-  background: var(--neumo-bg);
+  background: var(--neumo-bg) !important;
   border-radius: 12px;
   box-shadow:
     inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
     inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
   border: none;
-}
-
-/* Permitir que Tailwind controle el background cuando se especifica */
-.neumorph-inset[class*="bg-"] {
-  background: inherit !important;
-}
   outline: none;
   transition: all 0.2s ease;
 }
@@ -301,43 +288,6 @@ section {
 .flip-card-front {
   transform: rotateY(0deg);
   z-index: 2;
-}
-
-/* =============== RESPETA COLORES DE TAILWIND EN TARJETAS =============== */
-/* Permitir que Tailwind controle los colores en tarjetas pero mantener neumorfismo */
-.flip-card-front[class*="bg-purple"],
-.flip-card-back[class*="bg-purple"] {
-  background-color: inherit !important;
-  /* Mantener neumorfismo */
-  box-shadow:
-    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
-}
-
-.flip-card-back[class*="bg-purple"] {
-  /* Mantener neumorfismo inset */
-  box-shadow:
-    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
-}
-
-/* Estilos específicos para texto en tarjetas - TEMA CLARO */
-.flip-card-front h3,
-.flip-card-back h4 {
-  color: #581c87 !important; /* purple-950 */
-}
-
-.flip-card-front p,
-.flip-card-back p {
-  color: #6b21a8 !important; /* purple-900 */
-}
-
-/* TEMA OSCURO - Preservar estilos Tailwind */
-[data-bs-theme="dark"] .flip-card-front h3,
-[data-bs-theme="dark"] .flip-card-back h4,
-[data-bs-theme="dark"] .flip-card-front p,
-[data-bs-theme="dark"] .flip-card-back p {
-  color: inherit !important;
 }
 
 /* Tarjetas semiredondas */
@@ -592,13 +542,76 @@ section {
   transform: translateY(0);
 }
 
-#back-to-top.disabled {
-  pointer-events: none;
-  opacity: .8;
-  transform: scale(0.96);
-  box-shadow:
-    inset 3px 3px 6px rgba(0,0,0,0.45),
-    inset -3px -3px 6px rgba(255,255,255,0.08);
+/* =============== COLORES OSCUROS PARA TEXTO EN TEMA CLARO =============== */
+/* Solo cambiar colores de texto, mantener neumorfismo intacto */
+
+/* Tarjetas de servicios - texto más oscuro y elegante en tema claro */
+.flip-card-front h3,
+.flip-card-back h4 {
+  color: #4c1d95 !important; /* Morado muy oscuro elegante */
+}
+
+.flip-card-front p,
+.flip-card-back p {
+  color: #6b21a8 !important; /* Morado oscuro */
+}
+
+/* Tarjetas de proyectos - texto más oscuro y elegante en tema claro */
+section[id*="proyecto"] .neumorph h5,
+section[id*="proyecto"] .neumorph p {
+  color: #4c1d95 !important; /* Morado muy oscuro elegante */
+}
+
+/* Tarjetas de portafolio - texto más oscuro y elegante en tema claro */
+#portafolio-grid .neumorph h5,
+#portafolio-grid .neumorph p {
+  color: #4c1d95 !important; /* Morado muy oscuro elegante */
+}
+
+/* FAQ - texto más oscuro y elegante en tema claro */
+.faq-toggle span,
+.faq-answer p {
+  color: #4c1d95 !important; /* Morado muy oscuro elegante */
+}
+
+/* =============== CONTENEDOR DEL ICONO EN TARJETAS =============== */
+/* Mejorar el diseño del círculo del icono */
+.flip-card-front .w-20.h-20 {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.flip-card-front .w-20.h-20:hover {
+  transform: scale(1.05) !important;
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3), inset -6px -6px 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Tema oscuro - mantener colores originales */
+[data-bs-theme="dark"] .flip-card-front h3,
+[data-bs-theme="dark"] .flip-card-back h4,
+[data-bs-theme="dark"] .flip-card-front p,
+[data-bs-theme="dark"] .flip-card-back p,
+[data-bs-theme="dark"] section[id*="proyecto"] .neumorph h5,
+[data-bs-theme="dark"] section[id*="proyecto"] .neumorph p,
+[data-bs-theme="dark"] #portafolio-grid .neumorph h5,
+[data-bs-theme="dark"] #portafolio-grid .neumorph p,
+[data-bs-theme="dark"] .faq-toggle span,
+[data-bs-theme="dark"] .faq-answer p {
+  color: inherit !important; /* Usar colores Tailwind en oscuro */
+}
+
+/* Tema oscuro - contenedor del icono */
+[data-bs-theme="dark"] .flip-card-front .w-20.h-20 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%) !important;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] .flip-card-front .w-20.h-20:hover {
+  transform: scale(1.05) !important;
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -6px -6px 12px rgba(255, 255, 255, 0.1) !important;
 }
 
 .dark #back-to-top,

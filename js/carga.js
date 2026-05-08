@@ -28,19 +28,6 @@
   };
   const FETCH_TIMEOUT = 8000; // ms
 
-  // ---------- Sistema de Cache y Control de Race Conditions ----------
-  const cachePaginas = new Map();
-  let currentRequest = 0;
-  let isLoading = false;
-
-  function refreshAOS() {
-    requestAnimationFrame(() => {
-      if (window.AOS && typeof window.AOS.refresh === 'function') {
-        window.AOS.refresh();
-      }
-    });
-  }
-
   // ---------- Helpers ----------
   const $ = (sel, root = document) => (root || document).querySelector(sel);
   const $$ = (sel, root = document) => Array.from((root || document).querySelectorAll(sel));
@@ -75,7 +62,7 @@
     }
   }
 
-  // ---------- Data Servicios ----------
+  // ---------- Data ----------
   const servicios = [
     { titulo: "Diseño Web Profesional", icono: "bi bi-globe2", resumen: "Sitios modernos, rápidos y adaptables.", detalles: "Optimización móvil, SEO básico y diseño visual atractivo." },
     { titulo: "Gestión de Computadores", icono: "bi bi-pc-display-horizontal", resumen: "Equipos seguros y corporativos.", detalles: "Instalación, limpieza, bloqueo de accesos y más." },
@@ -117,18 +104,18 @@
       const card = create('div', { class: 'flip-card w-full max-w-sm h-80', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
       const inner = create('div', { class: 'flip-card-inner relative w-full h-full' });
 
-      const front = create('div', { class: 'flip-card-front neumorph bg-purple-50 dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
+      const front = create('div', { class: 'flip-card-front neumorph rounded-2xl p-6 flex flex-col items-center justify-center' });
       const circle = create('div', { class: 'mb-4 w-20 h-20 rounded-full flex items-center justify-center bg-purple-600 text-white dark:bg-purple-500 overflow-hidden neumorph-inset shadow-inner' });
       const icon = create('i', { class: `${s.icono} servicio-icon text-3xl block leading-none` });
       circle.appendChild(icon);
       front.appendChild(circle);
-      front.appendChild(create('h3', { class: 'text-lg font-bold text-center text-purple-950 dark:text-slate-100 mb-2', text: s.titulo }));
-      front.appendChild(create('p', { class: 'text-purple-900 dark:text-slate-300 text-center font-medium', text: s.resumen }));
+      front.appendChild(create('h3', { class: 'text-lg font-semibold text-center mb-2', text: s.titulo }));
+      front.appendChild(create('p', { class: 'text-center', text: s.resumen }));
 
-      const back = create('div', { class: 'flip-card-back neumorph-inset bg-purple-50 dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
-      back.appendChild(create('h4', { class: 'text-purple-800 dark:text-purple-300 text-lg font-bold mb-2', text: 'Detalles' }));
-      back.appendChild(create('hr', { class: 'w-1/2 border-purple-400 dark:border-purple-300 mb-3' }));
-      back.appendChild(create('p', { class: 'text-center text-purple-950 dark:text-slate-300 font-medium', text: s.detalles }));
+      const back = create('div', { class: 'flip-card-back neumorph-inset rounded-2xl p-6 flex flex-col items-center justify-center' });
+      back.appendChild(create('h4', { class: 'text-lg font-medium mb-2', text: 'Detalles' }));
+      back.appendChild(create('hr', { class: 'w-1/2 mb-3' }));
+      back.appendChild(create('p', { class: 'text-center', text: s.detalles }));
 
       inner.appendChild(front);
       inner.appendChild(back);
@@ -146,12 +133,12 @@
     const frag = document.createDocumentFragment();
 
     proyectosData.forEach((app, idx) => {
-      const card = create('div', { class: 'relative rounded-2xl overflow-hidden p-8 bg-purple-50 dark:bg-slate-800 neumorph hover:neumorph-inset transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]', 'data-aos': 'fade-up', 'data-aos-delay': `${200 + idx * 100}` });
+      const card = create('div', { class: 'relative rounded-2xl overflow-hidden p-8 neumorph hover:neumorph-inset transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]', 'data-aos': 'fade-up', 'data-aos-delay': `${200 + idx * 100}` });
       const badge = create('div', { class: 'neumorph-bg absolute right-4 top-4 bg-purple-600 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-md', html: '<i class="bi bi-star-fill text-xl"></i>' });
       card.appendChild(badge);
-      card.appendChild(create('h5', { class: 'text-xl font-bold text-purple-950 dark:text-slate-100 mb-4', text: app.nombre }));
-      card.appendChild(create('p', { class: 'text-purple-900 dark:text-slate-300 text-sm mb-6 font-medium', text: app.descripcion }));
-      const a = create('a', { href: '#', class: 'btn-neumorph inline-flex items-center text-purple-700 hover:text-purple-900 transition-colors px-5' });
+      card.appendChild(create('h5', { class: 'text-xl font-semibold mb-4', text: app.nombre }));
+      card.appendChild(create('p', { class: 'text-sm mb-6', text: app.descripcion }));
+      const a = create('a', { href: '#', class: 'btn-neumorph inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors px-5' });
       a.innerHTML = 'Ver más <i class="bi bi-arrow-right-short text-2xl"></i>';
       card.appendChild(a);
       frag.appendChild(card);
@@ -185,18 +172,18 @@
       if (tags) {
         tags.innerHTML = '';
         (app.tech || []).forEach(t => {
-          const span = create('span', { class: 'text-xs bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full neumorph-bg', text: t });
+          const span = create('span', { class: 'text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full neumorph-bg', text: t });
           tags.appendChild(span);
         });
       }
       if (action) {
         action.innerHTML = '';
         if (app.live) {
-          const a = create('a', { href: app.live, target: '_blank', class: 'w-10 h-10 flex items-center justify-center text-white text-lg bg-purple-600 hover:bg-purple-700 rounded-full transition-all' });
+          const a = create('a', { href: app.live, target: '_blank', class: 'w-10 h-10 flex items-center justify-center text-white text-lg bg-indigo-600 hover:bg-indigo-700 rounded-full transition-all' });
           a.innerHTML = '<i class="bi bi-box-arrow-up-right"></i>';
           action.appendChild(a);
         } else if (app.download) {
-          const a = create('a', { href: app.download, download: '', class: 'w-10 h-10 flex items-center justify-center text-white text-lg bg-purple-600 hover:bg-purple-700 rounded-full transition-all' });
+          const a = create('a', { href: app.download, download: '', class: 'w-10 h-10 flex items-center justify-center text-white text-lg bg-green-600 hover:bg-green-700 rounded-full transition-all' });
           a.innerHTML = '<i class="bi bi-download"></i>';
           action.appendChild(a);
         } else {
@@ -217,17 +204,11 @@
   function setupPortafolioControls() {
     const input = document.getElementById('portafolio-search');
     const buttons = document.querySelectorAll('.btn-neumorph[data-cat]');
-    if (!input || !buttons.length) return;
+    if (!input || !buttons) return;
 
-    // Evitar duplicación: remover listeners viejos
+    // Remove duplicate listeners by cloning input and buttons (simple way)
     const inputClone = input.cloneNode(true);
     input.parentNode.replaceChild(inputClone, input);
-    
-    const buttonClones = Array.from(buttons).map(btn => {
-      const clone = btn.cloneNode(true);
-      btn.parentNode.replaceChild(clone, btn);
-      return clone;
-    });
 
     let cat = 'all';
     let query = '';
@@ -237,7 +218,7 @@
         .filter(p => cat === 'all' || p.category === cat)
         .filter(p => p.nombre.toLowerCase().includes(query));
       renderPortafolio(filtered);
-      refreshAOS(); // Usar helper centralizado
+      if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
     };
 
     inputClone.addEventListener('input', debounce((e) => {
@@ -245,18 +226,18 @@
       applyFilter();
     }, 220));
 
-    buttonClones.forEach(btn => {
+    buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        buttonClones.forEach(b => {
-          b.classList.remove('bg-purple-100');
-          b.classList.remove('text-purple-700');
+        buttons.forEach(b => {
+          b.classList.remove('bg-indigo-100');
+          b.classList.remove('text-indigo-700');
           b.classList.add('bg-transparent');
           b.classList.add('text-gray-600');
         });
         btn.classList.remove('bg-transparent');
         btn.classList.remove('text-gray-600');
-        btn.classList.add('bg-purple-100');
-        btn.classList.add('text-purple-700');
+        btn.classList.add('bg-indigo-100');
+        btn.classList.add('text-indigo-700');
 
         cat = btn.dataset.cat || 'all';
         applyFilter();
@@ -273,11 +254,11 @@
     const frag = document.createDocumentFragment();
 
     faqs.forEach((f, i) => {
-      const wrapper = create('div', { class: 'border border-purple-300 dark:border-gray-700 rounded-lg overflow-hidden neumorph', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
-      const btn = create('button', { type: 'button', class: 'faq-toggle w-full flex items-center justify-between px-4 py-3 bg-purple-100 dark:bg-slate-800 hover:bg-purple-200 dark:hover:bg-slate-700 transition focus:outline-none' });
-      btn.innerHTML = `<div class="flex items-center space-x-2"><i class="fa-solid fa-question-circle text-purple-700 dark:text-purple-400"></i><span class="font-medium text-purple-900 dark:text-slate-100">${f.pregunta}</span></div><i class="fa-solid fa-chevron-down text-purple-600 dark:text-purple-400"></i>`;
+      const wrapper = create('div', { class: 'border border-gray-200 rounded-lg overflow-hidden neumorph', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
+      const btn = create('button', { type: 'button', class: 'faq-toggle w-full flex items-center justify-between px-4 py-3 bg-gray-100 hover:bg-gray-200 transition focus:outline-none' });
+      btn.innerHTML = `<div class="flex items-center space-x-2"><i class="fa-solid fa-question-circle text-indigo-600"></i><span class="font-medium text-gray-800">${f.pregunta}</span></div><i class="fa-solid fa-chevron-down text-gray-600"></i>`;
 
-      const answer = create('div', { class: 'faq-answer max-h-0 overflow-hidden px-4 bg-white dark:bg-slate-900 text-purple-900 dark:text-slate-300 border-t border-purple-300 dark:border-slate-700 transition-all duration-300' });
+      const answer = create('div', { class: 'faq-answer max-h-0 overflow-hidden px-4 bg-white text-gray-700 border-t border-gray-200 transition-all duration-300' });
       answer.innerHTML = `<p class="py-3">${f.respuesta}</p>`;
 
       btn.addEventListener('click', () => {
@@ -311,7 +292,7 @@
     try { renderProyectos(); } catch (err) { console.warn("Error renderProyectos:", err); }
     try { renderPortafolio(portafolioData); setupPortafolioControls(); } catch (err) { console.warn("Error portafolio:", err); }
     try { renderFAQ(); } catch (err) { console.warn("Error FAQs:", err); }
-    refreshAOS(); // Usar helper centralizado
+    if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
   }
 
   // ---------- Cargar contenido ----------
@@ -322,66 +303,30 @@
       return;
     }
 
-    // Control de race conditions
-    const requestId = ++currentRequest;
-    isLoading = true;
-    
     try {
       // pequeña normalización de url
       const target = (typeof url === 'string' && url.trim()) ? url.trim() : DEFAULT_PAGE;
-      
-      // Verificar si está en cache
-      let html;
-      if (cachePaginas.has(target)) {
-        html = cachePaginas.get(target);
-      } else {
-        html = await safeFetch(target);
-        cachePaginas.set(target, html); // Guardar en cache
-      }
-      
-      // Si otra solicitud más nueva llegó, ignorar esta
-      if (requestId !== currentRequest) return;
-      
+      const html = await safeFetch(target);
       main.innerHTML = html;
-      
-      // Actualizar historial SPA (sin recargar)
-      history.pushState({ url: target }, '', '#' + target);
-      
       window.scrollTo({ top: 0, behavior: "smooth" });
       localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, target);
       inicializadoresPostCarga();
-      refreshAOS(); // Usar helper centralizado
-      
     } catch (err) {
-      if (requestId !== currentRequest) return; // Ignorar si hay request más nueva
-      
       console.error("Error al cargar contenido:", err);
       const fallback = (url !== DEFAULT_PAGE) ? DEFAULT_PAGE : null;
       if (fallback) {
         try {
-          let html;
-          if (cachePaginas.has(fallback)) {
-            html = cachePaginas.get(fallback);
-          } else {
-            html = await safeFetch(fallback);
-            cachePaginas.set(fallback, html);
-          }
-          
-          if (requestId !== currentRequest) return;
+          const html = await safeFetch(fallback);
           main.innerHTML = html;
           window.scrollTo({ top: 0, behavior: "auto" });
           localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, fallback);
           inicializadoresPostCarga();
-          refreshAOS();
         } catch (err2) {
-          if (requestId !== currentRequest) return;
-          main.innerHTML = `<div class="alert alert-danger p-6 text-center rounded-lg bg-red-100 text-red-800"><strong>Error crítico:</strong> No se pudo cargar la página. ${String(err2.message || err.message)}</div>`;
+          main.innerHTML = `<div class="alert alert-danger">Error crítico: no se pudo cargar la página. Detalle: ${String(err2.message || err.message)}</div>`;
         }
       } else {
-        main.innerHTML = `<div class="alert alert-danger p-6 text-center rounded-lg bg-red-100 text-red-800"><strong>Error:</strong> ${String(err.message)}</div>`;
+        main.innerHTML = `<div class="alert alert-danger">Error: ${String(err.message)}</div>`;
       }
-    } finally {
-      isLoading = false;
     }
   }
 
@@ -434,14 +379,7 @@
     }
   });
 
-  // Detectar pérdida de conexión
-  window.addEventListener('offline', () => {
-    console.warn('⚠️ Sin conexión. Las páginas se cargarán desde cache si están disponibles.');
-  });
-
-  window.addEventListener('online', () => {
-    console.log('✅ Conexión restaurada. Sistema funcionando normalmente.');
-  });
+  // Guardar scroll antes de salir
   window.addEventListener("beforeunload", () => {
     try { localStorage.setItem(STORAGE_KEYS.ULTIMA_POS_Y, window.scrollY); } catch (e) { /* no crítico */ }
   });
@@ -455,10 +393,7 @@
     renderProyectos,
     renderPortafolio,
     renderFAQ,
-    initNavHandlers,
-    refreshAOS,
-    cachePaginas,
-    clearCache: () => cachePaginas.clear()
+    initNavHandlers
   });
 
   // Procesar llamadas encoladas mientras el módulo se inicializaba
