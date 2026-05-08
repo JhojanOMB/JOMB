@@ -115,12 +115,18 @@ section {
 
 /* Neumorphic containers */
 .neumorph {
-  background: var(--neumo-bg) !important;
+  /* Solo aplicar background si no hay clase de Tailwind bg- */
+  background: var(--neumo-bg);
   box-shadow:
     var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
   transition: box-shadow 0.2s;
   border-radius: 1rem;
+}
+
+/* Permitir que Tailwind controle el background cuando se especifica */
+.neumorph[class*="bg-"] {
+  background: inherit !important;
 }
 
 .neumorph:active {
@@ -132,12 +138,19 @@ section {
 
 /* Neumorphic inset (para tarjetas, modales, etc.) */
 .neumorph-inset {
-  background: var(--neumo-bg) !important;
+  /* Solo aplicar background si no hay clase de Tailwind bg- */
+  background: var(--neumo-bg);
   border-radius: 12px;
   box-shadow:
     inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light) !important;
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
   border: none;
+}
+
+/* Permitir que Tailwind controle el background cuando se especifica */
+.neumorph-inset[class*="bg-"] {
+  background: inherit !important;
+}
   outline: none;
   transition: all 0.2s ease;
 }
@@ -291,17 +304,21 @@ section {
 }
 
 /* =============== RESPETA COLORES DE TAILWIND EN TARJETAS =============== */
-/* Permitir que Tailwind controle los colores en tarjetas */
+/* Permitir que Tailwind controle los colores en tarjetas pero mantener neumorfismo */
 .flip-card-front[class*="bg-purple"],
-.flip-card-back[class*="bg-purple"],
-.flip-card-front h3,
-.flip-card-front h4,
-.flip-card-front p,
-.flip-card-back h3,
-.flip-card-back h4,
-.flip-card-back p {
-  color: inherit !important;
+.flip-card-back[class*="bg-purple"] {
   background-color: inherit !important;
+  /* Mantener neumorfismo */
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
+}
+
+.flip-card-back[class*="bg-purple"] {
+  /* Mantener neumorfismo inset */
+  box-shadow:
+    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
+    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
 }
 
 /* Estilos específicos para texto en tarjetas - TEMA CLARO */
