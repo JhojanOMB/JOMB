@@ -290,6 +290,39 @@ section {
   z-index: 2;
 }
 
+/* =============== RESPETA COLORES DE TAILWIND EN TARJETAS =============== */
+/* Permitir que Tailwind controle los colores en tarjetas */
+.flip-card-front[class*="bg-purple"],
+.flip-card-back[class*="bg-purple"],
+.flip-card-front h3,
+.flip-card-front h4,
+.flip-card-front p,
+.flip-card-back h3,
+.flip-card-back h4,
+.flip-card-back p {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Estilos específicos para texto en tarjetas - TEMA CLARO */
+.flip-card-front h3,
+.flip-card-back h4 {
+  color: #581c87 !important; /* purple-950 */
+}
+
+.flip-card-front p,
+.flip-card-back p {
+  color: #6b21a8 !important; /* purple-900 */
+}
+
+/* TEMA OSCURO - Preservar estilos Tailwind */
+[data-bs-theme="dark"] .flip-card-front h3,
+[data-bs-theme="dark"] .flip-card-back h4,
+[data-bs-theme="dark"] .flip-card-front p,
+[data-bs-theme="dark"] .flip-card-back p {
+  color: inherit !important;
+}
+
 /* Tarjetas semiredondas */
 .tarjeta-semiredonda {
   width: 30rem;
