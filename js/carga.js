@@ -28,6 +28,19 @@
   };
   const FETCH_TIMEOUT = 8000; // ms
 
+  // ---------- Sistema de Cache y Control de Race Conditions ----------
+  const cachePaginas = new Map();
+  let currentRequest = 0;
+  let isLoading = false;
+
+  function refreshAOS() {
+    requestAnimationFrame(() => {
+      if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+      }
+    });
+  }
+
   // ---------- Helpers ----------
   const $ = (sel, root = document) => (root || document).querySelector(sel);
   const $$ = (sel, root = document) => Array.from((root || document).querySelectorAll(sel));
@@ -204,11 +217,17 @@
   function setupPortafolioControls() {
     const input = document.getElementById('portafolio-search');
     const buttons = document.querySelectorAll('.btn-neumorph[data-cat]');
-    if (!input || !buttons) return;
+    if (!input || !buttons.length) return;
 
-    // Remove duplicate listeners by cloning input and buttons (simple way)
+    // Evitar duplicación: remover listeners viejos
     const inputClone = input.cloneNode(true);
     input.parentNode.replaceChild(inputClone, input);
+    
+    const buttonClones = Array.from(buttons).map(btn => {
+      const clone = btn.cloneNode(true);
+      btn.parentNode.replaceChild(clone, btn);
+      return clone;
+    });
 
     let cat = 'all';
     let query = '';
@@ -218,7 +237,7 @@
         .filter(p => cat === 'all' || p.category === cat)
         .filter(p => p.nombre.toLowerCase().includes(query));
       renderPortafolio(filtered);
-      if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
+      refreshAOS(); // Usar helper centralizado
     };
 
     inputClone.addEventListener('input', debounce((e) => {
@@ -226,13 +245,13 @@
       applyFilter();
     }, 220));
 
-    buttons.forEach(btn => {
+    buttonClones.forEach(btn => {
       btn.addEventListener('click', () => {
-        buttons.forEach(btn => {
-          btn.classList.remove('bg-purple-100');
-          btn.classList.remove('text-purple-700');
-          btn.classList.add('bg-transparent');
-          btn.classList.add('text-gray-600');
+        buttonClones.forEach(b => {
+          b.classList.remove('bg-purple-100');
+          b.classList.remove('text-purple-700');
+          b.classList.add('bg-transparent');
+          b.classList.add('text-gray-600');
         });
         btn.classList.remove('bg-transparent');
         btn.classList.remove('text-gray-600');
@@ -292,7 +311,7 @@
     try { renderProyectos(); } catch (err) { console.warn("Error renderProyectos:", err); }
     try { renderPortafolio(portafolioData); setupPortafolioControls(); } catch (err) { console.warn("Error portafolio:", err); }
     try { renderFAQ(); } catch (err) { console.warn("Error FAQs:", err); }
-    if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
+    refreshAOS(); // Usar helper centralizado
   }
 
   // ---------- Cargar contenido ----------
@@ -303,30 +322,66 @@
       return;
     }
 
+    // Control de race conditions
+    const requestId = ++currentRequest;
+    isLoading = true;
+    
     try {
       // pequeña normalización de url
       const target = (typeof url === 'string' && url.trim()) ? url.trim() : DEFAULT_PAGE;
-      const html = await safeFetch(target);
+      
+      // Verificar si está en cache
+      let html;
+      if (cachePaginas.has(target)) {
+        html = cachePaginas.get(target);
+      } else {
+        html = await safeFetch(target);
+        cachePaginas.set(target, html); // Guardar en cache
+      }
+      
+      // Si otra solicitud más nueva llegó, ignorar esta
+      if (requestId !== currentRequest) return;
+      
       main.innerHTML = html;
+      
+      // Actualizar historial SPA (sin recargar)
+      history.pushState({ url: target }, '', '#' + target);
+      
       window.scrollTo({ top: 0, behavior: "smooth" });
       localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, target);
       inicializadoresPostCarga();
+      refreshAOS(); // Usar helper centralizado
+      
     } catch (err) {
+      if (requestId !== currentRequest) return; // Ignorar si hay request más nueva
+      
       console.error("Error al cargar contenido:", err);
       const fallback = (url !== DEFAULT_PAGE) ? DEFAULT_PAGE : null;
       if (fallback) {
         try {
-          const html = await safeFetch(fallback);
+          let html;
+          if (cachePaginas.has(fallback)) {
+            html = cachePaginas.get(fallback);
+          } else {
+            html = await safeFetch(fallback);
+            cachePaginas.set(fallback, html);
+          }
+          
+          if (requestId !== currentRequest) return;
           main.innerHTML = html;
           window.scrollTo({ top: 0, behavior: "auto" });
           localStorage.setItem(STORAGE_KEYS.ULTIMA_PAGINA, fallback);
           inicializadoresPostCarga();
+          refreshAOS();
         } catch (err2) {
-          main.innerHTML = `<div class="alert alert-danger">Error crítico: no se pudo cargar la página. Detalle: ${String(err2.message || err.message)}</div>`;
+          if (requestId !== currentRequest) return;
+          main.innerHTML = `<div class="alert alert-danger p-6 text-center rounded-lg bg-red-100 text-red-800"><strong>Error crítico:</strong> No se pudo cargar la página. ${String(err2.message || err.message)}</div>`;
         }
       } else {
-        main.innerHTML = `<div class="alert alert-danger">Error: ${String(err.message)}</div>`;
+        main.innerHTML = `<div class="alert alert-danger p-6 text-center rounded-lg bg-red-100 text-red-800"><strong>Error:</strong> ${String(err.message)}</div>`;
       }
+    } finally {
+      isLoading = false;
     }
   }
 
@@ -379,7 +434,14 @@
     }
   });
 
-  // Guardar scroll antes de salir
+  // Detectar pérdida de conexión
+  window.addEventListener('offline', () => {
+    console.warn('⚠️ Sin conexión. Las páginas se cargarán desde cache si están disponibles.');
+  });
+
+  window.addEventListener('online', () => {
+    console.log('✅ Conexión restaurada. Sistema funcionando normalmente.');
+  });
   window.addEventListener("beforeunload", () => {
     try { localStorage.setItem(STORAGE_KEYS.ULTIMA_POS_Y, window.scrollY); } catch (e) { /* no crítico */ }
   });
@@ -393,7 +455,10 @@
     renderProyectos,
     renderPortafolio,
     renderFAQ,
-    initNavHandlers
+    initNavHandlers,
+    refreshAOS,
+    cachePaginas,
+    clearCache: () => cachePaginas.clear()
   });
 
   // Procesar llamadas encoladas mientras el módulo se inicializaba

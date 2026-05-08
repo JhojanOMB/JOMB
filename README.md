@@ -1,27 +1,89 @@
-# Servicios de Tecnología
+# 🚀 JOMB - Soluciones Tecnológicas Integrales
 
-Bienvenido al repositorio de Servicios de Tecnología. Este sitio web proporciona información sobre nuestros servicios de instalación de Windows, mejoras de rendimiento de PC y desarrollo de páginas web.
+**JOMB** es tu aliado en transformación digital. Ofrecemos soluciones de tecnología profesionales, desde desarrollo web hasta consultoría tecnológica empresarial.
 
-## Estructura del Proyecto
+---
 
-- `index.html`: La página principal del sitio web.
-- `estilo.css`: Hoja de estilos para la página web.
-- `img/`: Carpeta que contiene las imágenes utilizadas en el sitio web.
-  - `JOMB.png`: Logotipo de Servicios Jomb.
-- `CNAME`: Archivo que especifica el dominio personalizado.
+## 📋 Acerca de JOMB
 
-## Cómo Contribuir
+En **JOMB** creemos que la tecnología debe ser accesible, eficiente y orientada a resultados. Nuestro equipo de expertos está comprometido con proporcionar soluciones personalizadas que impulsen tu negocio.
 
-1. Haz un fork de este repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza los cambios necesarios y haz commit (`git commit -am 'Agrega nueva funcionalidad'`).
-4. Haz push de la rama (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request.
+---
 
-## Contacto
+## 🛠️ Nuestros Servicios
 
-Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue o contactarnos directamente a través de nuestro [formulario de contacto](#contacto).
+### 🌐 Diseño Web Profesional
+Sitios modernos, rápidos y adaptables a cualquier dispositivo. Optimización móvil, SEO básico y diseño visual atractivo.
 
-## Licencia
+### 💻 Gestión de Computadores
+Equipos seguros y corporativos. Instalación, limpieza, bloqueo de accesos y más.
 
-Este proyecto está licenciado bajo la Licencia MIT. Para más información, consulta el archivo `LICENSE`.
+### 📥 Software Legal
+Instalación completa de tu software. Office, Adobe, antivirus, navegadores y más.
+
+### 🛠️ Mantenimiento y Soporte
+Respaldo y monitoreo continuo. Actualizaciones, parches de seguridad y asistencia 24/7.
+
+### 🤝 Consultoría Tecnológica
+Estrategia para tu infraestructura. Diagnóstico, optimización de procesos y roadmap tecnológico.
+
+### 📱 Apps Móviles
+iOS y Android nativas o híbridas. Diseño UX/UI, integración con tu backend y publicación en tiendas.
+
+### 🔌 Integración de APIs
+Conecta tus sistemas. REST, GraphQL, servicios de terceros (pagos, mapas, mensajería...).
+
+### ⚡ SEO y Rendimiento
+Mejora tu visibilidad en Google. Auditoría SEO, Core Web Vitals y optimización de carga.
+
+---
+
+## 💼 Portafolio
+
+Algunos de nuestros proyectos destacados:
+
+- **Tienda Online**: E-commerce con carrito dinámico y pasarela de pagos
+- **Masivos OLÉ! Logistics**: Sistema de gestión logístico con gráficos avanzados
+- **Finanworld**: Sistema de créditos de libranza para pensionados
+- **Youtube-JOMB**: Aplicativo para descargar videos de YouTube (Windows y Linux)
+
+---
+
+## 📍 Tecnologías que Utilizamos
+
+- **Frontend**: HTML5, CSS3, Tailwind CSS, Bootstrap, JavaScript
+- **Backend**: Django, Python, REST APIs
+- **Herramientas**: Chart.js, Lenis, AOS, Animate.css
+- **Móvil**: Flutter, React Native, Tkinter
+- **Infraestructura**: GitHub Pages, servidores dedicados
+
+---
+
+## 📞 Contáctanos
+
+**¿Tienes un proyecto en mente?**
+
+- 📧 **Formulario de contacto**: Disponible en nuestro sitio web
+- 💬 **WhatsApp**: Soporte directo y rápido
+- 🔗 **GitHub**: [jhojanomb](https://github.com/jhojanomb)
+- 🔗 **LinkedIn**: [jhojanomb](https://linkedin.com/in/jhojanomb)
+
+---
+
+## 🌟 ¿Por Qué Elegir JOMB?
+
+✅ **Experiencia comprobada** en desarrollo web y consultoría tecnológica  
+✅ **Equipo profesional** comprometido con la calidad  
+✅ **Soluciones personalizadas** adaptadas a tu negocio  
+✅ **Soporte continuo** para garantizar tu éxito  
+✅ **Precios competitivos** y transparentes  
+
+---
+
+## 📄 Más Información
+
+Visita nuestro sitio web: **[JOMB](https://jhojanomb.github.io/JOMB/)**
+
+---
+
+*© 2026 JOMB. Todos los derechos reservados.*
