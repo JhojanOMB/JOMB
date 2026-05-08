@@ -104,18 +104,18 @@
       const card = create('div', { class: 'flip-card w-full max-w-sm h-80', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
       const inner = create('div', { class: 'flip-card-inner relative w-full h-full' });
 
-      const front = create('div', { class: 'flip-card-front neumorph rounded-2xl p-6 flex flex-col items-center justify-center' });
+      const front = create('div', { class: 'flip-card-front neumorph bg-white dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
       const circle = create('div', { class: 'mb-4 w-20 h-20 rounded-full flex items-center justify-center bg-purple-600 text-white dark:bg-purple-500 overflow-hidden neumorph-inset shadow-inner' });
       const icon = create('i', { class: `${s.icono} servicio-icon text-3xl block leading-none` });
       circle.appendChild(icon);
       front.appendChild(circle);
-      front.appendChild(create('h3', { class: 'text-lg font-semibold text-center mb-2', text: s.titulo }));
-      front.appendChild(create('p', { class: 'text-center', text: s.resumen }));
+      front.appendChild(create('h3', { class: 'text-lg font-semibold text-center text-primary-custom mb-2', text: s.titulo }));
+      front.appendChild(create('p', { class: 'text-secondary-custom text-center', text: s.resumen }));
 
-      const back = create('div', { class: 'flip-card-back neumorph-inset rounded-2xl p-6 flex flex-col items-center justify-center' });
-      back.appendChild(create('h4', { class: 'text-lg font-medium mb-2', text: 'Detalles' }));
+      const back = create('div', { class: 'flip-card-back neumorph-inset bg-white dark:bg-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center' });
+      back.appendChild(create('h4', { class: 'text-lg font-medium mb-2 text-primary-custom', text: 'Detalles' }));
       back.appendChild(create('hr', { class: 'w-1/2 mb-3' }));
-      back.appendChild(create('p', { class: 'text-center', text: s.detalles }));
+      back.appendChild(create('p', { class: 'text-center text-secondary-custom', text: s.detalles }));
 
       inner.appendChild(front);
       inner.appendChild(back);
@@ -134,11 +134,11 @@
 
     proyectosData.forEach((app, idx) => {
       const card = create('div', { class: 'relative rounded-2xl overflow-hidden p-8 neumorph hover:neumorph-inset transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]', 'data-aos': 'fade-up', 'data-aos-delay': `${200 + idx * 100}` });
-      const badge = create('div', { class: 'neumorph-bg absolute right-4 top-4 bg-purple-600 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-md', html: '<i class="bi bi-star-fill text-xl"></i>' });
+      const badge = create('div', { class: 'neumorph-bg absolute right-4 top-4 bg-indigo-600 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-md', html: '<i class="bi bi-star-fill text-xl"></i>' });
       card.appendChild(badge);
-      card.appendChild(create('h5', { class: 'text-xl font-semibold mb-4', text: app.nombre }));
-      card.appendChild(create('p', { class: 'text-sm mb-6', text: app.descripcion }));
-      const a = create('a', { href: '#', class: 'btn-neumorph inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors px-5' });
+      card.appendChild(create('h5', { class: 'text-xl font-semibold text-primary-custom mb-4', text: app.nombre }));
+      card.appendChild(create('p', { class: 'text-secondary-custom text-sm mb-6', text: app.descripcion }));
+      const a = create('a', { href: '#', class: 'btn-neumorph inline-flex items-center text-primary-custom hover:text-secondary-custom transition-colors px-5' });
       a.innerHTML = 'Ver más <i class="bi bi-arrow-right-short text-2xl"></i>';
       card.appendChild(a);
       frag.appendChild(card);
@@ -232,10 +232,10 @@
           b.classList.remove('bg-indigo-100');
           b.classList.remove('text-indigo-700');
           b.classList.add('bg-transparent');
-          b.classList.add('text-gray-600');
+          b.classList.add('text-secondary-custom');
         });
         btn.classList.remove('bg-transparent');
-        btn.classList.remove('text-gray-600');
+        btn.classList.remove('text-secondary-custom');
         btn.classList.add('bg-indigo-100');
         btn.classList.add('text-indigo-700');
 
@@ -256,9 +256,9 @@
     faqs.forEach((f, i) => {
       const wrapper = create('div', { class: 'border border-gray-200 rounded-lg overflow-hidden neumorph', 'data-aos': 'fade-up', 'data-aos-delay': `${(i+1)*100}` });
       const btn = create('button', { type: 'button', class: 'faq-toggle w-full flex items-center justify-between px-4 py-3 bg-gray-100 hover:bg-gray-200 transition focus:outline-none' });
-      btn.innerHTML = `<div class="flex items-center space-x-2"><i class="fa-solid fa-question-circle text-indigo-600"></i><span class="font-medium text-gray-800">${f.pregunta}</span></div><i class="fa-solid fa-chevron-down text-gray-600"></i>`;
+      btn.innerHTML = `<div class="flex items-center space-x-2"><i class="fa-solid fa-question-circle text-primary-custom"></i><span class="font-medium text-primary-custom">${f.pregunta}</span></div><i class="fa-solid fa-chevron-down text-secondary-custom"></i>`;
 
-      const answer = create('div', { class: 'faq-answer max-h-0 overflow-hidden px-4 bg-white text-gray-700 border-t border-gray-200 transition-all duration-300' });
+      const answer = create('div', { class: 'faq-answer max-h-0 overflow-hidden px-4 bg-white text-secondary-custom border-t border-gray-200 transition-all duration-300' });
       answer.innerHTML = `<p class="py-3">${f.respuesta}</p>`;
 
       btn.addEventListener('click', () => {
