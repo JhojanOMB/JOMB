@@ -168,6 +168,84 @@ section {
   transform: translateY(1px);
 }
 
+.servicio-card {
+  background: var(--neumo-bg);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow:
+    14px 14px 30px rgba(0,0,0,0.10),
+    -14px -14px 30px rgba(255,255,255,0.75);
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid rgba(255,255,255,0.55);
+}
+
+.dark .servicio-card,
+[data-bs-theme="dark"] .servicio-card {
+  box-shadow:
+    10px 10px 24px rgba(0,0,0,0.42),
+    -10px -10px 24px rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    18px 18px 36px rgba(0,0,0,0.16),
+    -18px -18px 36px rgba(255,255,255,0.85);
+}
+
+.servicio-card-img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  min-height: 300px;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid rgba(255,255,255,0.45);
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(235,236,240,0.25));
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.servicio-card:hover .servicio-card-img {
+  transform: scale(1.03);
+  filter: brightness(1.04);
+}
+
+.card-body {
+  padding: 1.75rem 1.5rem;
+}
+
+.servicio-card h5 {
+  color: var(--text);
+}
+
+.servicio-card p {
+  color: #55606d;
+}
+
+.btn-neumorph-morado {
+  background: linear-gradient(135deg, var(--primary-morado), var(--primary-light-morado));
+  color: #ffffff;
+  box-shadow:
+    5px 5px 14px rgba(0,0,0,0.18),
+    -5px -5px 14px rgba(255,255,255,0.18);
+}
+
+.btn-neumorph-morado:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    6px 6px 16px rgba(0,0,0,0.24),
+    -6px -6px 16px rgba(255,255,255,0.22);
+}
+
+.btn-neumorph-morado:active {
+  box-shadow:
+    inset 4px 4px 12px rgba(0,0,0,0.2),
+    inset -4px -4px 12px rgba(255,255,255,0.18);
+  transform: translateY(1px);
+}
+
 /* Botones neumórficos */
 .btn-neumorph {
   background: var(--neumo-bg);
