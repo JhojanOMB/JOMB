@@ -1,0 +1,48 @@
+/* Modulo Contacto */
+#content #contact-form { min-width: 0; }
+#content #contact-form input,
+#content #contact-form textarea { max-width: 100%; box-sizing: border-box; }
+
+#content #contacto .input-icon {
+	color: #4c1d95;
+}
+
+#content #contacto input,
+#content #contacto textarea {
+	min-width: 0;
+	color: #0f172a;
+	background: #e0e5ec;
+}
+
+#content #contacto input::placeholder,
+#content #contacto textarea::placeholder {
+	color: #475569;
+}
+
+#content #faq {
+	background: #e0e5ec;
+	color: #0f172a;
+	box-shadow: 8px 8px 18px rgba(163, 177, 198, 0.72), -8px -8px 18px rgba(255, 255, 255, 0.9);
+}
+
+[data-bs-theme="dark"] #content #contacto input,
+[data-bs-theme="dark"] #content #contacto textarea {
+	color: #f8fafc;
+	background: #1e2430;
+	border-color: #475569;
+}
+
+[data-bs-theme="dark"] #content #contacto input::placeholder,
+[data-bs-theme="dark"] #content #contacto textarea::placeholder {
+	color: #cbd5e1;
+}
+
+[data-bs-theme="dark"] #content #contacto .input-icon {
+	color: #c4b5fd;
+}
+
+[data-bs-theme="dark"] #content #faq {
+	background: #1e2430;
+	color: #f8fafc;
+	box-shadow: 8px 8px 18px rgba(18, 22, 31, 0.9), -8px -8px 18px rgba(42, 51, 68, 0.82);
+}

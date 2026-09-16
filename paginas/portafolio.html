@@ -2,8 +2,6 @@
 <section
   id="portafolio"
   class="fondo mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12"
-  data-aos="fade-up"
-  data-aos-duration="800"
 >
   <div class="max-w-6xl mx-auto space-y-8">
     <h2 class="text-3xl font-semibold text-center">Nuestro Portafolio</h2>
@@ -27,15 +25,15 @@
     </div>
 
     <!-- Grid vacío: JS rellenará con tarjetas -->
-    <div id="portafolio-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+    <div id="portafolio-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
   </div>
 </section>
 
 <!-- Template de tarjeta, invisible en el DOM -->
 <template id="portafolio-card-template">
-  <div class="relative bg-purple-50 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group border border-purple-300 dark:border-slate-700 neumorph">
+  <div class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-[#e0e5ec] text-[#0f172a] shadow-neumo transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-[#1e2430] dark:text-[#f8fafc] dark:shadow-neumo-dark">
     <!-- Imagen -->
-    <img src="" alt="" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
+    <img src="" alt="" class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
     <!-- Overlay al hover -->
     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -44,10 +42,10 @@
     </div>
 
     <!-- Contenido -->
-    <div class="p-6 flex flex-col justify-between h-[200px]">
+    <div class="flex min-h-[210px] flex-col justify-between bg-[#e0e5ec] p-6 dark:bg-[#1e2430]">
       <div>
-        <h5 class="text-xl font-bold text-purple-950 dark:text-slate-100 mb-2" data-role="title">Título</h5>
-        <p class="text-purple-950 dark:text-slate-300 text-sm mb-4 font-medium" data-role="desc">Descripción breve.</p>
+        <h5 class="mb-2 text-xl font-bold text-[#0f172a] dark:text-[#f8fafc]" data-role="title">Título</h5>
+        <p class="mb-4 text-sm font-medium text-[#334155] dark:text-[#cbd5e1]" data-role="desc">Descripción breve.</p>
       </div>
       <!-- Tech tags -->
       <div class="flex flex-wrap gap-2" data-role="tags"></div>

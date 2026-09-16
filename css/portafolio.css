@@ -1,0 +1,4 @@
+/* Modulo Portafolio */
+#content #portafolio-grid { min-width: 0; }
+#content #portafolio-grid > * { min-width: 0; }
+#content #portafolio-grid [data-role="desc"] { overflow-wrap: anywhere; }

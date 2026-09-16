@@ -1,0 +1,5 @@
+/* Modulo Sobre Nosotros */
+#content #sobre-nosotros-body,
+#content #mision-vision-body,
+#content #metas,
+#content #valores { min-width: 0; }

@@ -1,0 +1,567 @@
+/* =========================================================
+   MODULO SERVICIOS
+   ========================================================= */
+
+#content #contenedor-servicios {
+    min-width: 0;
+}
+
+#content #contenedor-servicios > * {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   TARJETA EXTERIOR
+   ========================================================= */
+
+#content #contenedor-servicios > .servicio-flip {
+    position: relative;
+
+    width: 100%;
+    max-width: 24rem;
+    height: 20rem;
+
+    min-width: 0;
+
+    opacity: 1;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    /*
+     * La perspectiva DEBE estar en el elemento padre
+     * del objeto que gira.
+     */
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+
+    /*
+     * Evita que otros estilos interfieran.
+     */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+
+/* =========================================================
+   CONTENEDOR QUE GIRA
+   ========================================================= */
+
+#content #contenedor-servicios > .servicio-flip > .servicio-flip-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+     * ESTA ES UNA DE LAS PARTES MÁS IMPORTANTES
+     */
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+
+    /*
+     * Estado inicial
+     */
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+
+    transform-origin: center center;
+    -webkit-transform-origin: center center;
+
+    transition:
+        transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+    -webkit-transition:
+        -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   ACTIVAR GIRO 3D
+   ========================================================= */
+
+/*
+ * Mouse
+ */
+
+#content #contenedor-servicios
+> .servicio-flip:hover
+> .servicio-flip-inner {
+
+
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+
+/*
+ * Teclado
+ */
+
+#content #contenedor-servicios
+> .servicio-flip:focus-within
+> .servicio-flip-inner {
+
+
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+
+/*
+ * Click
+ */
+
+#content #contenedor-servicios
+> .servicio-flip.is-flipped
+> .servicio-flip-inner {
+
+
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   CARAS
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-front,
+
+#content #contenedor-servicios
+.servicio-flip-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 1.5rem;
+
+    border-radius: 1.5rem;
+
+    background: var(--neumo-bg);
+
+    color: var(--text);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    box-shadow:
+        14px 14px 30px rgba(0, 0, 0, 0.10),
+        -14px -14px 30px rgba(255, 255, 255, 0.75);
+
+    /*
+     * FUNDAMENTAL PARA EL FLIP
+     */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    /*
+     * Evita que el contenido sobresalga
+     */
+    overflow: hidden;
+
+    /*
+     * Mantiene las caras dentro del espacio 3D
+     */
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   CARA FRONTAL
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-front {
+
+    transform:
+        rotateY(0deg)
+        translateZ(1px);
+
+    -webkit-transform:
+        rotateY(0deg)
+        translateZ(1px);
+}
+
+
+/* =========================================================
+   CARA TRASERA
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-back {
+
+    transform:
+        rotateY(180deg)
+        translateZ(1px);
+
+    -webkit-transform:
+        rotateY(180deg)
+        translateZ(1px);
+
+    box-shadow:
+        inset 8px 8px 18px rgba(0, 0, 0, 0.08),
+        inset -8px -8px 18px rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-icon {
+
+    width: 5rem;
+    height: 5rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    margin-bottom: 1rem;
+
+    border-radius: 50%;
+
+    background: var(--neumo-bg);
+
+    color: #4c1d95;
+
+    border: 1px solid rgba(167, 139, 250, 0.35);
+
+    box-shadow:
+        inset 6px 6px 12px var(--neumo-dark),
+        inset -6px -6px 12px var(--neumo-light);
+}
+
+
+/* Icono Bootstrap */
+
+#content #contenedor-servicios
+.servicio-flip-icon i {
+
+    font-size: 1.8rem;
+
+    color: #4c1d95;
+
+    background: transparent !important;
+
+    border: 0;
+
+    border-radius: 0;
+
+    box-shadow: none !important;
+
+    padding: 0;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-front h3,
+
+#content #contenedor-servicios
+.servicio-flip-back h4 {
+
+    margin: 0 0 0.5rem;
+
+    text-align: center;
+
+    color: var(--text);
+
+    font-size: 1.125rem;
+
+    font-weight: 600;
+}
+
+
+#content #contenedor-servicios
+.servicio-flip-front p,
+
+#content #contenedor-servicios
+.servicio-flip-back p {
+
+    margin: 0;
+
+    text-align: center;
+
+    color: var(--text);
+
+    opacity: 0.75;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SEPARADOR
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip-back hr {
+
+    width: 50%;
+
+    margin: 0 0 1rem;
+
+    border: 0;
+
+    border-top:
+        1px solid var(--primary-light-morado);
+
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip:hover
+.servicio-flip-front,
+
+#content #contenedor-servicios
+.servicio-flip:hover
+.servicio-flip-back {
+
+    border-color:
+        rgba(167, 139, 250, 0.35);
+}
+
+
+/* =========================================================
+   TEMA CLARO
+   ========================================================= */
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-front,
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-back {
+
+    background: #e0e5ec;
+
+    color: #0f172a;
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        8px 8px 18px rgba(163, 177, 198, 0.72),
+        -8px -8px 18px rgba(255, 255, 255, 0.9);
+}
+
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-front h3,
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-back h4,
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-front p,
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-back p {
+
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   ICONO — TEMA CLARO
+   ========================================================= */
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-icon {
+
+    background: #e0e5ec;
+
+    color: #4c1d95;
+
+    border-color: #c4b5fd;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(163, 177, 198, 0.72),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.9);
+}
+
+
+[data-bs-theme="light"]
+#content #contenedor-servicios
+.servicio-flip-icon i {
+
+    color: #4c1d95;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   TEMA OSCURO
+   ========================================================= */
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-front,
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-back {
+
+    background: #1e2430;
+
+    color: #f8fafc;
+
+    border-color: #475569;
+
+    box-shadow:
+        8px 8px 18px rgba(18, 22, 31, 0.9),
+        -8px -8px 18px rgba(42, 51, 68, 0.82);
+}
+
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-front h3,
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-back h4,
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-front p,
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-back p {
+
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   ICONO — TEMA OSCURO
+   ========================================================= */
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-icon {
+
+    background: #1e2430;
+
+    color: #c4b5fd;
+
+    border-color: #7c3aed;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(18, 22, 31, 0.9),
+        inset -5px -5px 10px rgba(42, 51, 68, 0.82);
+}
+
+
+[data-bs-theme="dark"]
+#content #contenedor-servicios
+.servicio-flip-icon i {
+
+    color: #c4b5fd;
+
+    background: transparent !important;
+
+    border: 0;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+#content #contenedor-servicios
+.servicio-flip:focus {
+
+    outline: none;
+}
+
+
+#content #contenedor-servicios
+.servicio-flip:focus-visible {
+
+    outline:
+        2px solid var(--primary-morado);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   MÓVILES
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    #content #contenedor-servicios {
+
+        gap: 1rem;
+    }
+
+    #content #contenedor-servicios
+    > .servicio-flip {
+
+        max-width: 100%;
+
+        height: 19rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #content #contenedor-servicios
+    .servicio-flip-inner {
+
+        transition: none;
+        -webkit-transition: none;
+    }
+}

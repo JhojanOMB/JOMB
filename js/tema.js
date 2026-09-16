@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('toggle-theme');
+  const botones = [
+    document.getElementById('toggle-theme'),
+    document.getElementById('toggle-theme-mobile')
+  ].filter(Boolean);
   const html = document.documentElement;
 
   // Función para actualizar el ícono del botón según el tema
@@ -23,23 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('dark', tema === 'dark');
 
     localStorage.setItem('theme', tema);
-    actualizarBoton(btn, tema);
+    botones.forEach((boton) => actualizarBoton(boton, tema));
   };
 
-  if (btn) {
+  if (botones.length) {
     // Actualizar icono del botón y aplicar estado inicial
     aplicarTema(temaActual);
 
     // Evento click para cambiar de tema
-    btn.addEventListener('click', (e) => {
+    botones.forEach((btn) => btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
 
       const nuevoTema = html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
       aplicarTema(nuevoTema);
-      console.log('Tema cambiado a:', nuevoTema);
-    });
+    }));
   } else {
-    console.warn('Botón toggle-theme no encontrado');
+    console.warn('No se encontraron controles de tema');
   }
 });

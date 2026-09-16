@@ -1,185 +1,166 @@
-<body class="bg-gray-50 text-gray-800 relative px-6 py-10 lg:px-24">
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-purple-500 selection:text-white">
 
-<!-- Hero -->
-<section id="inicio" role="banner"
-  class="relative bg-gradient-to-br from-white via-zinc-300 to-violet-950 dark:from-[#120b24] dark:via-[#2e1a42] dark:to-[#0c0720] pt-20 pb-32 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
-    
-    <!-- Texto -->
-    <div class="space-y-6" data-aos="fade-right">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-900 dark:text-slate-100 leading-tight font-bold">
-        Soluciones a tu <span class="text-purple-600 dark:text-purple-300">Alcance</span>
-      </h1>
-
-      <p class="text-lg text-gray-600 dark:text-slate-300 max-w-lg">
-        Expertos en creación de sitios web de alta calidad. Creamos experiencias digitales únicas que potencian el impacto de tu marca.
-      </p>
-
-      <!-- Botón: opción A = usa tu clase neumórfica morada (si quieres mantenerla) -->
-      <a href="#" aria-label="Contáctanos" onclick="cargarContenido('paginas/contacto.html')"
-        class="inline-block btn-neumorph-morado text-white rounded-full py-2 px-6 shadow-sm">
-        Contáctanos
-      </a>
-
-    </div>
-
-    <!-- Imagen (envoltorio blanco neutro para integrar la mascota) -->
-    <div class="flex justify-center" data-aos="fade-left">
-      <div class="rounded-2xl p-4">
-        <img
-          src="./img/Jomby Saludando.png"
-          alt="Mascota Jomby saludando"
-          class="w-72"
-          loading="lazy"
-        >
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Servicios -->
-  <section id="servicios" role="region" aria-labelledby="servicios-title" class="relative -mt-24 bg-gray-50 py-16">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 id="servicios-title" class="text-4xl mb-8 font-semibold" data-aos="zoom-in">Nuestros Servicios</h2>
-      <div
-        id="contenedor-servicios"
-        class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center max-w-7xl mx-auto px-4 py-8"
-      >
-        <!-- Más tarjetas insertadas vía JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre Nosotros -->
-  <section id="sobre-nosotros" role="region" aria-labelledby="sobre-title" class="py-16">
-    <div class="max-w-2lg mx-auto px-8">
-      <div class="neumorph rounded-3xl p-8 lg:p-12 text-center" data-aos="fade-up">
-        <h2 id="sobre-title" class="text-3xl mb-6 font-semibold">Sobre Nosotros</h2>
-
-      <!-- Texto -->
-      <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-        En <span class="font-semibold text-purple-700">JOMB</span> creemos que la
-        <span class="font-medium">tecnología</span> y el <span class="font-medium">diseño</span>
-        deben ir de la mano para crear soluciones digitales que realmente conecten con las personas.
-      </p>
-
-      <!-- Logo -->
-      <div class="mt-8 flex justify-center">
-        <div class="w-28 h-28 rounded-full neumorph-inset p-4">
-          <span>
-            <img src="./img/JOMB.png" alt="Logo JOMB"
-                
-                loading="lazy">
-          </span>
-        </div>
-      </div>
+  <!-- Hero Section -->
+  <header id="inicio" role="banner" class="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-zinc-200 to-violet-950 px-4 sm:px-8 lg:px-16 py-12 dark:from-[#120b24] dark:via-[#2e1a42] dark:to-[#0c0720]">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
       
-    </div>
-  </section>
-
-
-  <!-- Sección Contacto -->
-  <section id="contacto" class="py-16">
-    <div class="max-w-2lg mx-auto px-20">
-      <div class="neumorph rounded-3xl p-8 lg:p-12" data-aos="fade-up">
-        <h2 class="text-3xl font-semibold text-center mb-4">¿Listo para Potenciar tu Tecnología?</h2>
-        <p class="text-center text-gray-600 mb-8">
-          Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas y mejorar tu presencia en línea.
+      <!-- Texto con nuevo enfoque -->
+      <div class="md:col-span-7 lg:col-span-7 space-y-6 text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900 dark:text-slate-100">
+          Una web superior para la <span class="text-purple-600 dark:text-purple-300">Mejor Marca</span>
+        </h1>
+        <p class="max-w-2xl mx-auto md:mx-0 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 dark:text-slate-300">
+          Destaca por encima de la competencia con un sitio web diseñado a tu medida. Creamos experiencias digitales únicas de alta calidad que potencian el impacto de tu negocio.
         </p>
-
-      <!-- Formulario -->
-      <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
-        <!-- Nombre -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-user text-sm"></i>
-          </span>
-          <input name="nombre" type="text" placeholder="Tu nombre" required
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
+        <div class="pt-2">
+          <button onclick="cargarContenido('paginas/contacto.html')" class="w-full sm:w-auto inline-flex items-center justify-center btn-neumorph-morado text-white font-semibold rounded-full px-8 py-4 shadow-md transition-transform hover:scale-105 active:scale-95">
+            Contáctanos
+          </button>
         </div>
-
-        <!-- Empresa -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-building text-sm"></i>
-          </span>
-          <input name="empresa" type="text" placeholder="Empresa"
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
-
-        <!-- Correo -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-envelope text-sm"></i>
-          </span>
-          <input name="correo" type="email" placeholder="Tu correo electrónico" required
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
-
-        <!-- Teléfono -->
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
-            <i class="fa-solid fa-phone text-sm"></i>
-          </span>
-          <input name="telefono" type="tel" placeholder="Tu número telefónico" required pattern="^[0-9]{7,15}$"
-                  class="peer w-full pl-10 pr-4 py-3 rounded-xl neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-violet-300" />
-        </div>
-
-        <!-- Mensaje -->
-        <div class="md:col-span-2 relative">
-          <span class="absolute top-2 left-0 pl-3 flex items-start pt-2 text-gray-400">
-            <i class="fa-solid fa-message text-sm"></i>
-          </span>
-          <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje o idea" required
-                    class="peer w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset text-sm sm:text-base focus:ring-2 focus:ring-indigo-300"></textarea>
-        </div>
-
-        <!-- Botón -->
-        <div class="md:col-span-2 text-center mt-4">
-            <button type="submit"
-                    class="inline-flex items-center btn-neumorph text-gray-800 py-3 px-8 rounded-full transition">
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" style="fill:none;stroke:#6b21a8" xmlns="http://www.w3.org/2000/svg" class="mr-2"
-                    >
-                      <g style="filter: url(#shadow)">
-                        <path
-                          d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
-                          fill="currentColor"
-                        ></path>
-                      </g>
-                      <defs>
-                        <filter id="shadow">
-                          <fedropshadow
-                            dx="0"
-                            dy="1"
-                            stdDeviation="0.6"
-                            flood-opacity="0.5"
-                          ></fedropshadow>
-                        </filter>
-                      </defs>
-                    </svg> Enviar Mensaje
-            </button>
-        </div>
-      </form>
       </div>
-    </div>
-  </section>
 
-  <!-- Modal oculto -->
-  <div id="modal-msg" class="fixed inset-0 hidden bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl p-6 text-center shadow-xl max-w-sm w-full">
-      <p id="modal-text" class="text-lg font-medium mb-4"></p>
-      <button id="closeModal" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full">
+      <!-- Imagen Mascotas/Banner -->
+      <div class="md:col-span-5 lg:col-span-5 flex justify-center items-center">
+        <div class="relative w-full max-w-md flex justify-center p-4">
+          <img src="./img/Jomby Saludando.png" alt="Mascota Jomby saludando" class="w-full max-h-[350px] sm:max-h-[450px] object-contain filter drop-shadow-2xl" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-20 sm:space-y-28">
+
+    <!-- Sección Servicios -->
+    <section id="servicios" aria-labelledby="servicios-title" class="w-full">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <h2 id="servicios-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+          Nuestros Servicios
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400">
+          Diseñamos soluciones digitales adaptadas a cada necesidad técnica e institucional.
+        </p>
+      </div>
+
+      <div id="contenedor-servicios" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full">
+        <!-- Tarjetas dinámicas inyectadas por JS -->
+      </div>
+    </section>
+
+    <!-- Grid con Alturas Igualadas (lg:items-stretch) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-stretch">
+      
+      <!-- Sobre Nosotros (Misma altura que contacto + Contenido perfectamente centrado) -->
+      <section id="sobre-nosotros" aria-labelledby="sobre-title" class="lg:col-span-5 flex w-full">
+        <div class="neumorph w-full rounded-3xl p-6 sm:p-10 text-center flex flex-col justify-center items-center h-full">
+          <div class="my-auto py-4 flex flex-col items-center">
+            <h2 id="sobre-title" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Sobre Nosotros</h2>
+            <p class="text-gray-600 text-base sm:text-lg leading-relaxed max-w-md">
+              En <span class="font-semibold text-purple-700">JOMB</span> creemos que la <span class="font-medium text-gray-900">tecnología</span> y el <span class="font-medium text-gray-900">diseño</span> deben ir de la mano para crear soluciones digitales que realmente conecten con las personas.
+            </p>
+
+            <div class="mt-8 flex justify-center items-center">
+              <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full neumorph-inset p-5 flex items-center justify-center shrink-0">
+                <img src="./img/JOMB.png" alt="Logo JOMB" class="max-w-full max-h-full object-contain" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto" aria-labelledby="contacto-title" class="lg:col-span-7 flex w-full">
+        <div class="neumorph w-full rounded-3xl p-6 sm:p-10 flex flex-col justify-between">
+          <div>
+            <h2 id="contacto-title" class="text-2xl sm:text-3xl font-bold text-center lg:text-left text-gray-900 mb-3">
+              ¿Listo para Potenciar tu Tecnología?
+            </h2>
+            <p class="text-center lg:text-left text-gray-600 text-sm sm:text-base mb-8">
+              Contáctanos hoy mismo y descubre cómo podemos ayudarte a optimizar tus sistemas.
+            </p>
+
+            <form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
+              
+              <!-- Nombre -->
+              <div class="relative flex flex-col justify-start">
+                <label for="nombre" class="sr-only">Nombre</label>
+                <div class="relative w-full">
+                  <span class="absolute top-3.5 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 z-10">
+                    <i class="fa-solid fa-user text-sm"></i>
+                  </span>
+                  <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required class="w-full pl-10 pr-4 h-12 rounded-xl neumorph-inset text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 box-border" />
+                </div>
+              </div>
+
+              <!-- Empresa -->
+              <div class="relative flex flex-col justify-start">
+                <label for="empresa" class="sr-only">Empresa</label>
+                <div class="relative w-full">
+                  <span class="absolute top-3.5 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 z-10">
+                    <i class="fa-solid fa-building text-sm"></i>
+                  </span>
+                  <input id="empresa" name="empresa" type="text" placeholder="Empresa (Opcional)" class="w-full pl-10 pr-4 h-12 rounded-xl neumorph-inset text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 box-border" />
+                </div>
+              </div>
+
+              <!-- Correo -->
+              <div class="relative flex flex-col justify-start">
+                <label for="correo" class="sr-only">Correo electrónico</label>
+                <div class="relative w-full">
+                  <span class="absolute top-3.5 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 z-10">
+                    <i class="fa-solid fa-envelope text-sm"></i>
+                  </span>
+                  <input id="correo" name="correo" type="email" placeholder="Tu correo electrónico" required class="w-full pl-10 pr-4 h-12 rounded-xl neumorph-inset text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 box-border" />
+                </div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="relative flex flex-col justify-start">
+                <label for="telefono" class="sr-only">Teléfono</label>
+                <div class="relative w-full">
+                  <span class="absolute top-3.5 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 z-10">
+                    <i class="fa-solid fa-phone text-sm"></i>
+                  </span>
+                  <input id="telefono" name="telefono" type="tel" placeholder="Tu teléfono" required pattern="^[0-9]{7,15}$" class="w-full pl-10 pr-4 h-12 rounded-xl neumorph-inset text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 box-border" />
+                </div>
+              </div>
+
+              <!-- Mensaje -->
+              <div class="sm:col-span-2 relative flex flex-col justify-start">
+                <label for="mensaje" class="sr-only">Mensaje</label>
+                <div class="relative w-full">
+                  <span class="absolute top-3.5 left-0 pl-3.5 flex items-start pointer-events-none text-gray-400 z-10">
+                    <i class="fa-solid fa-message text-sm"></i>
+                  </span>
+                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje o idea" required class="w-full pl-10 pr-4 py-3 rounded-xl resize-none neumorph-inset text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 box-border"></textarea>
+                </div>
+              </div>
+
+              <!-- Botón -->
+              <div class="sm:col-span-2 text-center lg:text-left mt-2">
+                <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center btn-neumorph text-purple-950 font-bold py-3.5 px-8 rounded-full transition-transform hover:scale-105 active:scale-95">
+                  <i class="fa-solid fa-paper-plane mr-2 text-purple-700"></i> Enviar Mensaje
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Modal -->
+  <div id="modal-msg" class="fixed inset-0 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true">
+    <div class="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 text-center shadow-2xl max-w-sm w-full border border-gray-100 dark:border-zinc-800">
+      <p id="modal-text" class="text-base sm:text-lg font-medium mb-6 text-gray-800 dark:text-gray-200"></p>
+      <button id="closeModal" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full transition-colors">
         Cerrar
       </button>
     </div>
   </div>
 
-
-  <!-- Scripts sin estilos inline -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 </body>

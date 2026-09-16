@@ -1,8 +1,8 @@
 /* Variables */
 :root {
   /* Colores base - TEMA CLARO */
-  --neumo-pg: #EBECF0;
-  --neumo-bg: #e3e3e3;
+  --neumo-pg: #e0e5ec;
+  --neumo-bg: #e0e5ec;
   --neumo-light: #ffffff;
   --neumo-dark: #bebebe;
   --primary: #6c63ff;
@@ -13,8 +13,8 @@
   --primary-morado: #6b21a8;         /* color primary */
   --primary-light-morado: #a78bfa;   /* color light */
   --text: #0f172a;       /* color de texto por defecto */
-  --bg-body: #f3f4f6;
-  --bg-secondary: #ffffff;
+  --bg-body: #e0e5ec;
+  --bg-secondary: #f8fafc;
 
   /* Contenedores generales */
   --offset: 6px;
@@ -28,8 +28,8 @@
 
 /* TEMA OSCURO */
 [data-bs-theme="dark"] {
-  --neumo-pg: #0f1419;
-  --neumo-bg: #1a202c;
+  --neumo-pg: #1e2430;
+  --neumo-bg: #1e2430;
   --neumo-light: #2d3748;
   --neumo-dark: #0a0e12;
   --primary: #7c3aed;
@@ -39,9 +39,9 @@
   --primary-dark-morado: #581c87;
   --primary-morado: #7c3aed;
   --primary-light-morado: #a78bfa;
-  --text: #e2e8f0;
-  --bg-body: #0f1419;
-  --bg-secondary: #1a202c;
+  --text: #f8fafc;
+  --bg-body: #1e2430;
+  --bg-secondary: #1e2430;
   
   /* Sombras más sutiles para tema oscuro */
   --offset: 2px;
@@ -63,17 +63,10 @@ body {
   color: var(--text) !important;
 }
 
-/* Elementos secundarios */
+/* Elementos secundarios: dejan que Tailwind y los módulos definan sus superficies. */
 main {
-  background-color: var(--bg-body) !important;
-  color: var(--text) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-section {
-  background-color: var(--bg-body) !important;
-  color: var(--text) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--text);
+  transition: color 0.3s ease;
 }
 
 /* Reemplazar colores de Tailwind en tema oscuro */
@@ -111,6 +104,91 @@ section {
 
 [data-bs-theme="dark"] .border-gray-300 {
   border-color: #4b5563 !important;
+}
+
+/* Contraste de módulos cargados. El hero (#inicio) queda fuera de estas reglas. */
+[data-bs-theme="light"] #content #servicios .text-gray-900,
+[data-bs-theme="light"] #content #servicios .text-gray-800,
+[data-bs-theme="light"] #content #servicios .text-gray-700,
+[data-bs-theme="light"] #content #servicios .text-gray-600,
+[data-bs-theme="light"] #content #portafolio .text-gray-900,
+[data-bs-theme="light"] #content #portafolio .text-gray-800,
+[data-bs-theme="light"] #content #portafolio .text-gray-700,
+[data-bs-theme="light"] #content #portafolio .text-gray-600,
+[data-bs-theme="light"] #content #contacto .text-gray-900,
+[data-bs-theme="light"] #content #contacto .text-gray-800,
+[data-bs-theme="light"] #content #contacto .text-gray-700,
+[data-bs-theme="light"] #content #contacto .text-gray-600,
+[data-bs-theme="light"] #content #faq .text-gray-900,
+[data-bs-theme="light"] #content #faq .text-gray-800,
+[data-bs-theme="light"] #content #faq .text-gray-700,
+[data-bs-theme="light"] #content #faq .text-gray-600,
+[data-bs-theme="light"] #content #sobre-nosotros-body .text-gray-600,
+[data-bs-theme="light"] #content #mision-vision-body .text-gray-600,
+[data-bs-theme="light"] #content #metas .text-gray-600,
+[data-bs-theme="light"] #content #valores .text-gray-600 {
+  color: #0f172a !important;
+}
+
+[data-bs-theme="dark"] #content #servicios .text-gray-900,
+[data-bs-theme="dark"] #content #servicios .text-gray-800,
+[data-bs-theme="dark"] #content #servicios .text-gray-700,
+[data-bs-theme="dark"] #content #servicios .text-gray-600,
+[data-bs-theme="dark"] #content #portafolio .text-gray-900,
+[data-bs-theme="dark"] #content #portafolio .text-gray-800,
+[data-bs-theme="dark"] #content #portafolio .text-gray-700,
+[data-bs-theme="dark"] #content #portafolio .text-gray-600,
+[data-bs-theme="dark"] #content #contacto .text-gray-900,
+[data-bs-theme="dark"] #content #contacto .text-gray-800,
+[data-bs-theme="dark"] #content #contacto .text-gray-700,
+[data-bs-theme="dark"] #content #contacto .text-gray-600,
+[data-bs-theme="dark"] #content #faq .text-gray-900,
+[data-bs-theme="dark"] #content #faq .text-gray-800,
+[data-bs-theme="dark"] #content #faq .text-gray-700,
+[data-bs-theme="dark"] #content #faq .text-gray-600,
+[data-bs-theme="dark"] #content #sobre-nosotros-body .text-gray-600,
+[data-bs-theme="dark"] #content #mision-vision-body .text-gray-600,
+[data-bs-theme="dark"] #content #metas .text-gray-600,
+[data-bs-theme="dark"] #content #valores .text-gray-600 {
+  color: #f8fafc !important;
+}
+
+[data-bs-theme="light"] #content #servicios i,
+[data-bs-theme="light"] #content #portafolio i,
+[data-bs-theme="light"] #content #contacto i,
+[data-bs-theme="light"] #content #faq i,
+[data-bs-theme="light"] #content #sobre-nosotros-body i,
+[data-bs-theme="light"] #content #mision-vision-body i,
+[data-bs-theme="light"] #content #metas i,
+[data-bs-theme="light"] #content #valores i {
+  color: #4c1d95;
+}
+
+[data-bs-theme="dark"] #content #servicios i,
+[data-bs-theme="dark"] #content #portafolio i,
+[data-bs-theme="dark"] #content #contacto i,
+[data-bs-theme="dark"] #content #faq i,
+[data-bs-theme="dark"] #content #sobre-nosotros-body i,
+[data-bs-theme="dark"] #content #mision-vision-body i,
+[data-bs-theme="dark"] #content #metas i,
+[data-bs-theme="dark"] #content #valores i {
+  color: #c4b5fd;
+}
+
+/* Iconos sobre botones morados conservan contraste blanco. */
+#content #portafolio a.bg-purple-800 i,
+#content #portafolio a.bg-purple-700 i,
+#content #servicios a.bg-purple-800 i,
+#content #servicios a.bg-purple-700 i {
+  color: #ffffff !important;
+}
+
+/* Los iconos no deben convertirse en mini tarjetas neumórficas. */
+#content i {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 /* Neumorphic containers */
@@ -166,62 +244,6 @@ section {
     inset calc(var(--offset) / 2) calc(var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-dark),
     inset calc(-1 * var(--offset) / 2) calc(-1 * var(--offset) / 2) calc(var(--blur) / 1.6) var(--neumo-light);
   transform: translateY(1px);
-}
-
-.servicio-card {
-  background: var(--neumo-bg);
-  border-radius: 1.75rem;
-  overflow: hidden;
-  box-shadow:
-    14px 14px 30px rgba(0,0,0,0.10),
-    -14px -14px 30px rgba(255,255,255,0.75);
-  transition: transform .25s ease, box-shadow .25s ease;
-  border: 1px solid rgba(255,255,255,0.55);
-}
-
-.dark .servicio-card,
-[data-bs-theme="dark"] .servicio-card {
-  box-shadow:
-    10px 10px 24px rgba(0,0,0,0.42),
-    -10px -10px 24px rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.08);
-}
-
-.servicio-card:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    18px 18px 36px rgba(0,0,0,0.16),
-    -18px -18px 36px rgba(255,255,255,0.85);
-}
-
-.servicio-card-img {
-  display: block;
-  width: 100%;
-  height: 360px;
-  min-height: 300px;
-  max-height: 380px;
-  object-fit: cover;
-  object-position: center top;
-  border-bottom: 1px solid rgba(255,255,255,0.45);
-  background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(235,236,240,0.25));
-  transition: transform .35s ease, filter .35s ease;
-}
-
-.servicio-card:hover .servicio-card-img {
-  transform: scale(1.03);
-  filter: brightness(1.04);
-}
-
-.card-body {
-  padding: 1.75rem 1.5rem;
-}
-
-.servicio-card h5 {
-  color: var(--text);
-}
-
-.servicio-card p {
-  color: #55606d;
 }
 
 .btn-neumorph-morado {
@@ -301,15 +323,6 @@ section {
   background: #4c1d95;
 }
 
-/* Icono de tarjeta de servicio: morado oscuro clarito según tema */
-.servicio-icon {
-  color: #4c1d95; /* purple-800 / morado fuerte en claro */
-}
-
-.dark .servicio-icon,
-[data-bs-theme="dark"] .servicio-icon {
-  color: #c4b5fd; /* purple-200 / morado claro en oscuro */
-}
 
 .btn-neumorph:hover {
   box-shadow:
@@ -322,50 +335,6 @@ section {
     inset 4px 4px 10px rgba(12,12,12,0.08),
     inset -4px -4px 10px var(--neumo-light) !important; 
   transform: translateY(1px);
-}
-
-/* Flip Card Effect */
-.flip-card { perspective: 1000px; }
-/* Tarjetas flip de servicios */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
-  transform: rotateY(180deg);
-}
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* para coherencia con neumorphism: */
-  background: var(--neumo-bg);
-  box-shadow:
-    var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
-  /* sombra inset al reverso: */
-  box-shadow:
-    inset var(--offset) var(--offset) var(--blur) var(--neumo-dark),
-    inset calc(-1 * var(--offset)) calc(-1 * var(--offset)) var(--blur) var(--neumo-light);
-}
-
-.flip-card-front {
-  transform: rotateY(0deg);
-  z-index: 2;
 }
 
 /* Tarjetas semiredondas */
