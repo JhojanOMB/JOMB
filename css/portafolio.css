@@ -2,3 +2,39 @@
 #content #portafolio-grid { min-width: 0; }
 #content #portafolio-grid > * { min-width: 0; }
 #content #portafolio-grid [data-role="desc"] { overflow-wrap: anywhere; }
+
+#content .portafolio-card {
+  border: 1px solid var(--surface-border);
+  color: var(--text);
+}
+
+#content .portafolio-card-body {
+  color: var(--text);
+  background: var(--neumo-bg);
+}
+
+#content .portafolio-card [data-role="title"] {
+  color: var(--text);
+}
+
+#content .portafolio-card [data-role="desc"] {
+  color: var(--text);
+  opacity: 0.82;
+}
+
+#content .portafolio-card [data-role="tags"] span {
+  border-color: var(--surface-border);
+  color: var(--primary-morado);
+  background: var(--neumo-bg);
+  box-shadow:
+    inset 2px 2px 5px var(--surface-shadow-dark),
+    inset -2px -2px 5px var(--surface-shadow-light);
+}
+
+[data-bs-theme="dark"] #content .portafolio-card [data-role="tags"] span {
+  color: var(--primary-light-morado);
+}
+
+#content .portafolio-card [data-role="action"] a i {
+  color: #fff !important;
+}

@@ -7,6 +7,21 @@ function inicializarFormContacto() {
   const modalText = document.getElementById("modal-text");
   const closeModal = document.getElementById("closeModal");
   const submitBtn = form.querySelector('button[type="submit"]');
+  if (!modal || !modalText || !closeModal || !submitBtn) {
+    console.error("El formulario de contacto no tiene todos sus controles requeridos.");
+    return;
+  }
+  const consent = form.elements.namedItem("autorizacionDatos");
+  const consentLabel = consent?.closest("label");
+  let consentError = null;
+
+  function clearConsentError() {
+    consent?.removeAttribute("aria-invalid");
+    consentError?.remove();
+    consentError = null;
+  }
+
+  consent?.addEventListener("change", clearConsentError);
 
   // Validadores
   const validators = {
@@ -35,7 +50,7 @@ function inicializarFormContacto() {
     let err = parent.querySelector(".error-mesagge");
     if (!err) {
       err = document.createElement("p");
-      err.className = "error-mesagge mt-1 text-xs sm:text-sm text-red-500";
+      err.className = "error-message mt-1 text-xs sm:text-sm text-red-500";
       parent.appendChild(err);
     }
     err.textContent = message;
@@ -47,13 +62,14 @@ function inicializarFormContacto() {
     input.classList.add("success", "border-green-500", "ring-green-300");
 
     const parent = input.closest(".relative") || input.parentElement;
-    const err = parent.querySelector(".error-mesagge");
+    const err = parent.querySelector(".error-message");
     if (err) err.remove();
   }
 
   // Validación en tiempo real
   form.querySelectorAll("input[name], textarea[name]").forEach(el => {
     el.addEventListener("blur", () => {
+      if (!validators[el.name]) return;
       const res = validators[el.name] ? validators[el.name](el.value) : true;
       if (res === true) {
         showSuccess(el);
@@ -85,10 +101,25 @@ function inicializarFormContacto() {
     }
 
     if (!valid) {
-      const firstErr = form.querySelector(".error-mesagge");
+      const firstErr = form.querySelector(".error-message");
       if (firstErr) firstErr.previousElementSibling?.focus?.();
       return;
     }
+
+    if (!consent || !consent.checked) {
+      if (consent) {
+        consent.setAttribute("aria-invalid", "true");
+        consent.focus();
+      }
+      if (!consentError && consentLabel) {
+        consentError = document.createElement("p");
+        consentError.className = "mt-1 text-sm text-red-600";
+        consentError.textContent = "Debes autorizar el tratamiento para enviar el formulario.";
+        consentLabel.parentElement.appendChild(consentError);
+      }
+      return;
+    }
+    clearConsentError();
 
     // bloquear botón
     submitBtn.disabled = true;
@@ -102,28 +133,35 @@ function inicializarFormContacto() {
         body: formData
       });
 
+      if (!r.ok) throw new Error(`El servicio respondió con HTTP ${r.status}.`);
       const json = await r.json();
 
       if (json.status === "success") {
-        modalText.textContent = "✅ " + json.detail;
+        modalText.textContent = `✅ ${json.detail || "Tu mensaje fue enviado correctamente."}`;
         form.reset();
         submitBtn.innerHTML = 'Enviado ✅';
       } else {
-        modalText.textContent = "❌ " + json.detail;
+        modalText.textContent = `❌ ${json.detail || "No fue posible enviar tu mensaje."}`;
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
       }
     } catch (err) {
-      modalText.textContent = "❌ Error: " + err.message;
+      console.error("No se pudo enviar el formulario de contacto:", err);
+      modalText.textContent = "❌ No se pudo enviar el mensaje. Inténtalo más tarde o contáctanos por correo.";
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
     }
 
     modal.classList.remove("hidden");
+    closeModal.focus();
   });
 
   // Cerrar modal
-  closeModal.addEventListener("click", () => modal.classList.add("hidden"));
-  modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.classList.add("hidden"); });
+  function hideModal() {
+    modal.classList.add("hidden");
+    submitBtn.focus();
+  }
+  closeModal.addEventListener("click", hideModal);
+  modal.addEventListener("click", (e) => { if (e.target === modal) hideModal(); });
+  modal.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
 }

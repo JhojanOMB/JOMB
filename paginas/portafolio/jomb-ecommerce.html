@@ -7,6 +7,12 @@
   .animate-slide-into-pocket {
     animation: slideIntoPocket 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-into-pocket {
+      animation: none;
+    }
+  }
 </style>
 
 <!-- SECCIÓN JOMB E-COMMERCE CON WOMPI, DASHBOARD Y MÁS TARJETAS -->
@@ -30,7 +36,7 @@
     <!-- Módulos del Dashboard -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
       
-      <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+      <div class="neumorph-inset p-4 rounded-xl space-y-1">
         <div class="flex items-center gap-2 text-blue-600 font-bold text-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
           <span>Dashboard de Ventas</span>
@@ -38,7 +44,7 @@
         <p class="text-xs text-slate-500">Métrica exacta de cuánto se ha vendido en el día, semana o mes.</p>
       </div>
 
-      <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+      <div class="neumorph-inset p-4 rounded-xl space-y-1">
         <div class="flex items-center gap-2 text-purple-600 font-bold text-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
           <span>Mejor Vendedor</span>
@@ -46,7 +52,7 @@
         <p class="text-xs text-slate-500">Identifica quién lidera las ventas y mide el rendimiento de tu equipo.</p>
       </div>
 
-      <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+      <div class="neumorph-inset p-4 rounded-xl space-y-1">
         <div class="flex items-center gap-2 text-amber-600 font-bold text-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
           <span>Productos Más Vendidos</span>
@@ -54,7 +60,7 @@
         <p class="text-xs text-slate-500">Ranking detallado de los productos con mayor rotación en la tienda.</p>
       </div>
 
-      <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+      <div class="neumorph-inset p-4 rounded-xl space-y-1">
         <div class="flex items-center gap-2 text-red-600 font-bold text-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
           <span>Alertas de Stock Bajo</span>
@@ -66,10 +72,10 @@
 
     <!-- Botones de Acción -->
     <div class="flex flex-wrap gap-4 pt-2">
-      <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl shadow-lg shadow-blue-500/20 transition-all">
+      <button type="button" class="btn-neumorph rounded-xl px-6 py-3 text-sm font-semibold">
         Probar Dashboard
       </button>
-      <button class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm rounded-xl transition-all">
+      <button type="button" class="btn-neumorph rounded-xl px-6 py-3 text-sm font-semibold">
         Integrar Wompi
       </button>
     </div>

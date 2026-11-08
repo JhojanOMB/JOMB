@@ -2,23 +2,83 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Error al enviar mensaje</title>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(location.search);
-      const msg = urlParams.get('msg') || 'Ha ocurrido un error desconocido.';
-      document.getElementById('error-msg').textContent = msg;
-    });
-  </script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Error al enviar mensaje | JOMB</title>
+  <style>
+    :root {
+      --surface: #e0e5ec;
+      --surface-light: #ffffff;
+      --surface-dark: #a3b1c6;
+      --text: #0f172a;
+      color-scheme: light dark;
+      font-family: system-ui, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+
+    main {
+      width: min(100%, 32rem);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      background: var(--surface);
+      box-shadow: 8px 8px 18px var(--surface-dark), -8px -8px 18px var(--surface-light);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .8rem 1.2rem;
+      border-radius: 999px;
+      color: var(--text);
+      background: var(--surface);
+      text-decoration: none;
+      box-shadow: 4px 4px 9px var(--surface-dark), -4px -4px 9px var(--surface-light);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    a:hover {
+      transform: translateY(-2px);
+    }
+
+    a:active {
+      box-shadow: inset 3px 3px 7px var(--surface-dark), inset -3px -3px 7px var(--surface-light);
+    }
+
+    a:focus-visible {
+      outline: 3px solid #a78bfa;
+      outline-offset: 4px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #1e2430;
+        --surface-light: #2d3748;
+        --surface-dark: #12161f;
+        --text: #f8fafc;
+      }
+    }
+  </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-  <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-    <h1 class="text-2xl font-bold mb-4 text-red-600">¡Ups! Algo salió mal</h1>
-    <p id="error-msg" class="text-gray-700 mb-6"></p>
-    <a href="/" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition">
-      Volver al inicio
-    </a>
-  </div>
+<body>
+  <main>
+    <h1>¡Ups! Algo salió mal</h1>
+    <p id="error-msg" role="status">Ha ocurrido un error desconocido.</p>
+    <a href="../index.html">Volver al inicio</a>
+  </main>
+  <script>
+    const message = new URLSearchParams(location.search).get('msg');
+    if (message) document.getElementById('error-msg').textContent = message;
+  </script>
 </body>
 </html>

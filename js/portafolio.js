@@ -13,6 +13,14 @@
     if (!grid || !template) return;
     const { create } = window.appDom || {};
     grid.replaceChildren();
+    if (!items.length) {
+      const emptyState = create?.('p', {
+        class: 'col-span-full rounded-2xl neumorph-inset p-8 text-center text-gray-700 dark:text-gray-200',
+        text: 'No encontramos proyectos que coincidan con tu búsqueda.'
+      });
+      if (emptyState) grid.appendChild(emptyState);
+      return;
+    }
     items.forEach((proyecto, index) => {
       const card = template.content.cloneNode(true);
       const image = card.querySelector('img');
@@ -28,10 +36,10 @@
       if (title) title.textContent = proyecto.nombre;
       if (description) description.textContent = proyecto.descripcion;
       if (tags && create) {
-        tags.replaceChildren(...proyecto.tech.map((tecnologia) => create('span', { class: 'rounded-full border border-purple-200 bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-900 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-200', text: tecnologia })));
+        tags.replaceChildren(...proyecto.tech.map((tecnologia) => create('span', { class: 'rounded-full border px-3 py-1 text-xs font-semibold', text: tecnologia })));
       }
       if (action && create) {
-        const link = create('a', { href: proyecto.detalle, class: 'flex h-11 w-11 items-center justify-center rounded-full bg-purple-800 text-lg text-white shadow-lg transition hover:bg-purple-700 hover:-translate-y-0.5', 'aria-label': `Ver detalles de ${proyecto.nombre}` });
+        const link = create('a', { href: proyecto.detalle, class: 'btn-neumorph-morado flex h-11 w-11 items-center justify-center rounded-full text-lg transition hover:-translate-y-0.5', 'aria-label': `Ver detalles de ${proyecto.nombre}` });
         link.innerHTML = '<i class="bi bi-arrow-right"></i>';
         action.replaceChildren(link);
       }
@@ -41,19 +49,26 @@
 
   function setupPortafolioControls() {
     const input = document.getElementById('portafolio-search');
-    const buttons = [...document.querySelectorAll('.btn-neumorph[data-cat]')];
+    const buttons = [...document.querySelectorAll('#portafolio .btn-neumorph[data-cat]')];
     const debounce = window.appDom?.debounce;
     if (!input || !buttons.length) return;
     let category = 'all';
     const filter = () => {
       const query = input.value.trim().toLowerCase();
-      renderPortafolio(proyectos.filter((proyecto) => (category === 'all' || proyecto.category === category) && proyecto.nombre.toLowerCase().includes(query)));
+      renderPortafolio(proyectos.filter((proyecto) => {
+        const searchableText = [proyecto.nombre, proyecto.descripcion, ...proyecto.tech].join(' ').toLowerCase();
+        return (category === 'all' || proyecto.category === category) && searchableText.includes(query);
+      }));
     };
     input.oninput = debounce ? debounce(filter) : filter;
     buttons.forEach((button) => {
       button.onclick = () => {
-        buttons.forEach((item) => item.classList.remove('bg-indigo-100', 'text-indigo-700'));
-        button.classList.add('bg-indigo-100', 'text-indigo-700');
+        buttons.forEach((item) => {
+          item.classList.remove('is-selected');
+          item.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('is-selected');
+        button.setAttribute('aria-pressed', 'true');
         category = button.dataset.cat || 'all';
         filter();
       };

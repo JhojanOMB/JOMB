@@ -1,82 +1,119 @@
-<section id="servicios" class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+<section id="servicios" aria-labelledby="servicios-titulo" class="bg-white rounded-2xl p-6 sm:p-8 lg:p-12">
   <div class="max-w-6xl mx-auto">
-    <!-- Título y descripción -->
-    <h2 class="text-3xl font-semibold text-center mb-4">Lo que Podemos Hacer por Ti</h2>
-    <p class="text-center text-gray-600 mb-8">
-      Impulsa tu negocio con soluciones digitales a medida. Combinamos tecnología, diseño y estrategia para ayudarte a crecer con confianza.
-    </p>
+    <header class="max-w-3xl mx-auto mb-10 text-center sm:mb-12">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-purple-700">Soluciones JOMB</p>
+      <h1 id="servicios-titulo" class="text-3xl font-bold text-center mb-4 sm:text-4xl">Lo que Podemos Hacer por Ti</h1>
+      <p class="text-center text-gray-600">
+        Impulsa tu negocio con soluciones digitales a medida. Combinamos tecnología, diseño y estrategia para optimizar tus procesos, fortalecer tu presencia en línea y ayudarte a crecer con confianza.
+      </p>
+    </header>
 
     <!-- Beneficios -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <div class="neumorph-inset text-center p-6 bg-gray-50 rounded-lg">
-        <i class="bi bi-lightning-charge text-indigo-600 text-4xl mb-3"></i>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+      <div class="servicio-benefit text-center p-6">
+        <span class="servicio-benefit-icon"><i class="bi bi-lightning-charge text-indigo-600" aria-hidden="true"></i></span>
         <h5 class="font-semibold mb-2">Respuesta Rápida</h5>
-        <p class="text-gray-600">Soluciones ágiles y eficientes para cualquier reto tecnológico.</p>
+        <p class="text-gray-600">Atención ágil y soluciones eficientes para resolver cualquier reto tecnológico sin frenar tu operación.</p>
       </div>
-      <div class="neumorph-inset text-center p-6 bg-gray-50 rounded-lg">
-        <i class="bi bi-person-check text-indigo-600 text-4xl mb-3"></i>
+      <div class="servicio-benefit text-center p-6">
+        <span class="servicio-benefit-icon"><i class="bi bi-person-check text-indigo-600" aria-hidden="true"></i></span>
         <h5 class="font-semibold mb-2">Atención Personalizada</h5>
-        <p class="text-gray-600">Escuchamos tus ideas y las convertimos en soluciones reales.</p>
+        <p class="text-gray-600">Analizamos tus objetivos y adaptamos cada herramienta a la medida exacta de tu negocio.</p>
       </div>
-      <div class="neumorph-inset text-center p-6 bg-gray-50 rounded-lg">
-        <i class="bi bi-shield-check text-indigo-600 text-4xl mb-3"></i>
+      <div class="servicio-benefit text-center p-6">
+        <span class="servicio-benefit-icon"><i class="bi bi-shield-check text-indigo-600" aria-hidden="true"></i></span>
         <h5 class="font-semibold mb-2">Soporte Confiable</h5>
-        <p class="text-gray-600">Acompañamiento y respaldo durante todo tu proceso tecnológico.</p>
+        <p class="text-gray-600">Acompañamiento técnico continuo, buenas prácticas de seguridad y respaldo en cada etapa.</p>
       </div>
     </div>
 
-    <!-- Tarjetas de servicios -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      <!-- Servicio 1 -->
-      <div class="servicio-card neumorph-bg transition-transform duration-300">
-        <img src="../img/Web.jpg" alt="Desarrollo Web y Móvil" class="servicio-card-img">
-        <div class="card-body text-center">
-          <h5 class="font-semibold mb-2">Desarrollo Web y Móvil</h5>
-          <p class="text-gray-600 mb-4">Aplicaciones modernas y responsivas con excelente experiencia de usuario.</p>
-          <a href="#contacto" class="btn-neumorph-morado inline-block py-2 px-4 rounded-full transition">
+    <!-- Servicios en contenedores neumórficos hundidos -->
+    <div class="grid grid-cols-1 gap-6 lg:gap-8 mb-12">
+      <article class="servicio-benefit servicio-item grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-5 sm:p-7">
+        <div class="servicio-item-info">
+          <h2 class="text-2xl font-bold mb-2">Diseño Web Profesional</h2>
+          <p class="mb-3 font-semibold text-purple-700">Sitios con la identidad de tu marca, 100% adaptables a celulares.</p>
+          <p class="text-gray-600 mb-5">
+            Hacemos un estudio previo de lo que realmente necesita tu negocio para crear una web con los colores y el estilo de tu marca, totalmente responsiva para que tus clientes la usen sin problemas desde su celular. También desarrollamos <strong>tiendas en línea (e-commerce)</strong>: páginas donde puedes mostrar tu catálogo, recibir pagos digitales y vender tus productos las 24 horas del día de forma automática y sin depender de un horario físico.
+          </p>
+          <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="btn-neumorph-morado inline-flex items-center justify-center py-2 px-5 rounded-full transition">
             Solicitar más información
           </a>
         </div>
-      </div>
-      <!-- Servicio 2 -->
-      <div class="servicio-card neumorph-bg transition-transform duration-300">
-        <img src="../img/Office.jpg" alt="Activación de Office" class="servicio-card-img">
-        <div class="card-body text-center">
-          <h5 class="font-semibold mb-2">Activación de Office</h5>
-          <p class="text-gray-600 mb-4">Instalación y activación de Office para trabajar con todas las herramientas de Microsoft.</p>
-          <a href="#contacto" class="btn-neumorph-morado inline-block py-2 px-4 rounded-full transition">
+        <div class="servicio-item-media">
+          <img src="./img/Web.webp" alt="Diseño y desarrollo de una página web" class="servicio-item-img" loading="lazy">
+        </div>
+      </article>
+
+      <article class="servicio-benefit servicio-item grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-5 sm:p-7">
+        <div class="servicio-item-info">
+          <h2 class="text-2xl font-bold mb-2">Software y Licencias</h2>
+          <p class="mb-3 font-semibold text-purple-700">Instalación y configuración de software con licencias legítimas.</p>
+          <p class="text-gray-600 mb-5">
+            Evita riesgos de seguridad y bloqueos innecesarios. Te asesoramos e instalamos licencias originales de sistemas operativos Windows, suites de Microsoft Office, antivirus empresariales y herramientas de productividad listas para trabajar desde el primer minuto.
+          </p>
+          <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="btn-neumorph-morado inline-flex items-center justify-center py-2 px-5 rounded-full transition">
             Solicitar más información
           </a>
         </div>
-      </div>
-      <!-- Servicio 3 -->
-      <div class="servicio-card neumorph-bg transition-transform duration-300">
-        <img src="../img/Windows.png" alt="Activación de Windows" class="servicio-card-img">
-        <div class="card-body text-center">
-          <h5 class="font-semibold mb-2">Activación de Windows</h5>
-          <p class="text-gray-600 mb-4">Licencia y activación de Windows para tu PC con soporte completo.</p>
-          <a href="#contacto" class="btn-neumorph-morado inline-block py-2 px-4 rounded-full transition">
+        <div class="servicio-item-media">
+          <img src="./img/Software.webp" alt="Software y herramientas de productividad" class="servicio-item-img" loading="lazy">
+        </div>
+      </article>
+
+      <article class="servicio-benefit servicio-item grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-5 sm:p-7">
+        <div class="servicio-item-info">
+          <h2 class="text-2xl font-bold mb-2">Mantenimiento y Soporte Técnico</h2>
+          <p class="mb-3 font-semibold text-purple-700">Limpieza profunda y optimización para que tu equipo rinda al máximo.</p>
+          <p class="text-gray-600 mb-5">
+            Realizamos limpieza interna completa, cambio de pasta térmica para evitar el recalentamiento y optimizaciones del sistema operativo para garantizar un funcionamiento rápido y estable. Además, te ayudamos con actualizaciones, copias de respaldo y soporte técnico remoto o presencial según lo que necesites.
+          </p>
+          <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="btn-neumorph-morado inline-flex items-center justify-center py-2 px-5 rounded-full transition">
             Solicitar más información
           </a>
         </div>
-      </div>
-      <!-- Servicio 4 -->
-      <div class="servicio-card neumorph-bg transition-transform duration-300">
-        <img src="../img/Foxo herramientas.png" alt="Mantenimiento y Soporte" class="servicio-card-img">
-        <div class="card-body text-center">
-          <h5 class="font-semibold mb-2">Mantenimiento y Soporte</h5>
-          <p class="text-gray-600 mb-4">Prevención, corrección y respaldo total para tus sistemas y equipos.</p>
-          <a href="#contacto" class="btn-neumorph-morado inline-block py-2 px-4 rounded-full transition">
+        <div class="servicio-item-media">
+          <img src="./img/Mantenimiento.png" alt="Herramientas para mantenimiento y soporte técnico" class="servicio-item-img" loading="lazy">
+        </div>
+      </article>
+
+      <article class="servicio-benefit servicio-item grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-5 sm:p-7">
+        <div class="servicio-item-info">
+          <h2 class="text-2xl font-bold mb-2">Apps Móviles</h2>
+          <p class="mb-3 font-semibold text-purple-700">Aplicaciones intuitivas, rápidas y pensadas para tus usuarios.</p>
+          <p class="text-gray-600 mb-5">
+            Desarrollamos aplicaciones móviles para iOS y Android enfocadas en la experiencia de usuario. Desde catálogos interactivos y sistemas de reservas hasta herramientas internas para tu equipo, conectadas directamente con tus bases de datos y servicios.
+          </p>
+          <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="btn-neumorph-morado inline-flex items-center justify-center py-2 px-5 rounded-full transition">
             Solicitar más información
           </a>
         </div>
-      </div>
+        <div class="servicio-item-media">
+          <img src="./img/Jomby Saludando.png" alt="Jomby, la mascota de JOMB" class="servicio-item-img" loading="lazy">
+        </div>
+      </article>
+
+      <article class="servicio-benefit servicio-item grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-5 sm:p-7">
+        <div class="servicio-item-info">
+          <h2 class="text-2xl font-bold mb-2">Integración de APIs</h2>
+          <p class="mb-3 font-semibold text-purple-700">Conecta tus plataformas y automatiza tareas repetitivas.</p>
+          <p class="text-gray-600 mb-5">
+            Integramos pasarelas de pago, sistemas de facturación, CRMs, WhatsApp Business y servicios de terceros para que tus herramientas compartan información en tiempo real, reduciendo errores manuales y ahorrándote horas de trabajo operativo.
+          </p>
+          <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="btn-neumorph-morado inline-flex items-center justify-center py-2 px-5 rounded-full transition">
+            Solicitar más información
+          </a>
+        </div>
+        <div class="servicio-item-media">
+          <img src="./img/Web.jpg" alt="Servicios y plataformas digitales conectados" class="servicio-item-img" loading="lazy">
+        </div>
+      </article>
     </div>
 
     <!-- Llamado a la acción -->
     <div class="text-center">
-      <h4 class="text-xl font-semibold mb-4">¿Tienes un proyecto en mente?</h4>
-      <a href="#contacto" class="inline-block bg-indigo-600 text-white py-3 px-8 rounded-full hover:bg-indigo-700 transition">
+      <h2 class="text-xl font-semibold mb-4">¿Tienes un proyecto en mente o necesitas asesoría técnica?</h2>
+      <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="inline-block btn-neumorph-morado py-3 px-8 rounded-full transition">
         ¡Contáctanos Ahora!
       </a>
     </div>

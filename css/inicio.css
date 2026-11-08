@@ -1,4 +1,23 @@
 /* Modulo Inicio */
-#content #inicio { min-width: 0; }
+#content #inicio {
+  min-width: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e5ec 55%, #ddd6fe 100%);
+  color: #0f172a;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#content #inicio h1 { color: #0f172a !important; }
+#content #inicio h1 span { color: #5b21b6 !important; }
+#content #inicio p { color: #334155 !important; }
+
+[data-bs-theme="dark"] #content #inicio {
+  background: linear-gradient(135deg, #120b24 0%, #2e1a42 55%, #0c0720 100%);
+  color: #f8fafc;
+}
+
+[data-bs-theme="dark"] #content #inicio h1 { color: #f1f5f9 !important; }
+[data-bs-theme="dark"] #content #inicio h1 span { color: #c4b5fd !important; }
+[data-bs-theme="dark"] #content #inicio p { color: #cbd5e1 !important; }
+
 #content #inicio img { max-width: 100%; height: auto; }
 @media (max-width: 640px) { #content #inicio { padding-inline: 1rem; } }

@@ -30,33 +30,33 @@
 
 /* Definir iconos como máscara */
 .icono-contenedor {
-    -webkit-mask-image: url('/static/iconos/contenedor.svg');
-    mask-image: url('/static/iconos/contenedor.svg');
+    -webkit-mask-image: url('../iconos/contenedor.svg');
+    mask-image: url('../iconos/contenedor.svg');
 }
 
 .icono-guardaespaldas {
-    -webkit-mask-image: url('/static/iconos/guardaespaldas.svg');
-    mask-image: url('/static/iconos/guardaespaldas.svg');
+    -webkit-mask-image: url('../iconos/guardaespaldas.svg');
+    mask-image: url('../iconos/guardaespaldas.svg');
 }
 
 .icono-tipo-carga {
-    -webkit-mask-image: url('/static/iconos/tipo-carga.svg');
-    mask-image: url('/static/iconos/tipo-carga.svg');
+    -webkit-mask-image: url('../iconos/tipo-carga.svg');
+    mask-image: url('../iconos/tipo-carga.svg');
 }
 
 .icono-camion {
-    -webkit-mask-image: url('/static/iconos/camion.svg');
-    mask-image: url('/static/iconos/camion.svg');
+    -webkit-mask-image: url('../iconos/camion.svg');
+    mask-image: url('../iconos/camion.svg');
 }
 
 .icono-mapa-colombia {
-    -webkit-mask-image: url('/static/iconos/mapa-colombia.svg');
-    mask-image: url('/static/iconos/mapa-colombia.svg');
+    -webkit-mask-image: url('../iconos/mapa-colombia.svg');
+    mask-image: url('../iconos/mapa-colombia.svg');
 }
 
 .icono-barra-colapso {
-    -webkit-mask-image: url('/static/iconos/mapa-colombia.svg');
-    mask-image: url('/static/iconos/mapa-colombia.svg');
+    -webkit-mask-image: url('../iconos/barra-colapso.svg');
+    mask-image: url('../iconos/barra-colapso.svg');
 }
 
 /* Cambiar color con clases */

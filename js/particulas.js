@@ -1,5 +1,9 @@
-// Inicialización de Particles.js
-particlesJS("particles-js", {
+const particleCanvas = document.getElementById("particles-js");
+if (particleCanvas) {
+  if (typeof window.particlesJS !== "function") {
+    console.error("No se puede iniciar el fondo: la biblioteca Particles.js no está disponible.");
+  } else {
+    window.particlesJS("particles-js", {
     particles: {
       number: {
         value: 310,
@@ -57,5 +61,6 @@ particlesJS("particles-js", {
       },
     },
     retina_detect: true,
-  });
-  
+    });
+  }
+}

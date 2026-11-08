@@ -1,4 +1,4 @@
-<body class="bg-gray-100 text-gray-800 px-6 py-10 lg:px-24">
+<body class="bg-gray-100 text-gray-800 px-4 py-8 sm:px-6 lg:px-10">
 
   <!-- SOBRE NOSOTROS -->
   <section id="sobre-nosotros-body" class="neumorph mb-24 py-16 px-6 lg:px-12">
@@ -47,80 +47,91 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="#contacto" onclick="cargarContenido('paginas/contacto.html')" class="mt-6 inline-block neumorph py-2 px-6 rounded-full hover:shadow-lg transition">
+        <a href="paginas/contacto.html" data-load="paginas/contacto.html" class="mt-6 inline-block neumorph py-2 px-6 rounded-full hover:shadow-lg transition">
           Conversemos
         </a>
       </div>
     </div>
   </section>
 
-  <!-- MISIÓN Y VISIÓN -->
-  <section id="mision-vision-body" class="neumorph mb-24 py-16 px-6 lg:px-12">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div class="tarjeta-semiredonda">
-        <h3 class="text-2xl font-semibold">Nuestra Misión</h3>
-        <p class="text-gray-600 leading-relaxed">Brindar soluciones tecnológicas integrales que impulsen el crecimiento de nuestros clientes mediante herramientas personalizadas y soporte continuo.</p>
+  <div class="about-sections max-w-6xl mx-auto">
+    <!-- Misión y visión -->
+    <section id="mision-vision-body" class="mb-16 sm:mb-20" aria-labelledby="mision-vision-title">
+      <header class="about-section-heading">
+        <p>Lo que nos guía</p>
+        <h2 id="mision-vision-title">Propósito y visión</h2>
+      </header>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <article class="about-card neumorph">
+          <span class="about-card-icon"><i class="bi bi-compass" aria-hidden="true"></i></span>
+          <h3>Nuestra Misión</h3>
+          <p>Brindar soluciones tecnológicas integrales que impulsen el crecimiento de nuestros clientes mediante herramientas personalizadas y soporte continuo.</p>
+        </article>
+        <article class="about-card neumorph">
+          <span class="about-card-icon"><i class="bi bi-eye" aria-hidden="true"></i></span>
+          <h3>Nuestra Visión</h3>
+          <p>Ser referentes tecnológicos en Colombia, destacados por nuestra innovación, calidad y cercanía.</p>
+        </article>
       </div>
-      <div class="tarjeta-semiredonda">
-        <h3 class="text-2xl font-semibold">Nuestra Visión</h3>
-        <p class="text-gray-600 leading-relaxed">Ser referentes tecnológicos en Colombia, destacados por nuestra innovación, calidad y cercanía.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- METAS -->
-  <section id="metas" class="neumorph mb-24 py-16 px-6 lg:px-12">
-    <div class="max-w-5xl mx-auto space-y-6">
-      <h3 class="text-2xl font-semibold text-center">Nuestras Metas</h3>
-      <ul class="space-y-4 text-gray-600 list-disc list-inside">
-        <li><strong>Expandirnos a nivel nacional</strong> en los próximos 2 años, brindando soluciones tecnológicas a empresas de todos los sectores.</li>
-        <li><strong>Implementar inteligencia artificial</strong> en nuestros productos para mejorar la toma de decisiones y automatización de procesos.</li>
-        <li><strong>Formar un equipo sólido</strong> de desarrolladores, diseñadores y expertos en UX comprometidos con la calidad y la innovación.</li>
-        <li><strong>Obtener certificaciones internacionales</strong> en desarrollo ágil y seguridad web que respalden nuestro compromiso con la excelencia.</li>
-        <li><strong>Crear productos propios</strong> que aporten valor al mercado tecnológico colombiano.</li>
+    <!-- Metas -->
+    <section id="metas" class="about-goals neumorph mb-16 p-6 sm:mb-20 sm:p-10" aria-labelledby="metas-title">
+      <header class="about-section-heading">
+        <p>Hacia dónde vamos</p>
+        <h2 id="metas-title">Nuestras Metas</h2>
+      </header>
+      <ul class="about-goal-list">
+        <li><span>01</span><p><strong>Expandirnos a nivel nacional</strong> en los próximos 2 años, brindando soluciones tecnológicas a empresas de todos los sectores.</p></li>
+        <li><span>02</span><p><strong>Implementar inteligencia artificial</strong> en nuestros productos para mejorar la toma de decisiones y automatización de procesos.</p></li>
+        <li><span>03</span><p><strong>Formar un equipo sólido</strong> de desarrolladores, diseñadores y expertos en UX comprometidos con la calidad y la innovación.</p></li>
+        <li><span>04</span><p><strong>Obtener certificaciones internacionales</strong> en desarrollo ágil y seguridad web que respalden nuestro compromiso con la excelencia.</p></li>
+        <li><span>05</span><p><strong>Crear productos propios</strong> que aporten valor al mercado tecnológico colombiano.</p></li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- VALORES -->
-  <section id="valores" class="neumorph mb-24 py-16 px-6 lg:px-12">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-2xl font-semibold text-center mb-6">Nuestros Valores</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="neumorph-inset p-6 text-center">
-          <i class="fas fa-lightbulb text-indigo-600 text-3xl"></i>
-          <h5 class="mt-2 font-semibold">Innovación</himpse>
-          <p class="text-sm text-gray-600">Soluciones modernas que marcan la diferencia.</p>
-        </div>
-        <div class="neumorph-inset p-6 text-center">
-          <i class="fas fa-users text-indigo-600 text-3xl"></i>
-          <h5 class="mt-2 font-semibold">Colaboración</h5>
-          <p class="text-sm text-gray-600">Trabajo en equipo para alcanzar grandes metas.</p>
-        </div>
-        <div class="neumorph-inset p-6 text-center">
-          <i class="fas fa-shield-alt text-indigo-600 text-3xl"></i>
-          <h5 class="mt-2 font-semibold">Confianza</h5>
-          <p class="text-sm text-gray-600">Transparencia y seguridad en nuestros procesos.</p>
-        </div>
-        <div class="neumorph-inset p-6 text-center">
-          <i class="fas fa-award text-indigo-600 text-3xl"></i>
-          <h5 class="mt-2 font-semibold">Excelencia</h5>
-          <p class="text-sm text-gray-600">Nos esforzamos por superar expectativas.</p>
-        </div>
+    <!-- Valores -->
+    <section id="valores" class="mb-16 sm:mb-20" aria-labelledby="valores-title">
+      <header class="about-section-heading">
+        <p>Nuestra forma de trabajar</p>
+        <h2 id="valores-title">Nuestros Valores</h2>
+      </header>
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="about-value neumorph">
+          <span class="about-card-icon"><i class="bi bi-lightbulb" aria-hidden="true"></i></span>
+          <h3>Innovación</h3>
+          <p>Soluciones modernas que marcan la diferencia.</p>
+        </article>
+        <article class="about-value neumorph">
+          <span class="about-card-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+          <h3>Colaboración</h3>
+          <p>Trabajo en equipo para alcanzar grandes metas.</p>
+        </article>
+        <article class="about-value neumorph">
+          <span class="about-card-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+          <h3>Confianza</h3>
+          <p>Transparencia y seguridad en nuestros procesos.</p>
+        </article>
+        <article class="about-value neumorph">
+          <span class="about-card-icon"><i class="bi bi-award" aria-hidden="true"></i></span>
+          <h3>Excelencia</h3>
+          <p>Nos esforzamos por superar expectativas.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROYECTOS DESTACADOS -->
-  <section id="proyectos" class="neumorph mb-24 py-16 px-6 lg:px-12">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-2xl font-semibold text-center mb-10">Proyectos Destacados</h3>
-      <div id="proyectos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-      <div class="text-center mt-10">
-        <a href="#portafolio" onclick="cargarContenido('paginas/portafolio.html'); toggleDrawer()" class="inline-block neumorph py-3 px-8 rounded-full hover:shadow-lg transition">
+    <!-- Proyectos destacados -->
+    <section id="proyectos" class="about-projects neumorph p-6 sm:p-10" aria-labelledby="proyectos-title">
+      <header class="about-section-heading">
+        <p>Ideas que ya son realidad</p>
+        <h2 id="proyectos-title">Proyectos Destacados</h2>
+      </header>
+      <div id="proyectos-grid" class="grid grid-cols-1 gap-5 md:grid-cols-2" aria-live="polite"></div>
+      <div class="mt-8 text-center">
+        <a href="paginas/portafolio.html" data-load="paginas/portafolio.html" class="btn-neumorph-morado inline-flex items-center justify-center rounded-full px-7 py-3">
           Ver todos los proyectos
         </a>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </body>

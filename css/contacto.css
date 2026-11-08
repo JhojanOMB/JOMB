@@ -4,45 +4,39 @@
 #content #contact-form textarea { max-width: 100%; box-sizing: border-box; }
 
 #content #contacto .input-icon {
-	color: #4c1d95;
+	color: var(--primary-morado);
 }
 
 #content #contacto input,
 #content #contacto textarea {
 	min-width: 0;
-	color: #0f172a;
-	background: #e0e5ec;
+	color: var(--text);
+	background: var(--neumo-bg);
 }
 
 #content #contacto input::placeholder,
 #content #contacto textarea::placeholder {
-	color: #475569;
+	color: color-mix(in srgb, var(--text) 62%, transparent);
 }
 
 #content #faq {
-	background: #e0e5ec;
-	color: #0f172a;
-	box-shadow: 8px 8px 18px rgba(163, 177, 198, 0.72), -8px -8px 18px rgba(255, 255, 255, 0.9);
+	background: var(--neumo-bg);
+	color: var(--text);
+	box-shadow: 8px 8px 18px var(--surface-shadow-dark), -8px -8px 18px var(--surface-shadow-light);
 }
 
 [data-bs-theme="dark"] #content #contacto input,
 [data-bs-theme="dark"] #content #contacto textarea {
-	color: #f8fafc;
-	background: #1e2430;
-	border-color: #475569;
-}
-
-[data-bs-theme="dark"] #content #contacto input::placeholder,
-[data-bs-theme="dark"] #content #contacto textarea::placeholder {
-	color: #cbd5e1;
+	color: var(--text);
+	background: var(--neumo-bg);
 }
 
 [data-bs-theme="dark"] #content #contacto .input-icon {
-	color: #c4b5fd;
+	color: var(--primary-light-morado);
 }
 
 [data-bs-theme="dark"] #content #faq {
-	background: #1e2430;
-	color: #f8fafc;
-	box-shadow: 8px 8px 18px rgba(18, 22, 31, 0.9), -8px -8px 18px rgba(42, 51, 68, 0.82);
+	background: var(--neumo-bg);
+	color: var(--text);
+	box-shadow: 8px 8px 18px var(--surface-shadow-dark), -8px -8px 18px var(--surface-shadow-light);
 }

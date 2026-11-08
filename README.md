@@ -53,7 +53,7 @@ Algunos de nuestros proyectos destacados:
 
 - **Frontend**: HTML5, CSS3, Tailwind CSS, Bootstrap, JavaScript
 - **Backend**: Django, Python, REST APIs
-- **Herramientas**: Chart.js, Lenis, AOS, Animate.css
+- **Herramientas**: JavaScript modular, Tailwind CSS, Bootstrap Icons, Font Awesome
 - **Móvil**: Flutter, React Native, Tkinter
 - **Infraestructura**: GitHub Pages, servidores dedicados
 
@@ -83,6 +83,8 @@ Algunos de nuestros proyectos destacados:
 ## 📄 Más Información
 
 Visita nuestro sitio web: **[JOMB](https://jhojanomb.github.io/JOMB/)**
+
+La estructura de páginas, los tokens visuales claro/oscuro y las convenciones de componentes están descritos en [GUIA-DISENO.md](./GUIA-DISENO.md). La política de privacidad es un borrador informativo y requiere completar y verificar los datos legales y operativos del responsable antes de publicarse como definitiva.
 
 ---
 

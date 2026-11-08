@@ -3,3 +3,187 @@
 #content #mision-vision-body,
 #content #metas,
 #content #valores { min-width: 0; }
+
+#content .about-section-heading {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+#content .about-section-heading > p {
+  margin: 0 0 0.4rem;
+  color: var(--primary-morado);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+[data-bs-theme="dark"] #content .about-section-heading > p {
+  color: var(--primary-light-morado);
+}
+
+#content .about-section-heading h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+#content .about-card,
+#content .about-value {
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--surface-border);
+  border-radius: 1.5rem;
+  color: var(--text);
+  text-align: center;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+#content .about-card:hover,
+#content .about-value:hover {
+  transform: translateY(-4px);
+}
+
+#content .about-card h3,
+#content .about-value h3 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#content .about-card p,
+#content .about-value p {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.7;
+  opacity: 0.82;
+}
+
+#content .about-card-icon,
+#content .about-project-icon {
+  display: inline-grid;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin: 0 auto 1.1rem;
+  place-items: center;
+  border: 1px solid var(--surface-border);
+  border-radius: 50%;
+  color: var(--primary-morado);
+  background: var(--neumo-bg);
+  box-shadow:
+    inset 4px 4px 8px var(--surface-shadow-dark),
+    inset -4px -4px 8px var(--surface-shadow-light);
+}
+
+#content .about-project-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+}
+
+[data-bs-theme="dark"] #content .about-card-icon,
+[data-bs-theme="dark"] #content .about-project-icon {
+  color: var(--primary-light-morado);
+}
+
+#content .about-card-icon i,
+#content .about-project-icon i {
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+#content .about-goals {
+  border: 1px solid var(--surface-border);
+}
+
+#content .about-goal-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#content .about-goal-list li {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 1rem;
+  color: var(--text);
+  background: var(--neumo-bg);
+  box-shadow:
+    inset 3px 3px 7px var(--surface-shadow-dark),
+    inset -3px -3px 7px var(--surface-shadow-light);
+}
+
+#content .about-goal-list li > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--primary-morado);
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: var(--neumo-bg);
+  box-shadow:
+    3px 3px 6px var(--surface-shadow-dark),
+    -3px -3px 6px var(--surface-shadow-light);
+}
+
+#content .about-goal-list p {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+#content .about-goal-list strong {
+  color: var(--text);
+}
+
+#content .about-projects {
+  border: 1px solid var(--surface-border);
+}
+
+#content #proyectos-grid > article {
+  padding: 1.5rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 1.35rem;
+}
+
+#content #proyectos-grid > article h3 {
+  padding-right: 3.5rem;
+  color: var(--text);
+}
+
+#content #proyectos-grid > article p {
+  color: var(--text);
+  line-height: 1.65;
+  opacity: 0.82;
+}
+
+@media (max-width: 640px) {
+  #content .about-goal-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #content .about-card,
+  #content .about-value {
+    transition: none;
+  }
+
+  #content .about-card:hover,
+  #content .about-value:hover {
+    transform: none;
+  }
+}

@@ -1,7 +1,7 @@
 <!-- PORTAFOLIO -->
 <section
   id="portafolio"
-  class="fondo mb-24 rounded-2xl shadow-lg py-16 px-6 lg:px-12"
+  class="fondo neumorph mb-24 rounded-3xl py-10 px-4 sm:px-6 lg:px-12"
 >
   <div class="max-w-6xl mx-auto space-y-8">
     <h2 class="text-3xl font-semibold text-center">Nuestro Portafolio</h2>
@@ -9,29 +9,29 @@
     <!-- Barra de búsqueda -->
     <div class="flex justify-center">
       <input
-        type="text"
+        type="search"
         id="portafolio-search"
         placeholder="Buscar proyecto..."
+        aria-label="Buscar proyectos por nombre, descripción o tecnología"
         class="search-neumorph w-full md:w-1/2 border border-gray-300 rounded-full py-2 px-4"
       />
     </div>
 
     <!-- Filtros por categoría -->
     <div class="flex justify-center gap-4">
-      <button data-cat="all" class="btn-neumorph bg-purple-100 text-purple-700 px-4 py-1 rounded-full hover:bg-purple-200 transition">Todos</button>
-      <button data-cat="web" class="btn-neumorph text-gray-600 dark:text-slate-400 px-4 py-1 rounded-full hover:bg-purple-50 dark:hover:bg-slate-800 transition">Web</button>
-      <button data-cat="movil" class="btn-neumorph text-gray-600 dark:text-slate-400 px-4 py-1 rounded-full hover:bg-purple-50 dark:hover:bg-slate-800 transition">Móvil</button>
-      <button data-cat="desktop" class="btn-neumorph text-gray-600 dark:text-slate-400 px-4 py-1 rounded-full hover:bg-purple-50 dark:hover:bg-slate-800 transition">Desktop</button>
+      <button data-cat="all" aria-pressed="true" class="btn-neumorph is-selected px-4 py-1 rounded-full transition">Todos</button>
+      <button data-cat="web" aria-pressed="false" class="btn-neumorph px-4 py-1 rounded-full transition">Web</button>
+      <button data-cat="desktop" aria-pressed="false" class="btn-neumorph px-4 py-1 rounded-full transition">Desktop</button>
     </div>
 
     <!-- Grid vacío: JS rellenará con tarjetas -->
-    <div id="portafolio-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
+    <div id="portafolio-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3" aria-live="polite"></div>
   </div>
 </section>
 
 <!-- Template de tarjeta, invisible en el DOM -->
 <template id="portafolio-card-template">
-  <div class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-[#e0e5ec] text-[#0f172a] shadow-neumo transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-[#1e2430] dark:text-[#f8fafc] dark:shadow-neumo-dark">
+  <div class="portafolio-card group relative overflow-hidden rounded-3xl neumorph transition-all duration-300 hover:-translate-y-1">
     <!-- Imagen -->
     <img src="" alt="" class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Contenido -->
-    <div class="flex min-h-[210px] flex-col justify-between bg-[#e0e5ec] p-6 dark:bg-[#1e2430]">
+    <div class="portafolio-card-body flex min-h-[210px] flex-col justify-between p-6">
       <div>
         <h5 class="mb-2 text-xl font-bold text-[#0f172a] dark:text-[#f8fafc]" data-role="title">Título</h5>
         <p class="mb-4 text-sm font-medium text-[#334155] dark:text-[#cbd5e1]" data-role="desc">Descripción breve.</p>
@@ -52,4 +52,3 @@
     </div>
   </div>
 </template>
-
