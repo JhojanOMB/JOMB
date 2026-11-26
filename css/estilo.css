@@ -1108,6 +1108,17 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
     inset -3px -3px 7px var(--surface-shadow-light);
 }
 
+@media (min-width: 1024px) {
+  #site-nav #toggle-theme {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2.5rem;
+    place-items: center;
+    padding: 0;
+  }
+}
+
 #mobile-menu {
   background: rgba(15, 23, 42, 0.48);
   backdrop-filter: blur(7px);

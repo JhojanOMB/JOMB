@@ -5,7 +5,7 @@
       { src: 'img/Tienda_jomb/Productos.png', caption: 'Administracion del catalogo de productos.' },
       { src: 'img/Tienda_jomb/Inventario.png', caption: 'Control del inventario disponible.' },
       { src: 'img/Tienda_jomb/Bodega.png', caption: 'Organizacion de productos por bodega.' }
-    ], detalle: 'paginas/portafolio/tienda-online.html', category: 'web', tech: ['Django', 'Bootstrap', 'Tailwind'] },
+    ], detalle: 'paginas/portafolio/tienda-online.html', category: 'web', tech: ['Django', 'Wompi', 'Tailwind', 'Angular'] },
     { nombre: 'Masivos OLE! Logistics', descripcion: 'Sistema de gestion logistico para cotizaciones de transporte.', imagen: 'img/JOMB.webp', detalle: 'paginas/portafolio/masivos-ole-logistics.html', category: 'web', tech: ['Django', 'Bootstrap', 'Chart.js'] },
     { nombre: 'Finanworld', descripcion: 'Sistema de creditos de libranza para pensionados.', imagen: 'img/JOMB.webp', detalle: 'paginas/portafolio/finanworld.html', category: 'web', tech: ['Django', 'Tailwind'] },
     { nombre: 'Youtube-JOMB', descripcion: 'Aplicativo para descargar videos y audios en Windows y Linux.', imagen: 'img/JOMB.webp', detalle: 'paginas/portafolio/youtube-jomb.html', category: 'desktop', tech: ['Python', 'Tkinter', 'Pytube'] }
@@ -45,14 +45,14 @@
   }
 
   document.addEventListener('click', (event) => {
-    const image = event.target instanceof Element ? event.target.closest('#tienda-online img') : null;
+    const image = event.target instanceof Element ? event.target.closest('#tienda-online figure img') : null;
     if (image) openScreenshot(image);
   });
 
   document.addEventListener('keydown', (event) => {
     const lightbox = document.getElementById('tienda-screenshot-lightbox');
     if (lightbox && event.key === 'Escape') { event.preventDefault(); closeScreenshot(); return; }
-    if (!lightbox && event.target instanceof HTMLImageElement && event.target.matches('#tienda-online img') && ['Enter', ' '].includes(event.key)) {
+    if (!lightbox && event.target instanceof HTMLImageElement && event.target.matches('#tienda-online figure img') && ['Enter', ' '].includes(event.key)) {
       event.preventDefault(); openScreenshot(event.target);
     }
   });
