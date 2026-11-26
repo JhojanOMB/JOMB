@@ -966,9 +966,12 @@ body.menu-open {
 #site-nav {
   isolation: isolate;
   color: var(--text) !important;
+  background-color: var(--neumo-bg) !important;
   background: color-mix(in srgb, var(--neumo-bg) 78%, transparent) !important;
   background-image: none !important;
+  border-bottom: 1px solid var(--surface-border);
   border-bottom: 1px solid color-mix(in srgb, var(--surface-border) 72%, transparent);
+  box-shadow: 0 10px 28px var(--surface-shadow-dark);
   box-shadow:
     0 10px 28px color-mix(in srgb, var(--surface-shadow-dark) 58%, transparent),
     inset 0 1px 0 color-mix(in srgb, var(--surface-shadow-light) 70%, transparent);
@@ -992,8 +995,10 @@ body.menu-open {
   justify-self: center;
   gap: 0.2rem;
   padding: 0.35rem;
+  border: 1px solid var(--surface-border);
   border: 1px solid color-mix(in srgb, var(--surface-border) 75%, transparent);
   border-radius: 999px;
+  background-color: var(--neumo-bg);
   background: color-mix(in srgb, var(--neumo-bg) 58%, transparent);
   box-shadow:
     inset 1px 1px 3px color-mix(in srgb, var(--surface-shadow-dark) 52%, transparent),
@@ -1039,7 +1044,9 @@ body.menu-open {
   width: auto;
   height: auto;
   border-radius: 999px;
+  border: 1px solid var(--surface-border);
   border: 1px solid color-mix(in srgb, var(--surface-border) 78%, transparent);
+  background: var(--neumo-bg);
   background:
     radial-gradient(ellipse at 30% 0%, color-mix(in srgb, var(--surface-shadow-light) 82%, transparent), transparent 68%),
     color-mix(in srgb, var(--neumo-bg) 72%, transparent);
@@ -1560,9 +1567,12 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
       max(0.35rem, env(safe-area-inset-right))
       calc(0.45rem + env(safe-area-inset-bottom))
       max(0.35rem, env(safe-area-inset-left));
+    border-top: 1px solid var(--surface-border);
     border-top: 1px solid color-mix(in srgb, var(--surface-border) 82%, transparent);
     color: var(--text);
+    background-color: var(--neumo-bg);
     background: color-mix(in srgb, var(--neumo-bg) 88%, transparent);
+    box-shadow: 0 -5px 18px var(--surface-shadow-dark);
     box-shadow:
       0 -5px 18px color-mix(in srgb, var(--surface-shadow-dark) 58%, transparent),
       inset 0 1px 0 color-mix(in srgb, var(--surface-shadow-light) 70%, transparent);
@@ -1604,8 +1614,10 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
 
   #mobile-bottom-nav a:hover,
   #mobile-bottom-nav a[aria-current="page"] {
+    border-color: var(--surface-border);
     border-color: color-mix(in srgb, var(--primary-morado) 18%, var(--surface-border));
     color: var(--primary-morado);
+    background: var(--neumo-bg);
     background: linear-gradient(145deg, color-mix(in srgb, var(--neumo-bg) 90%, var(--primary-light-morado)), var(--neumo-bg));
     box-shadow:
       inset 2px 2px 5px var(--surface-shadow-dark),

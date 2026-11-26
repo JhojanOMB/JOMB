@@ -34,7 +34,7 @@
     lightbox.setAttribute('aria-modal', 'true');
     lightbox.setAttribute('aria-label', 'Imagen ampliada');
     screenshotTrigger = image;
-    lightbox.innerHTML = '<button type="button" class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-300" aria-label="Cerrar imagen ampliada">&times;</button><img class="max-h-[90vh] max-w-[94vw] object-contain" alt="">';
+    lightbox.innerHTML = '<button type="button" class="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-300" aria-label="Cerrar imagen ampliada">&times;</button><img class="max-h-[90vh] max-h-[90dvh] max-w-[94vw] object-contain" alt="">';
     const enlarged = lightbox.querySelector('img');
     enlarged.src = image.currentSrc || image.src;
     enlarged.alt = image.alt;
