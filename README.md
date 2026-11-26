@@ -1,91 +1,46 @@
-# 🚀 JOMB - Soluciones Tecnológicas Integrales
+# JOMB
 
-**JOMB** es tu aliado en transformación digital. Ofrecemos soluciones de tecnología profesionales, desde desarrollo web hasta consultoría tecnológica empresarial.
+Soluciones digitales y soporte tecnológico para personas y empresas. En JOMB ayudamos a fortalecer la presencia en línea, simplificar tareas y mantener los equipos listos para trabajar.
 
----
+## Servicios
 
-## 📋 Acerca de JOMB
+### Diseño y desarrollo web
 
-En **JOMB** creemos que la tecnología debe ser accesible, eficiente y orientada a resultados. Nuestro equipo de expertos está comprometido con proporcionar soluciones personalizadas que impulsen tu negocio.
+Creación de sitios web adaptables a celulares y tiendas en línea con catálogo de productos y pagos digitales.
 
----
+### Software y licencias
 
-## 🛠️ Nuestros Servicios
+Asesoría, instalación y configuración de Windows, Microsoft Office, antivirus y herramientas de productividad con licencias legítimas.
 
-### 🌐 Diseño Web Profesional
-Sitios modernos, rápidos y adaptables a cualquier dispositivo. Optimización móvil, SEO básico y diseño visual atractivo.
+### Mantenimiento y soporte técnico
 
-### 💻 Gestión de Computadores
-Equipos seguros y corporativos. Instalación, limpieza, bloqueo de accesos y más.
+Limpieza y optimización de computadores, actualizaciones, copias de respaldo y asistencia remota o presencial.
 
-### 📥 Software Legal
-Instalación completa de tu software. Office, Adobe, antivirus, navegadores y más.
+### Aplicaciones móviles
 
-### 🛠️ Mantenimiento y Soporte
-Respaldo y monitoreo continuo. Actualizaciones, parches de seguridad y asistencia 24/7.
+Desarrollo de aplicaciones para iOS y Android, desde herramientas internas hasta catálogos y sistemas de reservas.
 
-### 🤝 Consultoría Tecnológica
-Estrategia para tu infraestructura. Diagnóstico, optimización de procesos y roadmap tecnológico.
+### Integración de servicios
 
-### 📱 Apps Móviles
-iOS y Android nativas o híbridas. Diseño UX/UI, integración con tu backend y publicación en tiendas.
+Conexión de pasarelas de pago, facturación, CRM, WhatsApp Business y otras plataformas para reducir tareas manuales.
 
-### 🔌 Integración de APIs
-Conecta tus sistemas. REST, GraphQL, servicios de terceros (pagos, mapas, mensajería...).
+## Proyectos destacados
 
-### ⚡ SEO y Rendimiento
-Mejora tu visibilidad en Google. Auditoría SEO, Core Web Vitals y optimización de carga.
+- **Tienda JOMB:** tienda en línea con gestión de productos e inventario y opciones de pago digital.
+- **Masivos OLÉ! Logistics:** sistema para gestionar cotizaciones de transporte.
+- **Finanworld:** sistema de créditos de libranza.
+- **Youtube-JOMB:** aplicación de escritorio para Windows y Linux.
 
----
+## Atención personalizada
 
-## 💼 Portafolio
+Cada proyecto parte de las necesidades y objetivos del cliente. Cuéntanos qué quieres crear, mejorar o resolver y te ayudaremos a definir el siguiente paso.
 
-Algunos de nuestros proyectos destacados:
+- **Sitio web:** [JOMB](https://jhojanomb.github.io/JOMB/)
+- **Correo:** [jombcorreos@gmail.com](mailto:jombcorreos@gmail.com)
+- **WhatsApp:** [Contáctanos](https://wa.me/573337472390)
+- **Instagram:** [@jomb_tecnologias](https://www.instagram.com/jomb_tecnologias/)
+- **GitHub:** [JhojanOMB](https://github.com/JhojanOMB)
 
-- **Tienda Online**: E-commerce con carrito dinámico y pasarela de pagos
-- **Masivos OLÉ! Logistics**: Sistema de gestión logístico con gráficos avanzados
-- **Finanworld**: Sistema de créditos de libranza para pensionados
-- **Youtube-JOMB**: Aplicativo para descargar videos de YouTube (Windows y Linux)
+## Sobre JOMB
 
----
-
-## 📍 Tecnologías que Utilizamos
-
-- **Frontend**: HTML5, CSS3, Tailwind CSS, Bootstrap, JavaScript
-- **Backend**: Django, Python, REST APIs
-- **Herramientas**: JavaScript modular, Tailwind CSS, Bootstrap Icons, Font Awesome
-- **Móvil**: Flutter, React Native, Tkinter
-- **Infraestructura**: GitHub Pages, servidores dedicados
-
----
-
-## 📞 Contáctanos
-
-**¿Tienes un proyecto en mente?**
-
-- 📧 **Formulario de contacto**: Disponible en nuestro sitio web
-- 💬 **WhatsApp**: Soporte directo y rápido
-- 🔗 **GitHub**: [jhojanomb](https://github.com/jhojanomb)
-- 🔗 **LinkedIn**: [jhojanomb](https://linkedin.com/in/jhojanomb)
-
----
-
-## 🌟 ¿Por Qué Elegir JOMB?
-
-✅ **Experiencia comprobada** en desarrollo web y consultoría tecnológica  
-✅ **Equipo profesional** comprometido con la calidad  
-✅ **Soluciones personalizadas** adaptadas a tu negocio  
-✅ **Soporte continuo** para garantizar tu éxito  
-✅ **Precios competitivos** y transparentes  
-
----
-
-## 📄 Más Información
-
-Visita nuestro sitio web: **[JOMB](https://jhojanomb.github.io/JOMB/)**
-
-La estructura de páginas, los tokens visuales claro/oscuro y las convenciones de componentes están descritos en [GUIA-DISENO.md](./GUIA-DISENO.md). La política de privacidad es un borrador informativo y requiere completar y verificar los datos legales y operativos del responsable antes de publicarse como definitiva.
-
----
-
-*© 2026 JOMB. Todos los derechos reservados.*
+Somos una empresa colombiana enfocada en crear soluciones tecnológicas útiles, con atención cercana y acompañamiento durante el proceso.
