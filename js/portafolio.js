@@ -57,6 +57,13 @@
     }
   });
 
+  document.addEventListener('error', (event) => {
+    const image = event.target;
+    if (image instanceof HTMLImageElement && image.matches('#tienda-online img[data-optional-icon]')) {
+      image.hidden = true;
+    }
+  }, true);
+
   function ensureModal() {
     let modal = document.getElementById('project-preview');
     if (modal) return modal;
