@@ -966,18 +966,12 @@ body.menu-open {
 #site-nav {
   isolation: isolate;
   color: var(--text) !important;
-  background-color: var(--neumo-bg) !important;
-  background: color-mix(in srgb, var(--neumo-bg) 78%, transparent) !important;
+  background: var(--bg-body) !important;
   background-image: none !important;
-  border-bottom: 1px solid var(--surface-border);
-  border-bottom: 1px solid color-mix(in srgb, var(--surface-border) 72%, transparent);
-  box-shadow: 0 10px 28px var(--surface-shadow-dark);
-  box-shadow:
-    0 10px 28px color-mix(in srgb, var(--surface-shadow-dark) 58%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--surface-shadow-light) 70%, transparent);
-  -webkit-backdrop-filter: blur(20px) saturate(155%);
-  backdrop-filter: blur(20px) saturate(155%);
-  transition: background-color 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+  border: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 #site-nav .text-white {
@@ -988,24 +982,21 @@ body.menu-open {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
 }
 
 #site-nav .max-w-7xl > ul {
   position: static;
   justify-self: center;
   gap: 0.2rem;
-  padding: 0.35rem;
-  border: 1px solid var(--surface-border);
-  border: 1px solid color-mix(in srgb, var(--surface-border) 75%, transparent);
+  padding: 0.2rem;
+  border: 0;
   border-radius: 999px;
-  background-color: var(--neumo-bg);
-  background: color-mix(in srgb, var(--neumo-bg) 58%, transparent);
-  box-shadow:
-    inset 1px 1px 3px color-mix(in srgb, var(--surface-shadow-dark) 52%, transparent),
-    inset -1px -1px 3px color-mix(in srgb, var(--surface-shadow-light) 62%, transparent),
-    0 5px 16px color-mix(in srgb, var(--surface-shadow-dark) 36%, transparent);
-  -webkit-backdrop-filter: blur(16px) saturate(145%);
-  backdrop-filter: blur(16px) saturate(145%);
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   transform: none;
 }
 
@@ -1015,6 +1006,45 @@ body.menu-open {
 
 #site-nav .max-w-7xl > ul > li > span {
   display: none;
+}
+
+#site-nav .max-w-7xl > ul [data-nav-link] {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+#site-nav .max-w-7xl > ul [data-nav-link]::after {
+  display: none;
+}
+
+#site-nav .max-w-7xl > ul [data-nav-link]:is(:hover, :focus-visible) {
+  border-color: var(--surface-border);
+  background: var(--neumo-bg);
+  box-shadow:
+    3px 3px 7px var(--surface-shadow-dark),
+    -3px -3px 7px var(--surface-shadow-light);
+  transform: translateY(-1px);
+}
+
+#site-nav .max-w-7xl > ul [data-nav-link].is-active {
+  border-color: var(--surface-border);
+  background: var(--neumo-bg);
+  box-shadow:
+    inset 2px 2px 5px var(--surface-shadow-dark),
+    inset -2px -2px 5px var(--surface-shadow-light);
+  color: var(--primary-morado) !important;
+  transform: none;
+}
+
+#site-nav .max-w-7xl > ul [data-nav-link]:focus-visible {
+  outline: 2px solid var(--primary-light-morado);
+  outline-offset: 2px;
 }
 
 #site-nav [data-nav-link] {
@@ -1032,11 +1062,6 @@ body.menu-open {
 #site-nav [data-nav-link]:hover,
 #site-nav [data-nav-link].is-active {
   color: var(--primary-morado) !important;
-}
-
-#site-nav .max-w-7xl > ul [data-nav-link]:hover,
-#site-nav .max-w-7xl > ul [data-nav-link].is-active {
-  transform: translateY(-1px);
 }
 
 #site-nav [data-nav-link]::after {
@@ -1099,6 +1124,27 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
   transition: transform 220ms ease, box-shadow 220ms ease, color 220ms ease;
 }
 
+#site-nav #toggle-theme {
+  box-sizing: border-box;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 50%;
+}
+
+#site-nav #toggle-theme i {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+#site-nav #toggle-theme:focus-visible,
+#site-nav #menu-btn:focus-visible,
+#site-nav #menu-close:focus-visible,
+#site-nav #toggle-theme-mobile:focus-visible {
+  outline: 2px solid var(--primary-light-morado);
+  outline-offset: 3px;
+}
+
 #site-nav #toggle-theme:hover,
 #site-nav #menu-btn:hover,
 #site-nav #menu-close:hover,
@@ -1118,11 +1164,8 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
 @media (min-width: 1024px) {
   #site-nav #toggle-theme {
     display: grid;
-    width: 2.5rem;
-    height: 2.5rem;
-    flex: 0 0 2.5rem;
+    flex: 0 0 2.75rem;
     place-items: center;
-    padding: 0;
   }
 }
 
@@ -1267,7 +1310,6 @@ html[data-bs-theme="dark"] #site-nav .max-w-7xl > ul [data-nav-link].is-active::
 }
 
 #content #portafolio {
-  border: 1px solid var(--surface-border);
   background: var(--neumo-bg);
   box-shadow:
     8px 8px 18px var(--surface-shadow-dark),

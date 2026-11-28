@@ -44,7 +44,7 @@ Los textos neutros Tailwind se normalizan a `#334155` en claro y `#e2e8f0` en os
 
 ## Componentes e interacciones
 
-- **Navegación:** navbar adaptable de vidrio líquido con fondo translúcido, desenfoque y enlaces en cápsulas con relieve/estado activo; controles hundidos al presionar y panel lateral neumórfico en móvil. Navbar y contenido tienen transiciones propias; todo movimiento respeta `prefers-reduced-motion`.
+- **Navegación:** barra flotante adaptable con superficie neumórfica suave y silueta de cápsula; enlaces centrados con estado activo, foco visible y controles con relieve. El menú lateral móvil mantiene la misma paleta y superficies. Navbar y contenido respetan `prefers-reduced-motion`.
 - **Vistas:** salida con desenfoque y desplazamiento sutil seguida por una entrada suave; las peticiones antiguas no deben reemplazar la vista más reciente. El foco es el contenido, no el movimiento decorativo del navbar.
 - **Tarjetas y servicios:** los beneficios y servicios usan contenedores hundidos; cada servicio distribuye información e imagen 4:3 en dos columnas y se apila en móvil. Las tarjetas interactivas de Inicio giran en 3D con soporte para teclado/toque y una esquina triangular elevada, alineada y superpuesta al borde, con luces y sombras ligadas al tema claro u oscuro.
 - **Botones y acciones flotantes:** los controles usan superficie elevada y se hunden al presionar; las acciones primarias conservan el degradado violeta con relieve. WhatsApp, volver arriba, filtros, avisos de cookies, enlaces sociales y controles del footer siguen la misma geometría y adaptan las sombras al tema.
@@ -64,6 +64,7 @@ Los textos neutros Tailwind se normalizan a `#334155` en claro y `#e2e8f0` en os
 4. Los enlaces internos a vistas deben apuntar a `paginas/...` o declarar `data-load`; no dupliques manejadores inline.
 5. Da nombre accesible a controles e imágenes informativas, y conserva `:focus-visible`, teclado y estados `aria-*`.
 6. No incorpores analítica, publicidad, píxeles ni almacenamiento opcional sin actualizar el control de consentimiento y esta guía legal.
+7. No uses microetiquetas, "eyebrows" o rótulos introductorios sobre los títulos. Las secciones comienzan directamente con su encabezado.
 
 ## Privacidad y publicación
 

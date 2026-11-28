@@ -217,16 +217,6 @@ html[data-bs-theme="light"] #content #contenedor-servicios .service-flip-click-i
   font-size: 1.8rem;
 }
 
-#content #contenedor-servicios .service-flip-eyebrow {
-  margin: 0 0 0.55rem;
-  color: var(--primary-morado);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-[data-bs-theme="dark"] #content #contenedor-servicios .service-flip-eyebrow,
 [data-bs-theme="dark"] #content #contenedor-servicios .service-flip-icon {
   color: #c4b5fd;
 }
